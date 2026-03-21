@@ -227,11 +227,163 @@
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
-  /* ── RESPONSIVE ── */
+  /* ── HAMBURGER BUTTON (hidden on desktop) ── */
+  #sidebar-toggle {
+    display: none;
+    align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface2); color: var(--text);
+    cursor: pointer; font-size: 1.1rem; flex-shrink: 0;
+  }
+  /* Mobile sidebar overlay */
+  #sidebar-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 199;
+  }
+  #sidebar-overlay.open { display: block; }
+
+  /* ── RESPONSIVE — TABLET ── */
+  @media (max-width: 960px) {
+    #sidebar { width: 190px; min-width: 170px; }
+    #content { padding: 20px 22px; }
+    #notes-content { padding: 20px 22px; }
+  }
+
+  /* ── RESPONSIVE — MOBILE ── */
   @media (max-width: 768px) {
-    #sidebar { display: none; }
-    #content { padding: 16px; }
-    #topbar { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
+    /* — Topbar — */
+    #topbar {
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      gap: 6px;
+      row-gap: 6px;
+    }
+    #sidebar-toggle { display: flex; order: 0; }
+    #topbar h1 { order: 1; font-size: .88rem; }
+    #progress-bar-wrap { order: 10; flex-basis: 100%; margin-top: 2px; }
+    #progress-text { font-size: .72rem; }
+    #score-badge { font-size: .75rem; padding: 3px 8px; }
+    #timer-display { font-size: .75rem; padding: 3px 8px; min-width: 44px; }
+    #view-tabs { margin-left: auto; }
+    .tab-btn { padding: 4px 10px; font-size: .75rem; }
+    /* Hide reset in topbar on mobile — it's in the sidebar and results panel */
+    #topbar > .btn-secondary { display: none; }
+
+    /* — Filter bar: horizontal scroll — */
+    #filterbar {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 9px 12px;
+      gap: 6px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    #filterbar::-webkit-scrollbar { display: none; }
+    .filter-btn { white-space: nowrap; flex-shrink: 0; padding: 4px 11px; font-size: .75rem; }
+
+    /* — Sidebar: full-height drawer — */
+    #main { display: block; }
+    #sidebar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 270px; height: 100vh;
+      z-index: 200;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 16px 12px 20px;
+      box-shadow: 4px 0 24px rgba(0,0,0,.6);
+      overflow-y: auto;
+      flex-direction: column;
+    }
+    #sidebar.open { display: flex; }
+    /* Close button inside sidebar */
+    #sidebar-close {
+      display: flex; align-items: center; justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+    #sidebar-close button {
+      background: transparent; border: none; color: var(--muted);
+      font-size: 1.3rem; cursor: pointer; padding: 4px 8px;
+    }
+
+    /* — Content — */
+    #content { padding: 12px; }
+
+    /* — Question cards — */
+    .q-card { margin-bottom: 20px; }
+    .q-header { padding: 12px 14px 10px; gap: 10px; }
+    .q-number { width: 26px; height: 26px; font-size: .78rem; }
+    .q-text { font-size: .92rem; }
+    .choices { padding: 10px 12px; gap: 8px; }
+    .choice { padding: 10px 11px; font-size: .87rem; gap: 10px; }
+    .choice-letter { min-width: 24px; height: 24px; font-size: .75rem; }
+    .q-actions { padding: 0 12px 12px; flex-wrap: wrap; }
+    .explanation { margin: 0 12px 14px; padding: 12px 14px; }
+    .explanation p { font-size: .85rem; }
+    .explanation .why-wrong-item { font-size: .83rem; }
+
+    /* — Notes sidebar: same drawer pattern — */
+    #notes-sidebar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 270px; height: 100vh;
+      z-index: 200;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 16px 12px 20px;
+      box-shadow: 4px 0 24px rgba(0,0,0,.6);
+      overflow-y: auto;
+      flex-direction: column;
+    }
+    #notes-sidebar.open { display: flex; }
+    #notes-sidebar-close {
+      display: flex; align-items: center; justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+    #notes-sidebar-close button {
+      background: transparent; border: none; color: var(--muted);
+      font-size: 1.3rem; cursor: pointer; padding: 4px 8px;
+    }
+    /* "Topics" toggle button shown inside notes on mobile */
+    #notes-mobile-toggle {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; margin: 10px 12px;
+      border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface2); color: var(--text);
+      cursor: pointer; font-size: .85rem; font-weight: 600;
+    }
+    #notes-content { padding: 4px 12px 12px; }
+    .note-group { padding: 12px 14px; }
+    .note-group ul li { font-size: .83rem; }
+    /* Tables: horizontal scroll */
+    .compare-table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .compare-table th, .compare-table td { white-space: normal; min-width: 90px; }
+
+    /* — Results panel — */
+    #results-panel { padding: 24px 16px; margin: 12px; }
+    #results-panel h2 { font-size: 1.5rem; }
+    .result-stats { gap: 14px; }
+    .stat-box .val { font-size: 1.35rem; }
+    .score-circle { width: 110px; height: 110px; }
+    .score-pct { font-size: 2rem !important; }
+  }
+
+  /* ── RESPONSIVE — SMALL MOBILE ── */
+  @media (max-width: 400px) {
+    #topbar h1 { font-size: .8rem; }
+    #score-badge { display: none; } /* show score only in progress area */
+    .filter-btn { padding: 4px 9px; font-size: .72rem; }
+    .q-text { font-size: .88rem; }
   }
 
   /* ── NOTES SECTION ── */
@@ -273,6 +425,10 @@
   #view-tabs { display: flex; gap: 8px; margin-left: auto; }
   .tab-btn { padding: 5px 16px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-size: .82rem; transition: all .15s; }
   .tab-btn.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+  /* Mobile-only elements: hidden on desktop */
+  #notes-mobile-toggle { display: none; }
+  #sidebar-close { display: none; }
+  #notes-sidebar-close { display: none; }
 
 </style>
 </head>
@@ -280,6 +436,7 @@
 
 <!-- TOP BAR -->
 <div id="topbar">
+  <button id="sidebar-toggle" aria-label="Toggle navigation" onclick="toggleMobileSidebar()">☰</button>
   <h1>AWS <span>SAA-C03</span> Exam Prep</h1>
   <div id="progress-bar-wrap"><div id="progress-bar" style="width:0%"></div></div>
   <span id="progress-text">0 / 30</span>
@@ -297,6 +454,7 @@
 <div id="notes-view">
   <div id="notes-layout">
     <div id="notes-sidebar">
+      <div id="notes-sidebar-close"><button onclick="closeMobileSidebar()" aria-label="Close">✕</button></div>
       <h3>Topics</h3>
       <button class="note-nav-btn" onclick="showNoteSection('iam')" id="note-nav-iam">🔒 IAM & Security</button>
 <button class="note-nav-btn" onclick="showNoteSection('ec2')" id="note-nav-ec2">💻 EC2 & Storage</button>
@@ -318,6 +476,7 @@
 
     </div>
     <div id="notes-content">
+      <button id="notes-mobile-toggle" onclick="toggleMobileSidebar()">☰ Topics</button>
       <div class="note-section" id="note-iam" style="display:none"><div class="note-topic">
   <h3>🔒 IAM &amp; Security</h3>
   <div class="note-group"><h4>🔑 Core IAM Concepts</h4><ul>
@@ -1509,9 +1668,12 @@
   <button class="filter-btn" data-domain="wrong">❌ Incorrect</button>
 </div>
 
+<div id="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
 <div id="main">
   <!-- SIDEBAR -->
   <div id="sidebar">
+    <div id="sidebar-close"><button onclick="closeMobileSidebar()" aria-label="Close">✕</button></div>
     <h3>Questions</h3>
     <div id="q-nav"></div>
   </div>
@@ -3063,16 +3225,47 @@ function switchView(view) {
   const quizEls = ['filterbar', 'main'];
   const notesEl = document.getElementById('notes-view');
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+  closeMobileSidebar(); // always close drawer on view switch
   if (view === 'notes') {
     quizEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
     notesEl.style.display = 'block';
-    // Auto-select first section if none selected
     if (!currentNoteSection) showNoteSection('iam');
   } else {
     quizEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
     notesEl.style.display = 'none';
   }
 }
+
+// ── MOBILE SIDEBAR DRAWER ────────────────────────────────
+function toggleMobileSidebar() {
+  const isNotes = document.getElementById('notes-view').style.display === 'block';
+  const sidebar = document.getElementById(isNotes ? 'notes-sidebar' : 'sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const isOpen  = sidebar.classList.contains('open');
+  if (isOpen) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+  }
+}
+
+function closeMobileSidebar() {
+  ['sidebar', 'notes-sidebar'].forEach(id => {
+    document.getElementById(id)?.classList.remove('open');
+  });
+  document.getElementById('sidebar-overlay')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close drawer when a nav button is clicked on mobile
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.q-nav-btn, .note-nav-btn');
+  if (btn && window.innerWidth <= 768) closeMobileSidebar();
+});
 
 </script>
 </body>
