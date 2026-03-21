@@ -456,1206 +456,1252 @@
     <div id="notes-sidebar">
       <div id="notes-sidebar-close"><button onclick="closeMobileSidebar()" aria-label="Close">✕</button></div>
       <h3>Topics</h3>
-      <button class="note-nav-btn" onclick="showNoteSection('iam')" id="note-nav-iam">🔒 IAM & Security</button>
-<button class="note-nav-btn" onclick="showNoteSection('ec2')" id="note-nav-ec2">💻 EC2 & Storage</button>
-<button class="note-nav-btn" onclick="showNoteSection('elb_asg')" id="note-nav-elb_asg">⚖️ ELB & ASG</button>
-<button class="note-nav-btn" onclick="showNoteSection('rds')" id="note-nav-rds">🗄️ RDS & Aurora</button>
+      <button class="note-nav-btn" onclick="showNoteSection('global')" id="note-nav-global">🌐 AWS Global Infra</button>
+<button class="note-nav-btn" onclick="showNoteSection('iam')" id="note-nav-iam">🔒 IAM &amp; Security</button>
+<button class="note-nav-btn" onclick="showNoteSection('ec2')" id="note-nav-ec2">💻 EC2 Compute</button>
+<button class="note-nav-btn" onclick="showNoteSection('storage')" id="note-nav-storage">💾 EC2 Storage</button>
+<button class="note-nav-btn" onclick="showNoteSection('elb_asg')" id="note-nav-elb_asg">⚖️ ELB &amp; ASG</button>
+<button class="note-nav-btn" onclick="showNoteSection('rds')" id="note-nav-rds">🗄️ RDS / Aurora / Cache</button>
 <button class="note-nav-btn" onclick="showNoteSection('route53')" id="note-nav-route53">🌐 Route 53</button>
 <button class="note-nav-btn" onclick="showNoteSection('s3')" id="note-nav-s3">🪣 S3 Storage</button>
-<button class="note-nav-btn" onclick="showNoteSection('cloudfront')" id="note-nav-cloudfront">🌍 CloudFront & GA</button>
-<button class="note-nav-btn" onclick="showNoteSection('msg')" id="note-nav-msg">📨 SQS/SNS/Kinesis</button>
-<button class="note-nav-btn" onclick="showNoteSection('containers')" id="note-nav-containers">🐳 ECS & EKS</button>
-<button class="note-nav-btn" onclick="showNoteSection('serverless')" id="note-nav-serverless">⚡ Lambda</button>
+<button class="note-nav-btn" onclick="showNoteSection('cloudfront')" id="note-nav-cloudfront">🌍 CloudFront &amp; GA</button>
+<button class="note-nav-btn" onclick="showNoteSection('hybrid')" id="note-nav-hybrid">📦 Snow / FSx / Gateway</button>
+<button class="note-nav-btn" onclick="showNoteSection('msg')" id="note-nav-msg">📨 SQS / SNS / Kinesis</button>
+<button class="note-nav-btn" onclick="showNoteSection('containers')" id="note-nav-containers">🐳 ECS &amp; EKS</button>
+<button class="note-nav-btn" onclick="showNoteSection('serverless')" id="note-nav-serverless">⚡ Lambda &amp; Serverless</button>
 <button class="note-nav-btn" onclick="showNoteSection('dynamo')" id="note-nav-dynamo">📦 DynamoDB</button>
-<button class="note-nav-btn" onclick="showNoteSection('monitoring')" id="note-nav-monitoring">📊 CloudWatch</button>
-<button class="note-nav-btn" onclick="showNoteSection('vpc')" id="note-nav-vpc">🔗 VPC & Networking</button>
-<button class="note-nav-btn" onclick="showNoteSection('dr')" id="note-nav-dr">🛡️ DR & Migration</button>
-<button class="note-nav-btn" onclick="showNoteSection('storage_ext')" id="note-nav-storage_ext">💾 Storage Extras</button>
-<button class="note-nav-btn" onclick="showNoteSection('other_svc')" id="note-nav-other_svc">🧩 Other Services</button>
-<button class="note-nav-btn" onclick="showNoteSection('more_sa')" id="note-nav-more_sa">🏗️ Architecture</button>
-
+<button class="note-nav-btn" onclick="showNoteSection('apigw')" id="note-nav-apigw">🔌 API GW / Cognito</button>
+<button class="note-nav-btn" onclick="showNoteSection('monitoring')" id="note-nav-monitoring">📊 Monitoring</button>
+<button class="note-nav-btn" onclick="showNoteSection('vpc')" id="note-nav-vpc">🔗 VPC &amp; Networking</button>
+<button class="note-nav-btn" onclick="showNoteSection('security')" id="note-nav-security">🔐 Security Services</button>
+<button class="note-nav-btn" onclick="showNoteSection('analytics')" id="note-nav-analytics">📈 Analytics</button>
+<button class="note-nav-btn" onclick="showNoteSection('dr')" id="note-nav-dr">🛡️ DR &amp; Migration</button>
+<button class="note-nav-btn" onclick="showNoteSection('waf_arch')" id="note-nav-waf_arch">🏗️ Well-Architected</button>
     </div>
     <div id="notes-content">
       <button id="notes-mobile-toggle" onclick="toggleMobileSidebar()">☰ Topics</button>
-      <div class="note-section" id="note-iam" style="display:none"><div class="note-topic">
+
+<!-- ═══════════════ GLOBAL INFRA ═══════════════ -->
+<div class="note-section" id="note-global" style="display:none"><div class="note-topic">
+  <h3>🌐 AWS Global Infrastructure</h3>
+  <div class="note-group"><h4>Regions, AZs &amp; Edge Locations</h4><ul>
+    <li><strong>Region</strong>: physical location with 3+ isolated AZs — e.g. us-east-1</li>
+    <li><strong>AZ</strong>: one or more discrete data centers with redundant power/networking. Connected via low-latency private links</li>
+    <li><strong>Edge Locations / PoPs</strong>: <span class="highlight">400+</span> worldwide — used by CloudFront, Route 53, Global Accelerator</li>
+    <li><strong>Local Zones</strong>: AWS infra closer to large population centres (single-digit ms latency)</li>
+    <li><strong>Wavelength Zones</strong>: embed AWS compute inside telecom 5G networks</li>
+    <li><strong>Outposts</strong>: AWS rack delivered to your data centre — fully managed by AWS</li>
+  </ul></div>
+  <div class="note-group"><h4>Global Services (not region-specific)</h4><ul>
+    <li>IAM, CloudFront, Route 53, WAF, Shield, Organizations, Billing</li>
+    <li>Everything else is region-scoped</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Edge Locations ≠ AZs. ELs are for caching/routing; AZs are for HA compute</li>
+    <li>S3 bucket names global but data stored in the region you create it</li>
+    <li>When choosing region: compliance → latency → service availability → pricing</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ IAM ═══════════════ -->
+<div class="note-section" id="note-iam" style="display:none"><div class="note-topic">
   <h3>🔒 IAM &amp; Security</h3>
-  <div class="note-group"><h4>🔑 Core IAM Concepts</h4><ul>
-    <li><strong>Users</strong> = individuals, <strong>Groups</strong> = collection of users (no nesting), <strong>Roles</strong> = temp credentials for services/cross-account, <strong>Policies</strong> = JSON permission docs</li>
-    <li><strong>Root account</strong>: never use daily. Enable MFA immediately. Only for account-level tasks</li>
-    <li><strong>Identity-based policies</strong>: attached to user/group/role — <strong>Resource-based policies</strong>: attached to resource (e.g. S3 bucket policy)</li>
-    <li><strong>Instance Profile</strong> = wrapper around IAM Role for EC2 to assume it. Never store credentials on EC2</li>
-    <li><strong>Permission Boundary</strong>: sets maximum permissions an entity can have. Does NOT grant permissions</li>
-    <li><strong>Trust Policy</strong>: defines who (principal) can assume a role</li>
+  <div class="note-group"><h4>Core IAM Objects</h4><ul>
+    <li><strong>Users</strong>: individuals. Max <span class="highlight">5,000/account</span>. Have long-term credentials (password + access keys)</li>
+    <li><strong>Groups</strong>: collection of users. No nesting. Cannot be principal in resource policy</li>
+    <li><strong>Roles</strong>: temp credentials via STS. No password/access keys stored. Used by EC2, Lambda, cross-account</li>
+    <li><strong>Policies</strong>: JSON permission docs. Explicit DENY always wins. Default = implicit DENY</li>
+    <li><strong>Instance Profile</strong>: wrapper around IAM Role so EC2 can assume it. Never hardcode credentials on EC2</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 STS &amp; Cross-Account</h4><ul>
-    <li><strong>STS AssumeRole</strong>: returns temp credentials. Duration: <span class="highlight">1 hr default, up to 12 hrs</span></li>
-    <li>Cross-account: Account B creates role with trust policy for Account A → Account A user calls AssumeRole</li>
-    <li>Resource-based policy (S3 bucket policy) doesn't require giving up your own permissions unlike AssumeRole</li>
+  <div class="note-group"><h4>Policy Types</h4><ul>
+    <li><strong>Identity-based</strong>: attached to user/group/role</li>
+    <li><strong>Resource-based</strong>: attached to resource (S3 bucket policy, SQS, SNS). Requires <em>Principal</em> field</li>
+    <li><strong>Permission Boundary</strong>: sets MAXIMUM permissions — does NOT grant anything by itself</li>
+    <li><strong>SCP (Organizations)</strong>: max permissions for entire account/OU. Management account is NOT affected by SCPs</li>
+    <li><strong>Session Policies</strong>: passed when assuming a role via CLI/API to further restrict</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 IAM Conditions</h4><ul>
-    <li><code>aws:SourceIp</code>, <code>aws:RequestedRegion</code>, <code>aws:MultiFactorAuthPresent</code>, <code>aws:PrincipalOrgID</code></li>
-    <li><strong>IAM Access Analyzer</strong>: identifies resources shared with external entities (outside org)</li>
+  <div class="note-group"><h4>Policy Evaluation Order</h4>
+    <pre style="font-size:.78rem;color:var(--text);line-height:1.5;overflow-x:auto">
+  1. Explicit DENY  → DENY (always wins, anywhere in chain)
+  2. SCP            → must ALLOW (otherwise DENY)
+  3. Resource policy → check (cross-account: both must allow)
+  4. Permission Boundary → must ALLOW
+  5. Identity policy → must ALLOW
+  ✓ → ACCESS GRANTED</pre>
+  </div>
+  <div class="note-group"><h4>STS &amp; Temporary Credentials</h4><ul>
+    <li><strong>AssumeRole</strong>: default <span class="highlight">1 hr</span>, max <span class="highlight">12 hrs</span>. Returns: AccessKeyId + SecretAccessKey + SessionToken</li>
+    <li><strong>AssumeRoleWithWebIdentity</strong>: OIDC federation (Google, Facebook, Cognito)</li>
+    <li><strong>AssumeRoleWithSAML</strong>: enterprise SSO via SAML 2.0</li>
+    <li><strong>GetSessionToken</strong>: MFA-protected operations for existing user</li>
+    <li>Cross-account: Target creates role with trust policy for source account → source calls AssumeRole</li>
+    <li>Resource-based policy (S3) does NOT require giving up own permissions, unlike AssumeRole</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 Cognito &amp; Federation</h4><ul>
-    <li><span class="highlight">Cognito User Pools</span> = authentication (sign-up/sign-in, JWT) — "who are you?"</li>
-    <li><span class="highlight">Cognito Identity Pools</span> = authorization (temp AWS credentials via STS) — "what can you access?"</li>
-    <li><strong>SAML 2.0</strong>: enterprise SSO (ADFS) | <strong>IAM Identity Center (SSO)</strong>: multi-account SSO</li>
+  <div class="note-group"><h4>Common IAM Conditions</h4><ul>
+    <li><code>aws:SourceIp</code> — restrict by client IP</li>
+    <li><code>aws:RequestedRegion</code> — restrict which region can be called</li>
+    <li><code>aws:MultiFactorAuthPresent</code> — require MFA</li>
+    <li><code>aws:PrincipalOrgID</code> — restrict to AWS Organization members</li>
+    <li><code>aws:ResourceTag</code> / <code>aws:PrincipalTag</code> — tag-based ABAC</li>
+    <li><code>ec2:ResourceTag</code> — restrict EC2 actions to tagged resources</li>
   </ul></div>
-  <div class="note-group"><h4>🔄 KMS vs CloudHSM</h4><table class="compare-table"><tr><th>Feature</th><th>KMS</th><th>CloudHSM</th></tr>
-    <tr><td>Compliance</td><td>FIPS 140-2 Level 2</td><td><strong>FIPS 140-2 Level 3</strong></td></tr>
-    <tr><td>Multi-tenancy</td><td>Shared</td><td><strong>Dedicated hardware</strong></td></tr>
-    <tr><td>Management</td><td>AWS manages infra + keys</td><td>You manage keys</td></tr>
-    <tr><td>HA</td><td>Built-in</td><td>You deploy cluster (min 2 AZs)</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔄 SSM Parameter Store vs Secrets Manager</h4><table class="compare-table"><tr><th>Feature</th><th>SSM Parameter Store</th><th>Secrets Manager</th></tr>
-    <tr><td>Cost</td><td>Free (Standard tier)</td><td>$0.40/secret/month</td></tr>
-    <tr><td>Size</td><td>Standard: 4KB / Advanced: 8KB</td><td>Up to 64KB</td></tr>
-    <tr><td>Auto rotation</td><td>No native (needs Lambda)</td><td><strong>Built-in</strong></td></tr>
-    <tr><td>RDS integration</td><td>Manual</td><td><strong>Deep native</strong></td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 Security Services</h4><ul>
-    <li><strong>WAF</strong>: Layer 7 on ALB/CloudFront/API GW. Rules: IP sets, geo match, rate limiting, SQL/XSS protection</li>
-    <li><strong>Shield Standard</strong>: free, auto DDoS protection | <strong>Shield Advanced</strong>: $3,000/month, DDoS Response Team</li>
-    <li><strong>GuardDuty</strong>: ML threat detection from VPC Flow Logs, CloudTrail, DNS. No agents needed</li>
-    <li><strong>Macie</strong>: finds PII in S3 | <strong>Inspector</strong>: CVE scanning (EC2/ECR/Lambda) | <strong>Detective</strong>: root cause analysis</li>
-    <li><strong>Organizations SCPs</strong>: restrict permissions only, never grant. Management account NOT affected by SCPs</li>
+  <div class="note-group"><h4>IAM Access Analyzer</h4><ul>
+    <li>Identifies resources shared with <strong>external entities</strong> (outside org/account)</li>
+    <li>Analyzes: S3, IAM roles, KMS keys, Lambda, SQS, Secrets Manager</li>
+    <li>Policy Validation: check policies before applying</li>
+    <li>Policy Generation: watch CloudTrail activity → generate least-privilege policy</li>
   </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"FIPS 140-2 Level 3" → always <span class="highlight">CloudHSM</span></li>
-    <li>"Auto-rotate DB credentials" → <span class="highlight">Secrets Manager</span></li>
-    <li>"Encrypt large data with KMS" → <span class="highlight">Envelope encryption</span> (GenerateDataKey, NOT Encrypt API — 4KB limit)</li>
-    <li>"Restrict all accounts from a region" → <span class="highlight">SCP + aws:RequestedRegion deny</span></li>
-    <li>Management account is NEVER affected by SCPs</li>
-    <li>"SSL cert for CloudFront" → must be in <span class="highlight">us-east-1</span></li>
-    <li>"Temp AWS creds for mobile users" → <span class="highlight">Cognito Identity Pools</span></li>
-    <li>GuardDuty=detection | Inspector=vulnerability scanning | Detective=investigation</li>
+  <div class="note-group"><h4>AWS Organizations &amp; SCPs</h4><ul>
+    <li>Management account + Member accounts grouped into <strong>OUs</strong></li>
+    <li>Consolidated billing: shared Reserved Instances &amp; Savings Plans discounts</li>
+    <li><strong>SCPs</strong>: DENY-only at OU/account level. Management account always exempt</li>
+    <li>SCPs don't grant permissions — they only restrict what IAM can grant</li>
+    <li>Use <code>aws:PrincipalOrgID</code> condition in resource policies to allow all org members</li>
+  </ul></div>
+  <div class="note-group"><h4>IAM Identity Center (SSO)</h4><ul>
+    <li>Single sign-on across multiple AWS accounts &amp; SaaS apps</li>
+    <li>Permission Sets = collection of policies assigned to users/groups per account</li>
+    <li>Supports: AWS Identity Center directory, Active Directory, external IdP (Okta, Azure AD)</li>
+    <li>Requires AWS Organizations</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Root user: never use daily, never create access keys, enable MFA immediately</li>
+    <li>Groups CANNOT be principals in resource-based policies</li>
+    <li>Permission Boundary + Identity policy: effective = intersection (both must allow)</li>
+    <li>Cross-account: BOTH identity policy in source AND resource policy (or role) in target must allow</li>
+    <li>SCP on management account = no effect</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ EC2 ═══════════════ -->
 <div class="note-section" id="note-ec2" style="display:none"><div class="note-topic">
-  <h3>💻 EC2 Compute &amp; Storage</h3>
-  <div class="note-group"><h4>🔑 Instance Types</h4><ul>
-    <li><strong>General (T, M)</strong>: balanced. T-types = burstable with CPU credits</li>
-    <li><strong>Compute (C)</strong>: batch, ML inference, gaming, HPC | <strong>Memory (R, X, Z)</strong>: in-memory DBs</li>
-    <li><strong>Storage (I, D, H)</strong>: data warehousing | <strong>Accelerated (P, G, Inf)</strong>: GPU/FPGA, ML training</li>
+  <h3>💻 EC2 Compute</h3>
+  <div class="note-group"><h4>Instance Families</h4>
+    <table class="compare-table"><thead><tr><th>Family</th><th>Purpose</th><th>Examples</th></tr></thead><tbody>
+    <tr><td>t (burstable)</td><td>Low baseline + burst via CPU credits</td><td>t3.micro, t4g.small</td></tr>
+    <tr><td>m (general)</td><td>Balanced CPU/RAM</td><td>m5.large, m6i.xlarge</td></tr>
+    <tr><td>c (compute)</td><td>High CPU — batch, media, ML training</td><td>c6i.2xlarge</td></tr>
+    <tr><td>r (memory)</td><td>High RAM — in-memory DB, analytics</td><td>r6i.large</td></tr>
+    <tr><td>i (storage)</td><td>NVMe SSD — NoSQL, DW</td><td>i3.large, i4i</td></tr>
+    <tr><td>g/p (GPU)</td><td>ML inference/training, graphics</td><td>g4dn, p3</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Purchasing Options</h4>
+    <table class="compare-table"><thead><tr><th>Option</th><th>Discount</th><th>Use Case</th><th>Key Point</th></tr></thead><tbody>
+    <tr><td>On-Demand</td><td>0%</td><td>Unpredictable, dev/test</td><td>Pay per second (1-min min)</td></tr>
+    <tr><td>Reserved 1yr</td><td>~40%</td><td>Steady-state workloads</td><td>All/Partial/No Upfront</td></tr>
+    <tr><td>Reserved 3yr</td><td>~60%</td><td>Long-term predictable</td><td>Highest discount</td></tr>
+    <tr><td>Savings Plans</td><td>up to 66%</td><td>Flexible compute commitment</td><td>$/hr commitment, more flexible than RI</td></tr>
+    <tr><td>Spot</td><td>up to 90%</td><td>Fault-tolerant, batch</td><td>2-min termination notice</td></tr>
+    <tr><td>Dedicated Host</td><td>–</td><td>Licensing (BYOL), compliance</td><td>Per-host billing, most expensive</td></tr>
+    <tr><td>Dedicated Instance</td><td>–</td><td>Dedicated hardware, less control</td><td>Per-instance billing</td></tr>
+    <tr><td>Capacity Reservation</td><td>0%</td><td>Guaranteed capacity in AZ</td><td>Pay whether used or not</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Placement Groups</h4>
+    <table class="compare-table"><thead><tr><th>Type</th><th>Layout</th><th>Max</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td><strong>Cluster</strong></td><td>Same rack, same AZ</td><td>No limit</td><td>HPC, low-latency (10Gbps)</td></tr>
+    <tr><td><strong>Spread</strong></td><td>Distinct hardware per instance</td><td><span class="highlight">7/AZ</span></td><td>Critical instances, HA</td></tr>
+    <tr><td><strong>Partition</strong></td><td>Groups of instances per rack-set</td><td><span class="highlight">7 partitions/AZ</span></td><td>Hadoop, Cassandra, Kafka</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Security Groups</h4><ul>
+    <li>Stateful firewall at ENI level. Only ALLOW rules (no explicit deny)</li>
+    <li>Default: all inbound denied, all outbound allowed</li>
+    <li>Can reference another SG by ID (not name) — allows traffic from instances in that SG</li>
+    <li>Max <span class="highlight">5 SGs per ENI</span>, <span class="highlight">60 rules per direction</span></li>
   </ul></div>
-  <div class="note-group"><h4>📊 Purchasing Options</h4><table class="compare-table"><tr><th>Option</th><th>Discount</th><th>Key Detail</th></tr>
-    <tr><td>On-Demand</td><td>0%</td><td>Pay per second (Linux), no commitment</td></tr>
-    <tr><td>Reserved</td><td>Up to 72%</td><td>1yr or 3yr. Convertible RI = can change type</td></tr>
-    <tr><td>Savings Plans</td><td>Up to 72%</td><td>Compute SP = any family/region/OS. EC2 SP = locked</td></tr>
-    <tr><td>Spot</td><td>Up to 90%</td><td>Interrupted with 2-min warning. Fault-tolerant only</td></tr>
-    <tr><td>Dedicated Host</td><td>Varies</td><td>Per-host billing. BYOL, compliance</td></tr>
-    <tr><td>Capacity Reservation</td><td>0%</td><td>Reserve in AZ, pay even if unused</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 EBS Volume Types</h4><table class="compare-table"><tr><th>Type</th><th>IOPS</th><th>Boot?</th><th>Use Case</th></tr>
-    <tr><td><strong>gp2</strong></td><td>3 IOPS/GB, burst 3,000 (max 16,000)</td><td>Yes</td><td>General</td></tr>
-    <tr><td><strong>gp3</strong></td><td>Baseline 3,000 independent of size (up to 16,000)</td><td>Yes</td><td>Cost-effective</td></tr>
-    <tr><td><strong>io1/io2</strong></td><td>Up to 64,000 IOPS</td><td>Yes</td><td>Critical DBs</td></tr>
-    <tr><td><strong>io2 Block Express</strong></td><td>Up to 256,000 IOPS</td><td>Yes</td><td>Extreme</td></tr>
-    <tr><td><strong>st1</strong></td><td>Throughput 500 MB/s</td><td><strong>No</strong></td><td>Big data, logs</td></tr>
-    <tr><td><strong>sc1</strong></td><td>250 MB/s, cheapest</td><td><strong>No</strong></td><td>Cold access</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 Placement Groups &amp; Hibernate</h4><ul>
-    <li><strong>Cluster</strong>: same rack, lowest latency/highest throughput. Risk: single rack failure</li>
-    <li><strong>Spread</strong>: different hardware per instance. <span class="highlight">Max 7 instances per AZ</span></li>
-    <li><strong>Partition</strong>: up to 7 partitions per AZ, hundreds of instances. For Hadoop/Kafka/Cassandra</li>
-    <li><strong>Hibernate</strong>: RAM saved to encrypted EBS root. Max <span class="highlight">60 days</span>. Enabled at launch. RAM &lt;150GB</li>
-    <li><strong>io1/io2 Multi-Attach</strong>: up to 16 Nitro instances in the <strong>same AZ</strong></li>
-    <li><strong>Instance Store</strong>: physically attached, best I/O, data lost on stop/terminate/hardware failure</li>
+  <div class="note-group"><h4>EC2 Hibernate</h4><ul>
+    <li>Saves RAM state to encrypted root EBS → stops instance. Resumes faster than cold reboot</li>
+    <li>Requires: EBS-backed + encrypted root volume + instance type support</li>
+    <li>Use case: long initialization processes (e.g. pre-warm ML model)</li>
+    <li>Processes are still "running" from OS perspective on resume</li>
   </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Highest disk I/O" → <span class="highlight">Instance Store</span> (ephemeral!)</li>
-    <li>"100GB gp2 poor IOPS" → only 300 IOPS. Switch to <span class="highlight">gp3</span> (baseline 3,000)</li>
-    <li>st1 and sc1 CANNOT be boot volumes</li>
-    <li>"Move EBS to another AZ" → snapshot → create volume in new AZ</li>
-    <li>"Licensing tied to physical cores" → <span class="highlight">Dedicated Host</span></li>
-    <li>"Fault-tolerant batch processing cheaply" → <span class="highlight">Spot</span></li>
-    <li>If AWS interrupts Spot: no charge for partial hour. If YOU terminate: charged</li>
-    <li>"Shared file system for Linux" → EFS | "For Windows" → FSx for Windows</li>
+  <div class="note-group"><h4>ENI (Elastic Network Interface)</h4><ul>
+    <li>Virtual NIC attached to instance. Has private IP, optional public/Elastic IP, MAC address, SGs</li>
+    <li>Can attach multiple ENIs → dual-homed instance (in different subnets)</li>
+    <li>ENI is AZ-scoped; can be moved between instances in same AZ for failover</li>
+    <li>Elastic IP: static public IP — costs $0.005/hr when NOT associated with running instance</li>
+  </ul></div>
+  <div class="note-group"><h4>User Data &amp; Metadata</h4><ul>
+    <li><strong>User Data</strong>: bootstrap script run ONCE at first launch (root privileges). Max <span class="highlight">16 KB</span></li>
+    <li><strong>Metadata</strong>: <code>http://169.254.169.254/latest/meta-data/</code> — get instance ID, IAM role credentials, etc.</li>
+    <li>IMDSv2 (preferred): requires session token, protects against SSRF</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Spot: can be terminated with only 2-min notice — NOT for critical/long-running services</li>
+    <li>Capacity Reservations guarantee capacity but you pay whether you use it or not</li>
+    <li>Cluster PG: single-AZ only — entire cluster fails if AZ fails</li>
+    <li>Spread PG: max 7 per AZ — use Partition if you need more</li>
+    <li>Dedicated Host ≠ Dedicated Instance. Host = physical server visibility; Instance = isolated hardware</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ EC2 STORAGE ═══════════════ -->
+<div class="note-section" id="note-storage" style="display:none"><div class="note-topic">
+  <h3>💾 EC2 Storage (EBS / EFS / Instance Store)</h3>
+  <div class="note-group"><h4>EBS Volume Types</h4>
+    <table class="compare-table"><thead><tr><th>Type</th><th>Max IOPS</th><th>Max Throughput</th><th>Max Size</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td><strong>gp3</strong> (General)</td><td>16,000</td><td>1,000 MB/s</td><td>16 TB</td><td>Default — independent IOPS/throughput</td></tr>
+    <tr><td><strong>gp2</strong> (General)</td><td>16,000</td><td>250 MB/s</td><td>16 TB</td><td>Older — IOPS tied to size (3/GB)</td></tr>
+    <tr><td><strong>io2 Block Express</strong></td><td>256,000</td><td>4,000 MB/s</td><td>64 TB</td><td>Critical DB, highest perf</td></tr>
+    <tr><td><strong>io1</strong></td><td>64,000 (Nitro)</td><td>1,000 MB/s</td><td>16 TB</td><td>I/O intensive DB</td></tr>
+    <tr><td><strong>st1</strong> (Throughput HDD)</td><td>500</td><td>500 MB/s</td><td>16 TB</td><td>Big data, log processing</td></tr>
+    <tr><td><strong>sc1</strong> (Cold HDD)</td><td>250</td><td>250 MB/s</td><td>16 TB</td><td>Infrequent access, lowest cost</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>EBS Key Facts</h4><ul>
+    <li>Bound to a <strong>single AZ</strong>. Move between AZs via snapshot → create volume in new AZ</li>
+    <li>Can resize volume without stopping instance (for gp2/gp3/io1/io2)</li>
+    <li>Encryption: AES-256 at rest &amp; in transit. Cannot disable after creation</li>
+    <li>To encrypt unencrypted volume: snapshot → copy snapshot with encryption enabled → restore</li>
+    <li><strong>Multi-Attach</strong>: io1/io2 only, max <span class="highlight">16 instances</span> in same AZ — requires cluster-aware FS</li>
+    <li>Default: Root EBS volume deleted on termination; extra volumes persist</li>
+  </ul></div>
+  <div class="note-group"><h4>EBS Snapshots</h4><ul>
+    <li>Point-in-time backup stored in S3 (not visible in S3 console). Incremental — only changed blocks</li>
+    <li>Can copy across regions for DR. Can share with other accounts</li>
+    <li><strong>Fast Snapshot Restore (FSR)</strong>: eliminates latency on first use — costs extra</li>
+    <li><strong>Recycle Bin</strong>: protects against accidental deletion (1 day – 1 year retention)</li>
+    <li><strong>EBS Snapshot Archive</strong>: 75% cheaper, but 24–72 hr restore time</li>
+  </ul></div>
+  <div class="note-group"><h4>EFS (Elastic File System)</h4><ul>
+    <li>Managed NFS (NFSv4) — mounts on <strong>multiple EC2 instances across AZs</strong> simultaneously</li>
+    <li><strong>Linux only</strong>. Pay per GB used. Scales to petabytes automatically</li>
+    <li>Performance modes: <strong>General Purpose</strong> (default, low latency) vs <strong>Max I/O</strong> (highly parallel)</li>
+    <li>Throughput modes: <strong>Bursting</strong> (scales with size) vs <strong>Provisioned</strong> (specify MB/s)</li>
+    <li>Storage tiers: <strong>Standard</strong> vs <strong>Infrequent Access</strong> (EFS-IA, up to 92% cheaper)</li>
+    <li><strong>EFS One Zone</strong>: single AZ, 47% cheaper than Standard — good for dev/test</li>
+  </ul></div>
+  <div class="note-group"><h4>Instance Store</h4><ul>
+    <li>Physically attached NVMe SSD — highest IOPS possible (millions), zero latency</li>
+    <li><strong>Ephemeral</strong>: data LOST on stop/terminate/hardware failure</li>
+    <li>Cannot be detached or resized. Included in instance price</li>
+    <li>Use for: buffer/cache/scratch space/temp data only</li>
+  </ul></div>
+  <div class="note-group"><h4>EBS vs EFS vs Instance Store</h4>
+    <table class="compare-table"><thead><tr><th></th><th>EBS</th><th>EFS</th><th>Instance Store</th></tr></thead><tbody>
+    <tr><td>Type</td><td>Block</td><td>File (NFS)</td><td>Block</td></tr>
+    <tr><td>Persistence</td><td>✅ Persistent</td><td>✅ Persistent</td><td>❌ Ephemeral</td></tr>
+    <tr><td>Multi-instance</td><td>❌ (io1/io2 multi-attach only)</td><td>✅ Many at once</td><td>❌ Single instance</td></tr>
+    <tr><td>AZ scope</td><td>Single AZ</td><td>Multi-AZ (Region)</td><td>Single instance</td></tr>
+    <tr><td>OS</td><td>Linux + Windows</td><td>Linux only</td><td>Linux + Windows</td></tr>
+    <tr><td>Performance</td><td>High</td><td>Medium</td><td>Highest</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>FSx Variants</h4>
+    <table class="compare-table"><thead><tr><th>FSx For</th><th>Protocol</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td>Windows File Server</td><td>SMB, NTFS</td><td>Windows workloads, AD integration, DFS</td></tr>
+    <tr><td>Lustre</td><td>Lustre</td><td>HPC, ML, video processing — S3 integration, sub-ms latency</td></tr>
+    <tr><td>NetApp ONTAP</td><td>NFS, SMB, iSCSI</td><td>Migrate ONTAP/NAS to AWS, multi-OS</td></tr>
+    <tr><td>OpenZFS</td><td>NFS</td><td>Migrate ZFS, up to 1M IOPS, &lt;0.5ms</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>gp2 IOPS = 3× GB (small volume = low IOPS). gp3 always 3,000 IOPS regardless of size</li>
+    <li>st1/sc1 (HDD) cannot be boot volumes</li>
+    <li>EFS is NOT for Windows (NFS only). Use FSx for Windows instead</li>
+    <li>Instance Store data lost on stop — but NOT on reboot</li>
+    <li>Snapshot import to Glacier: must go S3 first → lifecycle policy to Glacier</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ ELB & ASG ═══════════════ -->
 <div class="note-section" id="note-elb_asg" style="display:none"><div class="note-topic">
-  <h3>⚖️ ELB, ASG &amp; High Availability</h3>
-  <div class="note-group"><h4>🔑 Load Balancer Types</h4><table class="compare-table"><tr><th>Feature</th><th>ALB</th><th>NLB</th><th>GWLB</th></tr>
-    <tr><td>Layer</td><td><strong>L7</strong> (HTTP/HTTPS)</td><td><strong>L4</strong> (TCP/UDP/TLS)</td><td><strong>L3</strong> (IP)</td></tr>
-    <tr><td>Targets</td><td>EC2, IP, Lambda</td><td>EC2, IP, ALB</td><td>Virtual appliances</td></tr>
-    <tr><td>Static IP</td><td>No (use Global Accelerator)</td><td><strong>Yes</strong> (1 per AZ, EIP)</td><td>GENEVE port 6081</td></tr>
-    <tr><td>Client IP</td><td>X-Forwarded-For header</td><td>Preserved natively</td><td>N/A</td></tr>
-  </table></div>
-  <div class="note-group"><h4>📊 Cross-Zone Load Balancing</h4><table class="compare-table"><tr><th>LB Type</th><th>Default</th><th>Inter-AZ Charges</th></tr>
-    <tr><td>ALB</td><td><strong>Always ON</strong></td><td>No charge</td></tr>
-    <tr><td>NLB</td><td>OFF by default</td><td><strong>Charges apply</strong></td></tr>
-    <tr><td>GWLB</td><td>OFF by default</td><td><strong>Charges apply</strong></td></tr>
-    <tr><td>CLB</td><td>OFF by default</td><td>No charge</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 ASG Scaling Policies</h4><table class="compare-table"><tr><th>Policy</th><th>How It Works</th><th>Best For</th></tr>
-    <tr><td>Manual</td><td>Set desired capacity</td><td>Known changes</td></tr>
-    <tr><td>Scheduled</td><td>Scale at specific times</td><td>Business hours</td></tr>
-    <tr><td>Target Tracking</td><td>Maintain metric at target</td><td>"Keep CPU at 50%" — simplest</td></tr>
-    <tr><td>Step/Simple</td><td>React to CloudWatch alarm</td><td>Step = more capacity for larger breaches</td></tr>
-    <tr><td>Predictive</td><td>ML on historical patterns</td><td>Cyclical workloads</td></tr>
-  </table><ul>
-    <li>Cooldown: default <span class="highlight">300 sec</span>. Not applicable to target tracking or step scaling</li>
-    <li>Lifecycle hooks: pending:wait (before traffic) | terminating:wait (drain/cleanup)</li>
-    <li>Default termination: oldest launch config → closest to billing hour</li>
-    <li>Launch Template (recommended) vs Launch Configuration (legacy/immutable)</li>
+  <h3>⚖️ ELB &amp; Auto Scaling</h3>
+  <div class="note-group"><h4>Load Balancer Types</h4>
+    <table class="compare-table"><thead><tr><th>LB Type</th><th>Layer</th><th>Protocols</th><th>Key Feature</th></tr></thead><tbody>
+    <tr><td><strong>ALB</strong></td><td>L7</td><td>HTTP, HTTPS, WebSocket</td><td>URL/header/host routing; Lambda target; gRPC</td></tr>
+    <tr><td><strong>NLB</strong></td><td>L4</td><td>TCP, UDP, TLS</td><td>Millions req/sec, static IPs, Elastic IP per AZ</td></tr>
+    <tr><td><strong>GWLB</strong></td><td>L3</td><td>GENEVE (port 6081)</td><td>3rd-party virtual appliances (firewalls, IDS/IPS)</td></tr>
+    <tr><td><strong>CLB</strong></td><td>L4/L7</td><td>HTTP/HTTPS/TCP</td><td>Legacy — avoid in new designs</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>ALB Details</h4><ul>
+    <li>Target Groups: EC2 instances, ECS tasks, Lambda functions, IP addresses</li>
+    <li>Rules: path-based (<code>/api/*</code>), host-based (<code>api.example.com</code>), header, query string, source IP</li>
+    <li><strong>Stickiness</strong>: load balancer-generated cookie (AWSALB) — binds user to same target</li>
+    <li><strong>Connection Draining</strong> (Deregistration Delay): default <span class="highlight">300s</span> (0-3600s). Waits for in-flight requests before deregistering</li>
+    <li>X-Forwarded-For header: original client IP. X-Forwarded-Port, X-Forwarded-Proto</li>
+    <li>SSL/TLS: SNI (Server Name Indication) — multiple TLS certs on one LB for multiple domains</li>
   </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Need static IP for LB" → <span class="highlight">NLB with Elastic IP</span></li>
-    <li>"Route traffic to Lambda" → <span class="highlight">ALB</span> (NLB cannot target Lambda)</li>
-    <li>"Inspect traffic with 3rd-party appliance" → <span class="highlight">GWLB (GENEVE)</span></li>
-    <li>"Multiple SSL certs on one LB" → <span class="highlight">ALB with SNI</span></li>
-    <li>Cross-zone: free for ALB/CLB, costs money for NLB/GWLB</li>
-    <li>"ALB 503" → no healthy targets. "504" → gateway timeout from backend</li>
-    <li>Connection Draining / Deregistration Delay: 1-3600s (default 300s)</li>
+  <div class="note-group"><h4>NLB Details</h4><ul>
+    <li>Static IP per AZ (or Elastic IP). Source IP preserved (client IP visible to target)</li>
+    <li>Ultra-low latency. No security group on NLB itself (inbound rules on targets must allow 0.0.0.0/0)</li>
+    <li>Can target ALB for static IP + L7 routing combo</li>
+  </ul></div>
+  <div class="note-group"><h4>Cross-Zone Load Balancing</h4>
+    <table class="compare-table"><thead><tr><th>LB</th><th>Default</th><th>Cost</th></tr></thead><tbody>
+    <tr><td>ALB</td><td>Enabled</td><td>No inter-AZ charge</td></tr>
+    <tr><td>NLB / GWLB</td><td>Disabled</td><td>Charged if enabled</td></tr>
+    <tr><td>CLB</td><td>Disabled</td><td>No charge if enabled</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Health Checks</h4><ul>
+    <li>Healthy threshold (default 5 checks), unhealthy threshold (default 2)</li>
+    <li>Interval: 5–300 seconds. If 2xx/3xx → healthy. Configurable per target group</li>
+    <li>ALB: HTTP/HTTPS. NLB: TCP/HTTP/HTTPS. GWLB: HTTP/HTTPS/TCP</li>
+  </ul></div>
+  <div class="note-group"><h4>ASG Scaling Policies</h4>
+    <table class="compare-table"><thead><tr><th>Policy</th><th>Trigger</th><th>Best For</th></tr></thead><tbody>
+    <tr><td>Simple Scaling</td><td>CloudWatch alarm → add/remove N</td><td>Basic scaling</td></tr>
+    <tr><td>Step Scaling</td><td>CloudWatch alarm → tiered adjustments</td><td>Variable load response</td></tr>
+    <tr><td>Target Tracking</td><td>Keep metric at target (e.g. CPU=50%)</td><td>Most common, self-adjusting</td></tr>
+    <tr><td>Scheduled Scaling</td><td>Time-based (cron)</td><td>Predictable load patterns</td></tr>
+    <tr><td>Predictive Scaling</td><td>ML forecast based on history</td><td>Recurring patterns</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>ASG Key Concepts</h4><ul>
+    <li><strong>Cooldown Period</strong>: default <span class="highlight">300s</span> after scale activity — prevents rapid oscillation</li>
+    <li><strong>Lifecycle Hooks</strong>: pause instance in Pending (launch hook) or Terminating state to run custom scripts</li>
+    <li><strong>Warm Pools</strong>: pre-initialized stopped instances for faster scale-out</li>
+    <li><strong>Launch Template</strong> (preferred over Launch Config): versioned, supports Spot + On-Demand mix</li>
+    <li>ASG free — you pay for the underlying EC2 instances</li>
+    <li>Min size / Desired capacity / Max size</li>
+    <li>Scale-in protection: prevent specific instances from being terminated during scale-in</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>NLB preserves source IP — ALB replaces with LB IP (use X-Forwarded-For)</li>
+    <li>Only NLB can have Elastic IP assigned per AZ</li>
+    <li>Cross-zone LB on NLB has inter-AZ data transfer cost (not on ALB)</li>
+    <li>ALB cannot have static IP — put NLB in front of ALB to get static IPs</li>
+    <li>Connection draining ≠ health check. Draining allows in-flight requests to complete</li>
+    <li>Target Tracking will not scale in if metric is above target AND instances are unhealthy</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ RDS ═══════════════ -->
 <div class="note-section" id="note-rds" style="display:none"><div class="note-topic">
-  <h3>🗄️ RDS, Aurora &amp; ElastiCache</h3>
-  <div class="note-group"><h4>🔄 Multi-AZ vs Read Replicas</h4><table class="compare-table"><tr><th>Feature</th><th>Multi-AZ</th><th>Read Replica</th></tr>
-    <tr><td>Purpose</td><td><strong>High availability</strong> (DR)</td><td><strong>Read scalability</strong></td></tr>
-    <tr><td>Replication</td><td><strong>Synchronous</strong></td><td><strong>Asynchronous</strong></td></tr>
-    <tr><td>Readable?</td><td><span class="badge badge-warn">NO</span></td><td><strong>Yes</strong></td></tr>
-    <tr><td>Cross-region?</td><td>No</td><td>Yes (costs money)</td></tr>
-    <tr><td>Failover</td><td>Automatic 60-120s</td><td>Manual promotion</td></tr>
-    <tr><td>Max replicas</td><td>1 standby</td><td>5 (RDS) / 15 (Aurora)</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 RDS Proxy</h4><ul>
-    <li>Fully managed serverless proxy. Reduces failover time by <span class="highlight">66%</span></li>
-    <li>Ideal for <strong>Lambda</strong> (pools short-lived connections to prevent DB exhaustion)</li>
-    <li>Enforces IAM auth. <span class="badge badge-warn">Must be in VPC — not publicly accessible</span></li>
+  <h3>🗄️ RDS / Aurora / ElastiCache</h3>
+  <div class="note-group"><h4>RDS Multi-AZ vs Read Replica</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Multi-AZ</th><th>Read Replica</th></tr></thead><tbody>
+    <tr><td>Purpose</td><td>HA / Failover</td><td>Read scaling</td></tr>
+    <tr><td>Replication</td><td>Synchronous</td><td>Asynchronous</td></tr>
+    <tr><td>Standby readable?</td><td>❌ No</td><td>✅ Yes</td></tr>
+    <tr><td>Failover auto?</td><td>✅ ~1-2 min</td><td>❌ Manual promotion</td></tr>
+    <tr><td>Cross-region?</td><td>❌</td><td>✅ Yes (extra cost)</td></tr>
+    <tr><td>Same-region cost</td><td>No extra replication cost</td><td>Free replication</td></tr>
+    <tr><td>Cross-region cost</td><td>N/A</td><td>$$ per GB transferred</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>RDS Key Facts</h4><ul>
+    <li>Managed: automated backups (1-35 days), Multi-AZ, patching, snapshots</li>
+    <li><strong>Engines</strong>: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, IBM Db2</li>
+    <li><strong>RDS Custom</strong>: OS &amp; DB customization for Oracle &amp; SQL Server</li>
+    <li><strong>Storage autoscaling</strong>: auto-increases when &lt;10% free, max threshold configurable</li>
+    <li><strong>Encryption</strong>: at-rest with KMS. Must enable at creation. Encrypted snapshot → encrypted restore only</li>
+    <li><strong>IAM Authentication</strong>: supported for MySQL &amp; PostgreSQL (token-based, 15-min lifetime)</li>
+    <li><strong>RDS Proxy</strong>: pools connections, reduces DB load. Required for Lambda → RDS. Enforces IAM auth. Only accessible within VPC</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 Aurora Deep Dive</h4><ul>
-    <li>MySQL/PostgreSQL compatible. Storage auto-grows 10GB increments to <span class="highlight">128TB</span></li>
-    <li><span class="highlight">6 copies across 3 AZs</span>: 4/6 needed for writes, 3/6 for reads. Self-healing storage</li>
-    <li>Writer endpoint + Reader endpoint (load balanced across up to 15 read replicas)</li>
-    <li><strong>Aurora Global</strong>: 1 primary + up to 5 secondary regions. Lag <span class="highlight">&lt;1 sec</span>. RTO <span class="highlight">&lt;1 min</span></li>
-    <li><strong>Aurora Serverless v2</strong>: auto-scales 0.5 ACU steps. For unpredictable workloads</li>
-    <li><strong>Aurora Multi-Master</strong>: every node can write. Zero downtime for writes</li>
+  <div class="note-group"><h4>Aurora</h4><ul>
+    <li>AWS-proprietary. PostgreSQL &amp; MySQL compatible. <span class="highlight">5× MySQL, 3× PostgreSQL</span> performance</li>
+    <li>Storage auto-grows <span class="highlight">10GB → 128TB</span> in increments. 6 copies across 3 AZs (4/6 writes, 3/6 reads)</li>
+    <li>Up to <span class="highlight">15 read replicas</span> (vs 5 for RDS). Replica failover &lt;30s</li>
+    <li><strong>Aurora Serverless</strong>: auto-scales ACUs (Aurora Capacity Units). Good for infrequent/unpredictable workloads</li>
+    <li><strong>Aurora Global</strong>: 1 primary region + up to <span class="highlight">5 secondary regions</span>. &lt;1s replication lag. RPO &lt;1s, RTO &lt;1min</li>
+    <li><strong>Aurora Multi-Master</strong>: all nodes can write — continuous write availability</li>
+    <li><strong>Backtrack</strong>: rewind DB to any point in the past without restoring from backup</li>
+    <li>Custom endpoints: route different read replica sets to different applications</li>
   </ul></div>
-  <div class="note-group"><h4>🔄 ElastiCache: Redis vs Memcached</h4><table class="compare-table"><tr><th>Feature</th><th>Redis</th><th>Memcached</th></tr>
-    <tr><td>Persistence</td><td><strong>Yes</strong></td><td>No</td></tr>
-    <tr><td>Replication/Multi-AZ</td><td><strong>Yes</strong></td><td>No</td></tr>
-    <tr><td>Data structures</td><td>Sorted sets, hashes, lists, pub/sub</td><td>Simple key-value</td></tr>
-    <tr><td>Use case</td><td>Sessions, leaderboards, pub/sub, HA cache</td><td>Simple cache, multi-threaded</td></tr>
-  </table></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Multi-AZ standby readable" = FALSE. Multi-AZ standby is NOT readable</li>
-    <li>"Lambda timing out connecting to RDS" → <span class="highlight">RDS Proxy</span></li>
-    <li>"Best managed PostgreSQL with HA" → <span class="highlight">Aurora PostgreSQL</span></li>
-    <li>"Sub-1-second RPO cross-region" → <span class="highlight">Aurora Global Database</span></li>
-    <li>"Zero-downtime writes" → <span class="highlight">Aurora Multi-Master</span></li>
-    <li>"Gaming leaderboard" → <span class="highlight">Redis Sorted Sets</span></li>
-    <li>"Encrypt existing unencrypted RDS" → snapshot → copy with encryption → restore</li>
-    <li>Aurora max read replicas = <strong>15</strong> vs RDS = <strong>5</strong></li>
+  <div class="note-group"><h4>ElastiCache</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Redis</th><th>Memcached</th></tr></thead><tbody>
+    <tr><td>Data structures</td><td>Rich (strings, lists, sets, hashes, sorted sets)</td><td>Simple key-value</td></tr>
+    <tr><td>Persistence</td><td>✅ RDB + AOF snapshots</td><td>❌ None</td></tr>
+    <tr><td>HA / Failover</td><td>✅ Multi-AZ with auto-failover</td><td>❌ No failover</td></tr>
+    <tr><td>Read Replicas</td><td>✅ Up to 5</td><td>❌ No</td></tr>
+    <tr><td>Pub/Sub</td><td>✅ Yes</td><td>❌ No</td></tr>
+    <tr><td>Scaling</td><td>Vertical + Read Replicas</td><td>Horizontal (multi-thread, sharding)</td></tr>
+    <tr><td>Use for</td><td>Session store, leaderboards, Pub/Sub, complex queries</td><td>Simple cache, multi-threaded</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Caching Strategies</h4><ul>
+    <li><strong>Lazy Loading</strong> (Cache-Aside): check cache → miss → load from DB → populate cache. Stale data possible</li>
+    <li><strong>Write-Through</strong>: write to cache AND DB simultaneously. No stale data. Cache churn if data rarely read</li>
+    <li><strong>Session Store</strong>: store user sessions in ElastiCache with TTL for stateless app scaling</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Read Replica → can be promoted to standalone DB (breaks replication)</li>
+    <li>Multi-AZ failover: DNS updated to point to standby — app must use DNS endpoint, not IP</li>
+    <li>Aurora replicas can failover automatically; RDS Read Replicas need manual promotion</li>
+    <li>RDS Proxy: ONLY within VPC. Use for Lambda connections to avoid connection storms</li>
+    <li>Encrypted RDS: cannot create unencrypted Read Replica from encrypted source</li>
+    <li>ElastiCache in front of RDS: always check cache first, then DB (read-heavy workloads)</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ ROUTE 53 ═══════════════ -->
 <div class="note-section" id="note-route53" style="display:none"><div class="note-topic">
   <h3>🌐 Route 53</h3>
-  <div class="note-group"><h4>🔄 CNAME vs Alias</h4><table class="compare-table"><tr><th>Feature</th><th>CNAME</th><th>Alias</th></tr>
-    <tr><td>Zone Apex</td><td><span class="badge badge-warn">Cannot use</span></td><td>Works</td></tr>
-    <tr><td>Cost</td><td>Charged per query</td><td>Free</td></tr>
-    <tr><td>Target</td><td>Any hostname</td><td>AWS resources only</td></tr>
-  </table>
-  <ul><li>Valid Alias targets: ELB, CloudFront, API GW, Elastic Beanstalk, S3 website, VPC Endpoints, Global Accelerator</li>
-  <li><span class="badge badge-warn">Alias CANNOT point to EC2 DNS name</span></li></ul></div>
-  <div class="note-group"><h4>🔑 Routing Policies</h4><table class="compare-table"><tr><th>Policy</th><th>Use Case</th><th>Key Detail</th></tr>
-    <tr><td>Simple</td><td>Single resource</td><td>No health checks. Multiple values → random</td></tr>
-    <tr><td>Weighted</td><td>A/B testing</td><td>% weight per record. Weight 0 = stop traffic</td></tr>
-    <tr><td>Latency</td><td>Lowest measured latency</td><td>NOT geographic distance</td></tr>
-    <tr><td>Failover</td><td>Active-passive DR</td><td>Health check REQUIRED on primary</td></tr>
-    <tr><td>Geolocation</td><td>Content localization</td><td><span class="badge badge-warn">MUST create Default record</span></td></tr>
-    <tr><td>Geoproximity</td><td>Shift traffic with bias</td><td>Requires Route53 Traffic Flow</td></tr>
-    <tr><td>Multi-Value</td><td>Multiple healthy IPs</td><td>Up to 8 healthy records. NOT a substitute for ELB</td></tr>
-  </table></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Root domain / zone apex" → <span class="highlight">Alias record</span>, never CNAME</li>
-    <li>"Lowest latency" routing ≠ geolocation. Latency is measured, not geographic</li>
-    <li>Geolocation without Default record = unmapped users get no response</li>
-    <li>Geoproximity = bias keyword + Traffic Flow required</li>
-    <li>Multi-Value is NOT a load balancer</li>
-    <li>Health checks work for PUBLIC resources only. Private → CloudWatch Alarm</li>
+  <div class="note-group"><h4>Record Types</h4><ul>
+    <li><strong>A</strong>: hostname → IPv4. <strong>AAAA</strong>: hostname → IPv6</li>
+    <li><strong>CNAME</strong>: hostname → hostname. <strong>Cannot be root domain</strong> (apex). Charged per query</li>
+    <li><strong>Alias</strong>: hostname → AWS resource. Works at root domain. <span class="highlight">Free queries</span>. No TTL control</li>
+    <li><strong>NS</strong>: name servers for hosted zone</li>
+    <li>Alias targets: ALB, NLB, CloudFront, API GW, Elastic Beanstalk, S3 website, VPC Endpoint. <strong>NOT EC2 DNS name</strong></li>
+  </ul></div>
+  <div class="note-group"><h4>Routing Policies</h4>
+    <table class="compare-table"><thead><tr><th>Policy</th><th>Health Check</th><th>Best For</th><th>Key Detail</th></tr></thead><tbody>
+    <tr><td>Simple</td><td>❌</td><td>Single resource</td><td>Multiple values → client picks randomly</td></tr>
+    <tr><td>Weighted</td><td>✅</td><td>A/B testing, gradual migration</td><td>Weight 0 = no traffic. All 0 = equal</td></tr>
+    <tr><td>Latency</td><td>✅</td><td>Lowest latency to user</td><td>Based on AWS region latency, not geography</td></tr>
+    <tr><td>Failover</td><td>✅ (mandatory on primary)</td><td>Active-passive DR</td><td>Secondary used only if primary unhealthy</td></tr>
+    <tr><td>Geolocation</td><td>✅</td><td>Content localization</td><td>By continent/country/US state. Need Default record</td></tr>
+    <tr><td>Geoproximity</td><td>✅</td><td>Shift traffic by bias</td><td>Requires Traffic Flow. Bias +1 to +99 / -1 to -99</td></tr>
+    <tr><td>Multi-Value</td><td>✅</td><td>Client-side LB</td><td>Up to 8 healthy records returned. NOT a substitute for ELB</td></tr>
+    <tr><td>IP-Based</td><td>✅</td><td>ISP/CIDR routing</td><td>Map CIDR → endpoint. Optimize peering costs</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Health Checks</h4><ul>
+    <li>~15 global health checkers. Interval: <span class="highlight">30s</span> (or 10s for fast, higher cost)</li>
+    <li>Healthy if <span class="highlight">&gt;18%</span> checkers report healthy</li>
+    <li>Checks: HTTP/HTTPS/TCP. 2xx or 3xx = healthy. Can match first <span class="highlight">5,120 bytes</span> of response body</li>
+    <li><strong>Calculated Health Checks</strong>: combine up to <span class="highlight">256 child checks</span> with AND/OR/NOT</li>
+    <li><strong>Private resources</strong>: health checkers are outside VPC → use CloudWatch Alarm → Route 53 checks alarm state</li>
+  </ul></div>
+  <div class="note-group"><h4>TTL &amp; Hosted Zones</h4><ul>
+    <li>TTL mandatory for all records except Alias. High TTL = less cost but stale data. Low TTL = agile but costly</li>
+    <li><strong>Public Hosted Zone</strong>: accessible from internet</li>
+    <li><strong>Private Hosted Zone</strong>: within VPC only. Must enable VPC DNS resolution + DNS hostnames settings</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>CNAME cannot point to root domain (mydomain.com). Use Alias</li>
+    <li>Geolocation ≠ Latency. Geo = physical location. Latency = measured network speed</li>
+    <li>Geoproximity requires Route 53 Traffic Flow (extra cost)</li>
+    <li>Simple routing policy cannot have health checks</li>
+    <li>Multi-Value ≠ ELB. It's just returning multiple healthy IPs to the client</li>
+    <li>Alias record type is always A or AAAA (not CNAME)</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ S3 ═══════════════ -->
 <div class="note-section" id="note-s3" style="display:none"><div class="note-topic">
   <h3>🪣 S3 Storage</h3>
-  <div class="note-group"><h4>📊 Storage Classes</h4><table class="compare-table"><tr><th>Class</th><th>Min Duration</th><th>Retrieval Fee</th><th>Key Detail</th></tr>
-    <tr><td>Standard</td><td>None</td><td>None</td><td>Default, 3+ AZs, 99.99% availability</td></tr>
-    <tr><td>Standard-IA</td><td>30 days</td><td>Per-GB</td><td>Min 128KB charge per object</td></tr>
-    <tr><td>One Zone-IA</td><td>30 days</td><td>Per-GB</td><td>Single AZ, 20% cheaper. Data LOST if AZ fails</td></tr>
-    <tr><td>Glacier Instant</td><td>90 days</td><td>Per-GB</td><td>Milliseconds retrieval</td></tr>
-    <tr><td>Glacier Flexible</td><td>90 days</td><td>Per-GB</td><td>Min-hours retrieval</td></tr>
-    <tr><td>Glacier Deep Archive</td><td>180 days</td><td>Per-GB</td><td>Cheapest. 12-48 hr retrieval</td></tr>
-    <tr><td>Intelligent-Tiering</td><td>None</td><td>None</td><td>Auto-moves objects. Monitoring fee</td></tr>
-  </table>
-  <p style="margin-top:4px;font-size:.8rem;color:var(--muted)">All classes: 11 9s (99.999999999%) durability</p></div>
-  <div class="note-group"><h4>🔑 Encryption Types</h4><table class="compare-table"><tr><th>Method</th><th>Key Mgmt</th><th>Key Detail</th></tr>
-    <tr><td>SSE-S3</td><td>AWS managed</td><td>Default. AES256 header</td></tr>
-    <tr><td>SSE-KMS</td><td>KMS key</td><td>Audit via CloudTrail. KMS API rate limits may throttle</td></tr>
-    <tr><td>SSE-C</td><td>Customer provides key</td><td>HTTPS required. AWS doesn't store key</td></tr>
-    <tr><td>Client-Side</td><td>Client</td><td>Encrypted before upload</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 Key Facts</h4><ul>
-    <li>Performance: <span class="highlight">3,500 PUT/s</span> and <span class="highlight">5,500 GET/s</span> per prefix</li>
-    <li>Multipart upload: recommended &gt;100MB, <span class="badge badge-warn">required &gt;5GB</span></li>
-    <li>Transfer Acceleration: uses CloudFront edge for long-distance uploads</li>
-    <li>Versioning: once enabled, can only suspend (not disable)</li>
-    <li>MFA Delete: only root account can enable. Required to delete versions</li>
-    <li>Replication (CRR/SRR): versioning required both buckets. Pre-existing objects NOT replicated (use Batch Replication). DELETE markers NOT replicated by default</li>
-    <li>Object Lock: Compliance mode = nobody can delete (even root). Governance = can override with permission</li>
-    <li>Block Public Access overrides any policy granting public access</li>
+  <div class="note-group"><h4>Storage Classes</h4>
+    <table class="compare-table"><thead><tr><th>Class</th><th>Availability</th><th>Min Duration</th><th>Retrieval</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td>S3 Standard</td><td>99.99%</td><td>None</td><td>Immediate</td><td>Frequently accessed</td></tr>
+    <tr><td>S3 Intelligent-Tiering</td><td>99.9%</td><td>None</td><td>Immediate</td><td>Unknown/changing access patterns</td></tr>
+    <tr><td>S3 Standard-IA</td><td>99.9%</td><td>30 days</td><td>Immediate</td><td>Infrequent, rapid retrieval</td></tr>
+    <tr><td>S3 One Zone-IA</td><td>99.5%</td><td>30 days</td><td>Immediate</td><td>Infrequent, single AZ OK</td></tr>
+    <tr><td>S3 Glacier Instant</td><td>99.9%</td><td>90 days</td><td>Milliseconds</td><td>Archive, occasional instant access</td></tr>
+    <tr><td>S3 Glacier Flexible</td><td>99.99%</td><td>90 days</td><td>1 min – 12 hrs</td><td>Archive, minutes-hours retrieval</td></tr>
+    <tr><td>S3 Glacier Deep Archive</td><td>99.99%</td><td>180 days</td><td>12–48 hrs</td><td>Compliance archive, lowest cost</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>S3 Core Limits</h4><ul>
+    <li>Max object size: <span class="highlight">5 TB</span>. Single PUT: max <span class="highlight">5 GB</span></li>
+    <li>Multipart upload recommended &gt;<span class="highlight">100 MB</span>, required &gt;<span class="highlight">5 GB</span></li>
+    <li>Bucket names: globally unique, 3-63 chars, lowercase, no underscores</li>
+    <li>Versioning: once enabled, can only be suspended (not disabled)</li>
+    <li><strong>MFA Delete</strong>: requires MFA to delete versioned objects or suspend versioning. Root user only can enable</li>
   </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Compliance, cannot delete even by root" → <span class="highlight">Compliance mode Object Lock</span></li>
-    <li>"Archive, millisecond retrieval" → <span class="highlight">Glacier Instant Retrieval</span></li>
-    <li>"Cheapest archival, hours OK" → <span class="highlight">Glacier Deep Archive</span></li>
-    <li>"Unknown access patterns" → <span class="highlight">Intelligent-Tiering</span></li>
-    <li>Cannot transition from lower tier to higher tier in lifecycle rules</li>
-    <li>Must wait 30 days in Standard before transitioning to Standard-IA</li>
-    <li>One Zone-IA: data LOST if AZ fails — only for reproducible data</li>
+  <div class="note-group"><h4>Replication</h4><ul>
+    <li><strong>CRR</strong> (Cross-Region): DR, latency reduction, compliance. Must enable versioning on both buckets</li>
+    <li><strong>SRR</strong> (Same-Region): log aggregation, test/prod sync</li>
+    <li>Replication is asynchronous. Does NOT replicate existing objects (only new after enabling). Deletes NOT replicated by default</li>
+    <li>Can replicate delete markers (opt-in). Cannot replicate SSE-C encrypted objects</li>
+  </ul></div>
+  <div class="note-group"><h4>Encryption</h4>
+    <table class="compare-table"><thead><tr><th>Type</th><th>Key Managed By</th><th>Key Detail</th></tr></thead><tbody>
+    <tr><td>SSE-S3 (default)</td><td>AWS</td><td>AES-256. Header: x-amz-server-side-encryption: AES256</td></tr>
+    <tr><td>SSE-KMS</td><td>AWS KMS</td><td>Audit trail in CloudTrail. Header: aws:kms. KMS API call = extra cost &amp; throttle risk</td></tr>
+    <tr><td>DSSE-KMS</td><td>AWS KMS</td><td>Double encryption</td></tr>
+    <tr><td>SSE-C</td><td>Customer</td><td>Key sent with every request. HTTPS required. Not available in console</td></tr>
+    <tr><td>Client-Side</td><td>Customer</td><td>Encrypted before upload</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Access Control</h4><ul>
+    <li><strong>Bucket Policy</strong>: JSON resource-based policy. Controls cross-account access, enforce HTTPS, enforce SSE-KMS</li>
+    <li><strong>ACLs</strong>: legacy. Disabled by default on new buckets (Block Public Access preferred)</li>
+    <li><strong>S3 Access Points</strong>: per-application named access policies. Simplifies bucket policy management</li>
+    <li><strong>Object Lambda Access Points</strong>: run Lambda on GET requests to transform data on-the-fly</li>
+    <li><strong>Pre-signed URL</strong>: time-limited access to private objects. Generated by any AWS principal</li>
+  </ul></div>
+  <div class="note-group"><h4>Performance</h4><ul>
+    <li>Baseline: <span class="highlight">3,500 PUT/COPY/POST/DELETE</span> and <span class="highlight">5,500 GET/HEAD</span> per second per prefix</li>
+    <li><strong>Transfer Acceleration</strong>: upload via nearest CloudFront edge → AWS backbone. Charged extra</li>
+    <li><strong>S3 Select</strong>: SQL to retrieve subset of object (CSV, JSON, Parquet). Up to 400% faster, 80% cheaper vs full download</li>
+    <li><strong>Byte-Range Fetches</strong>: parallel downloads of specific byte ranges for large files</li>
+  </ul></div>
+  <div class="note-group"><h4>Event Notifications</h4><ul>
+    <li>Triggers on: <code>s3:ObjectCreated</code>, <code>s3:ObjectRemoved</code>, <code>s3:Replication</code>, etc.</li>
+    <li>Destinations: SNS, SQS, Lambda, <strong>EventBridge</strong> (most feature-rich)</li>
+    <li>EventBridge: advanced filtering, multiple destinations, archive &amp; replay</li>
+  </ul></div>
+  <div class="note-group"><h4>S3 Lifecycle Rules</h4><ul>
+    <li>Transition actions: move to cheaper class after N days</li>
+    <li>Expiration actions: delete objects after N days, or delete old versions</li>
+    <li>Can apply to specific prefix or tags. Minimum days before transitioning: Standard-IA/One Zone-IA requires 30 days in Standard first</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>SSE-KMS: every object GET/PUT = 1 KMS API call — can hit KMS throttle at high throughput</li>
+    <li>S3 is not a file system — no true directories, no atomic renames</li>
+    <li>Replication does NOT copy existing objects — use S3 Batch Operations for that</li>
+    <li>One Zone-IA: data lost if AZ fails — never for primary storage of important data</li>
+    <li>Glacier Flexible retrieval: Expedited (1-5 min), Standard (3-5 hrs), Bulk (5-12 hrs)</li>
+    <li>Transfer Acceleration: only beneficial over long distances — test before enabling</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ CLOUDFRONT ═══════════════ -->
 <div class="note-section" id="note-cloudfront" style="display:none"><div class="note-topic">
   <h3>🌍 CloudFront &amp; Global Accelerator</h3>
-  <div class="note-group"><h4>🔑 CloudFront Core</h4><ul>
-    <li>CDN with 400+ edge locations. Origins: S3 (use <span class="highlight">OAC</span> to restrict access) or Custom (ALB, EC2, S3 website)</li>
-    <li>Cache TTL: 0 to 1 year. Controlled via Cache-Control/Expires or Cache Policy</li>
-    <li><span class="badge badge-warn">SSL cert for CloudFront MUST be in us-east-1 ACM</span></li>
-    <li>Geo Restriction: allowlist or blocklist countries (3rd-party IP database)</li>
-    <li>Cache Invalidation: path-based, costs money. Better: use versioned file names</li>
+  <div class="note-group"><h4>CloudFront Key Facts</h4><ul>
+    <li>CDN with <span class="highlight">400+</span> edge locations. Caches content at edge for TTL duration</li>
+    <li>Origins: S3, ALB, EC2, any HTTP endpoint, MediaStore</li>
+    <li><strong>OAC (Origin Access Control)</strong>: restricts S3 to CloudFront only (preferred over OAI)</li>
+    <li><strong>Cache Invalidation</strong>: force refresh before TTL — use <code>/*</code> (all) or path pattern</li>
+    <li><strong>Geo Restriction</strong>: allowlist or blocklist by country (3rd-party Geo-IP database)</li>
   </ul></div>
-  <div class="note-group"><h4>🔄 Signed URL vs Signed Cookie</h4><table class="compare-table"><tr><th>Feature</th><th>Signed URL</th><th>Signed Cookie</th></tr>
-    <tr><td>Scope</td><td>1 URL = 1 file</td><td>1 cookie = multiple files</td></tr>
-    <tr><td>URL change?</td><td>Yes</td><td>No</td></tr>
-    <tr><td>Use case</td><td>Individual file download</td><td>Restrict entire site section</td></tr>
-  </table>
-  <ul><li><span class="badge badge-warn">CloudFront Signed URL ≠ S3 Pre-signed URL</span>: S3 presigned bypasses CloudFront entirely</li></ul></div>
-  <div class="note-group"><h4>🔄 CloudFront vs Global Accelerator</h4><table class="compare-table"><tr><th>Feature</th><th>CloudFront</th><th>Global Accelerator</th></tr>
-    <tr><td>Type</td><td>CDN (caches content)</td><td>Network proxy (no caching)</td></tr>
-    <tr><td>Protocols</td><td>HTTP/HTTPS</td><td>TCP/UDP</td></tr>
-    <tr><td>IPs</td><td>Dynamic edge IPs</td><td><strong>2 static anycast IPs</strong></td></tr>
-    <tr><td>Best for</td><td>Static/dynamic web content</td><td>Gaming, IoT, VoIP, non-HTTP</td></tr>
-  </table></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Static anycast IP" → <span class="highlight">Global Accelerator</span>, not CloudFront</li>
-    <li>"Cache content globally" → <span class="highlight">CloudFront</span></li>
-    <li>OAC = modern way to restrict S3 access to CloudFront only (replaces OAI)</li>
-    <li>"Improve TCP performance globally" → <span class="highlight">Global Accelerator</span></li>
-    <li>CloudFront + ALB: ALB must be public, EC2 behind it can be private</li>
+  <div class="note-group"><h4>CloudFront Signed URL vs Cookie</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Signed URL</th><th>Signed Cookie</th></tr></thead><tbody>
+    <tr><td>Scope</td><td>Single file/object</td><td>Multiple files / entire distribution</td></tr>
+    <tr><td>Use case</td><td>Individual premium file download</td><td>Premium subscription access to site</td></tr>
+    <tr><td>Client support</td><td>Any HTTP client</td><td>Browser with cookie support</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Price Classes</h4><ul>
+    <li><strong>All</strong>: all edge locations, best performance, highest cost</li>
+    <li><strong>200</strong>: most regions, excludes most expensive (SA, ME, Africa)</li>
+    <li><strong>100</strong>: cheapest regions only (US, Mexico, Canada, Europe, Israel)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudFront vs S3 Transfer Acceleration</h4>
+    <table class="compare-table"><thead><tr><th></th><th>CloudFront</th><th>S3 Transfer Acceleration</th></tr></thead><tbody>
+    <tr><td>Direction</td><td>Origin → Edge (downloads)</td><td>Client → S3 via Edge (uploads)</td></tr>
+    <tr><td>Purpose</td><td>Cache &amp; serve content</td><td>Speed up S3 uploads globally</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Global Accelerator</h4><ul>
+    <li>2 static <strong>Anycast IPs</strong> → route to nearest edge → AWS private backbone → regional endpoint</li>
+    <li>Use for: non-HTTP (UDP, TCP, MQTT, gaming, IoT), multi-region failover, static IP requirement</li>
+    <li><strong>Traffic Dial</strong>: 0–100% per endpoint group for gradual migration</li>
+    <li>Health checks redirect away from unhealthy endpoints automatically. Failover in seconds</li>
+    <li>DDoS protection via AWS Shield Standard (built-in, free)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudFront vs Global Accelerator</h4>
+    <table class="compare-table"><thead><tr><th></th><th>CloudFront</th><th>Global Accelerator</th></tr></thead><tbody>
+    <tr><td>Caching</td><td>✅ Yes</td><td>❌ No (proxy only)</td></tr>
+    <tr><td>Protocols</td><td>HTTP/HTTPS</td><td>TCP/UDP/any</td></tr>
+    <tr><td>Static IP</td><td>❌ No</td><td>✅ 2 Anycast IPs</td></tr>
+    <tr><td>Use case</td><td>Web content, videos, APIs</td><td>Gaming, IoT, VoIP, non-HTTP</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>CloudFront does NOT protect against S3 direct access — use OAC/OAI bucket policy</li>
+    <li>Signed URL expires — don't confuse with pre-signed S3 URL (different service, different signing)</li>
+    <li>Global Accelerator ≠ CloudFront. GA never caches</li>
+    <li>Cache invalidation costs money. Plan TTL correctly instead</li>
+    <li>Field-Level Encryption: encrypt specific POST form fields at edge, only decryptable by origin</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ HYBRID/SNOW ═══════════════ -->
+<div class="note-section" id="note-hybrid" style="display:none"><div class="note-topic">
+  <h3>📦 Snow Family / FSx / Storage Gateway</h3>
+  <div class="note-group"><h4>AWS Snow Family</h4>
+    <table class="compare-table"><thead><tr><th>Device</th><th>Storage</th><th>Compute</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td>Snowcone</td><td>8 TB (HDD) / 14 TB (SSD)</td><td>2 vCPUs, 4 GB RAM</td><td>Edge, small transfers, IoT</td></tr>
+    <tr><td>Snowball Edge Storage</td><td>210 TB usable</td><td>40 vCPUs, 80 GB RAM</td><td>Large migrations, S3-compatible storage</td></tr>
+    <tr><td>Snowball Edge Compute</td><td>28 TB usable</td><td>104 vCPUs, 416 GB RAM</td><td>Edge ML, video analysis</td></tr>
+    <tr><td>Snowmobile</td><td><span class="highlight">100 PB</span></td><td>—</td><td>Exabyte-scale migration (truck)</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Snow Key Facts</h4><ul>
+    <li>Rule of thumb: migration &gt;<span class="highlight">1 week</span> over network → use Snowball</li>
+    <li>Data encrypted with <span class="highlight">256-bit AES</span> (KMS). Tamper-evident. OpsHub for management</li>
+    <li><strong>Snowball → Glacier</strong>: cannot import directly. Must go S3 → lifecycle policy → Glacier</li>
+    <li>Snowball Edge can run EC2 instances &amp; Lambda functions at the edge</li>
+  </ul></div>
+  <div class="note-group"><h4>Storage Gateway</h4>
+    <table class="compare-table"><thead><tr><th>Type</th><th>Protocol</th><th>Backed By</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td>S3 File Gateway</td><td>NFS/SMB</td><td>S3 buckets</td><td>On-prem access to S3, AD integration</td></tr>
+    <tr><td>FSx File Gateway</td><td>SMB</td><td>FSx for Windows</td><td>On-prem Windows file share access</td></tr>
+    <tr><td>Volume Gateway (Cached)</td><td>iSCSI</td><td>S3 + EBS snapshots</td><td>Primary in S3, cache locally</td></tr>
+    <tr><td>Volume Gateway (Stored)</td><td>iSCSI</td><td>On-prem + S3 backup</td><td>Full copy on-prem, async S3 backup</td></tr>
+    <tr><td>Tape Gateway</td><td>iSCSI VTL</td><td>S3/Glacier</td><td>Replace physical tape, compliance archive</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>DataSync vs Transfer Family vs Storage Gateway</h4>
+    <table class="compare-table"><thead><tr><th>Service</th><th>Use When</th><th>Key Detail</th></tr></thead><tbody>
+    <tr><td>DataSync</td><td>Migrate/sync large data sets</td><td>Preserves metadata (POSIX, SMB). Agent needed for on-prem. Up to 10 Gbps/agent</td></tr>
+    <tr><td>Transfer Family</td><td>FTP/SFTP/FTPS to/from S3 or EFS</td><td>Managed FTP server. Integrates with AD/LDAP/Cognito</td></tr>
+    <tr><td>Storage Gateway</td><td>Ongoing hybrid access</td><td>On-prem cache, bridges to S3/FSx</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Snowball cannot go directly to Glacier — S3 lifecycle required</li>
+    <li>DataSync: agent required for on-prem NFS/SMB. No agent for AWS-to-AWS transfers</li>
+    <li>Volume Gateway Stored = full copy on-prem; Cached = minimal on-prem, full in S3</li>
+    <li>Storage Gateway deployed as VM (VMware/Hyper-V/KVM) or hardware appliance</li>
+    <li>FSx File Gateway: good for Windows users who need low-latency local access + cloud backup</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ MESSAGING ═══════════════ -->
 <div class="note-section" id="note-msg" style="display:none"><div class="note-topic">
-  <h3>📨 SQS, SNS &amp; Kinesis</h3>
-  <div class="note-group"><h4>🔑 SQS Key Facts</h4><ul>
-    <li><strong>Standard</strong>: unlimited throughput, at-least-once, best-effort ordering</li>
-    <li><strong>FIFO</strong>: <span class="highlight">300 msg/sec</span> (3,000 with batching), exactly-once, strict ordering</li>
-    <li>Max message size: <span class="highlight">256KB</span>. Retention: 1 min–14 days (default 4 days)</li>
-    <li>Visibility timeout: 0-12 hrs (<span class="highlight">default 30s</span>). Use ChangeMessageVisibility to extend</li>
-    <li>Long Polling: wait up to <span class="highlight">20s</span>. Preferred — reduces empty API calls and cost</li>
-    <li>DLQ: messages after MaxReceiveCount go here. <span class="badge badge-warn">FIFO queue DLQ must also be FIFO</span></li>
+  <h3>📨 SQS / SNS / Kinesis / MQ</h3>
+  <div class="note-group"><h4>SQS Standard vs FIFO</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Standard</th><th>FIFO</th></tr></thead><tbody>
+    <tr><td>Throughput</td><td>Unlimited</td><td>300 msg/s (3,000 with batching)</td></tr>
+    <tr><td>Delivery</td><td>At-least-once (duplicates possible)</td><td>Exactly-once</td></tr>
+    <tr><td>Order</td><td>Best-effort</td><td>Strict per MessageGroupId</td></tr>
+    <tr><td>Deduplication</td><td>❌</td><td>✅ 5-min dedup window</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>SQS Key Facts</h4><ul>
+    <li>Message size: max <span class="highlight">256 KB</span> (use S3 + Extended Client Library for larger)</li>
+    <li>Retention: <span class="highlight">60s – 14 days</span> (default 4 days)</li>
+    <li><strong>Visibility Timeout</strong>: <span class="highlight">0–43,200s</span> (default 30s). Message invisible while processing. Too short = reprocessing; too long = slow failure detection</li>
+    <li><strong>Dead Letter Queue (DLQ)</strong>: receives messages after N failed processing attempts (maxReceiveCount)</li>
+    <li><strong>Long Polling</strong>: wait up to <span class="highlight">20s</span> for messages (reduces empty responses &amp; cost). Always prefer over short polling</li>
+    <li><strong>Delay Queue</strong>: delay delivery up to <span class="highlight">15 min</span></li>
+    <li>Consumer can delete message only after successful processing (using ReceiptHandle)</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 SNS Key Facts</h4><ul>
-    <li>Push-based pub/sub. Subscribers: SQS, Lambda, HTTP/HTTPS, Email, SMS, Kinesis Firehose</li>
-    <li><span class="highlight">Fan-out pattern</span>: SNS → multiple SQS queues (fully decoupled, no data loss)</li>
-    <li>Message filtering: JSON filter policy per subscription</li>
-    <li><span class="badge badge-warn">FIFO topics: only SQS FIFO queues can subscribe</span></li>
+  <div class="note-group"><h4>SNS</h4><ul>
+    <li>Pub/Sub. Publisher → Topic → Subscribers (SQS, Lambda, HTTP/S, Email, SMS, Mobile Push)</li>
+    <li>Messages NOT persisted (fire and forget). Max <span class="highlight">256 KB</span></li>
+    <li><strong>Message Filtering</strong>: JSON filter policy per subscription — only matching messages delivered</li>
+    <li><strong>Fan-Out Pattern</strong>: SNS → multiple SQS queues (decouple producers from consumers)</li>
+    <li><strong>FIFO SNS</strong>: ordered + deduplicated. Only FIFO SQS as subscriber. Same throughput limits</li>
+    <li>DLQ available for Lambda/SQS subscribers</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 Kinesis</h4><ul>
-    <li><strong>KDS</strong>: real-time. Retention 1-365 days. <span class="highlight">Replayable</span>. Per shard: 1MB/s write, 2MB/s read</li>
-    <li>Enhanced Fan-Out: <span class="highlight">2MB/s per consumer per shard</span> (push via HTTP/2)</li>
-    <li><strong>Firehose</strong>: loads to S3/Redshift/OpenSearch. <span class="badge badge-warn">Near real-time (60s buffer). NO replay</span></li>
-    <li>Hot partition = poorly distributed partition keys</li>
+  <div class="note-group"><h4>Kinesis</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Data Streams</th><th>Firehose</th><th>Analytics</th></tr></thead><tbody>
+    <tr><td>Purpose</td><td>Real-time ingestion + processing</td><td>Load to data stores</td><td>SQL/Apache Flink on streams</td></tr>
+    <tr><td>Scaling</td><td>Manual shards</td><td>Auto-scaling</td><td>Auto-scaling</td></tr>
+    <tr><td>Latency</td><td>~70ms</td><td>~60s (buffer)</td><td>Real-time</td></tr>
+    <tr><td>Storage/Replay</td><td>24hr–365 days</td><td>No storage</td><td>No storage</td></tr>
+    <tr><td>Consumers</td><td>Custom (Kinesis Client Library, Lambda)</td><td>S3, Redshift, OpenSearch, Splunk</td><td>Lambda, Kinesis Streams</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Kinesis Data Streams Details</h4><ul>
+    <li>Shard: <span class="highlight">1 MB/s or 1,000 records/s</span> write; <span class="highlight">2 MB/s</span> read per shard</li>
+    <li>Record: partition key + sequence number + data blob (max <span class="highlight">1 MB</span>)</li>
+    <li><strong>Enhanced Fan-Out</strong>: each consumer gets dedicated 2 MB/s per shard (vs shared 2 MB/s for classic)</li>
+    <li>Retention: default <span class="highlight">24 hrs</span>, extendable to <span class="highlight">365 days</span></li>
+    <li>On-Demand mode: auto-scales, pays per GB. Provisioned mode: pay per shard-hour</li>
   </ul></div>
-  <div class="note-group"><h4>🔄 SQS vs SNS vs Kinesis</h4><table class="compare-table"><tr><th>Feature</th><th>SQS</th><th>SNS</th><th>Kinesis Data Streams</th></tr>
-    <tr><td>Model</td><td>Queue (pull)</td><td>Pub/Sub (push)</td><td>Stream</td></tr>
-    <tr><td>Persistence</td><td>Deleted after processing</td><td>No persistence</td><td>1-365 days, replayable</td></tr>
-    <tr><td>Consumers</td><td>1 per message</td><td>Many subscribers</td><td>Many consumers</td></tr>
-    <tr><td>Use case</td><td>Decouple services</td><td>Broadcast</td><td>Real-time analytics</td></tr>
-  </table></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Decouple + one consumer" → <span class="highlight">SQS</span></li>
-    <li>"Fan-out to multiple subscribers" → <span class="highlight">SNS + SQS fan-out</span></li>
-    <li>"Real-time analytics / replay data" → <span class="highlight">Kinesis Data Streams</span></li>
-    <li>"Load streaming to S3/Redshift" → <span class="highlight">Kinesis Firehose</span></li>
-    <li>Firehose = NEAR real-time (60s). "Real-time" → KDS</li>
-    <li>"Ordered + exactly-once" → <span class="highlight">SQS FIFO</span> (300/3000 msg/sec limit)</li>
-    <li>"Reduce empty API calls" → <span class="highlight">Long Polling</span></li>
+  <div class="note-group"><h4>SQS vs SNS vs Kinesis</h4>
+    <table class="compare-table"><thead><tr><th></th><th>SQS</th><th>SNS</th><th>Kinesis</th></tr></thead><tbody>
+    <tr><td>Pattern</td><td>Queue (pull)</td><td>Pub/Sub (push)</td><td>Stream (pull)</td></tr>
+    <tr><td>Consumers</td><td>One consumer group</td><td>Multiple subscribers</td><td>Multiple consumer groups</td></tr>
+    <tr><td>Replay</td><td>❌</td><td>❌</td><td>✅ Up to 365 days</td></tr>
+    <tr><td>Ordering</td><td>FIFO queue only</td><td>FIFO SNS only</td><td>Per shard, by partition key</td></tr>
+    <tr><td>Use case</td><td>Decouple workers, async jobs</td><td>Fan-out notifications</td><td>Real-time analytics, IoT</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Amazon MQ</h4><ul>
+    <li>Managed Apache ActiveMQ or RabbitMQ. Protocols: AMQP, MQTT, STOMP, OpenWire, WebSocket</li>
+    <li>Use when: migrating existing on-prem message broker to cloud (NOT for new greenfield apps)</li>
+    <li>Active/Standby for HA. NOT serverless — runs on EC2 instances</li>
+    <li>NOT as scalable as SQS/SNS. Use SQS/SNS for new AWS-native apps</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>SQS: consumer must explicitly delete message. Visibility timeout ≠ message deletion</li>
+    <li>SNS does NOT store messages — if subscriber is down, message is lost (unless SQS in between)</li>
+    <li>Kinesis Firehose is NOT real-time (60s buffer minimum)</li>
+    <li>FIFO SQS: MessageGroupId required; without it, all messages in one group = no parallelism</li>
+    <li>Kinesis shard hot partition: bad partition key design → throttling. Use random suffix or UUID</li>
   </ul></div>
 </div></div>
+
+<!-- ═══════════════ CONTAINERS ═══════════════ -->
 <div class="note-section" id="note-containers" style="display:none"><div class="note-topic">
-  <h3>🐳 ECS, Fargate &amp; EKS</h3>
-
-  <div class="note-group">
-    <h4>🔑 Core Concepts</h4>
-    <ul>
-      <li><span class="highlight">ECS</span> = AWS-managed container orchestration service; runs Docker containers as <span class="highlight">Tasks</span> grouped into <span class="highlight">Services</span></li>
-      <li>Two launch types: <span class="highlight">EC2</span> and <span class="highlight">Fargate</span></li>
-      <li><span class="highlight">EC2 Launch Type</span>: you provision &amp; manage EC2 instances, must install <span class="highlight">ECS Agent</span> (pre-installed on ECS-optimized AMI), you control instance type/capacity</li>
-      <li><span class="highlight">Fargate Launch Type</span>: serverless — no EC2 to manage, AWS provisions infra, you define CPU/memory at <span class="highlight">task level</span></li>
-      <li><span class="highlight">Task Definition</span>: JSON blueprint — image, CPU, memory, port mappings, env vars, IAM task role, logging config</li>
-      <li><span class="highlight">ECS Service</span>: maintains a <span class="highlight">desired count</span> of running tasks, handles replacement of failed tasks</li>
-      <li>Load Balancer integration: <span class="highlight">ALB</span> (preferred, supports path-based routing, dynamic port mapping), <span class="highlight">NLB</span> (high throughput/low latency, TCP/UDP), Classic LB (not recommended, no dynamic port mapping)</li>
-      <li><span class="highlight">Dynamic Port Mapping</span>: ALB can route to multiple tasks on the same EC2 instance using different ports</li>
-      <li><span class="highlight">Service Auto Scaling</span>: target tracking (e.g., avg CPU 70%), step scaling, scheduled scaling — scales <em>tasks</em>, NOT EC2 instances</li>
-      <li><span class="highlight">Cluster Auto Scaling</span>: uses <span class="highlight">Capacity Providers</span> to scale underlying EC2 instances (EC2 launch type only)</li>
-      <li>Capacity Provider tied to an ASG — ECS tells ASG to add/remove instances based on task placement needs</li>
-    </ul>
+  <h3>🐳 ECS &amp; EKS</h3>
+  <div class="note-group"><h4>ECS Launch Types</h4>
+    <table class="compare-table"><thead><tr><th></th><th>EC2 Launch Type</th><th>Fargate</th></tr></thead><tbody>
+    <tr><td>Infrastructure</td><td>You manage EC2 fleet</td><td>Serverless — AWS manages</td></tr>
+    <tr><td>Cost</td><td>Lower (can use Reserved/Spot)</td><td>Higher but no idle cost</td></tr>
+    <tr><td>Control</td><td>Full (OS, networking, storage)</td><td>Limited (task-level only)</td></tr>
+    <tr><td>Best for</td><td>Predictable workloads, BYOL</td><td>Variable/unpredictable, no ops</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🔐 IAM Roles</h4>
-    <ul>
-      <li><span class="highlight">EC2 Instance Profile</span>: used by the <span class="highlight">ECS Agent</span> on EC2 instances to call ECS API, pull images from ECR, send logs to CloudWatch — applies to EC2 launch type only</li>
-      <li><span class="highlight">ECS Task Role</span>: assigned per task definition, grants the <em>container</em> permissions to access AWS services (S3, DynamoDB, etc.)</li>
-      <li>Best practice: use <span class="highlight">least privilege</span> task roles — each service gets its own task role with only required permissions</li>
-      <li><span class="badge badge-warn">Exam Trap</span>: Instance Profile ≠ Task Role. If a question asks about granting a specific container access to S3, the answer is <span class="highlight">Task Role</span>, NOT instance profile</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📦 Storage &amp; Data</h4>
-    <ul>
-      <li><span class="highlight">EFS</span> can be mounted onto ECS tasks — works with <strong>both</strong> EC2 and Fargate launch types</li>
-      <li>EFS + Fargate = serverless + shared persistent storage (great combo for multi-AZ)</li>
-      <li><span class="badge badge-warn">Exam Trap</span>: <span class="highlight">S3 cannot be mounted as a filesystem</span> on ECS tasks — if question says "mount S3", it's wrong</li>
-      <li>Ephemeral storage on Fargate: default 20 GB, configurable up to 200 GB (shared among containers in same task)</li>
-      <li>Bind mounts: share data between containers in the same task</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🖼️ ECR (Elastic Container Registry)</h4>
-    <ul>
-      <li>Stores, manages, and deploys Docker container images</li>
-      <li><span class="highlight">Private</span> repositories (IAM-controlled access) or <span class="highlight">Public</span> (ECR Public Gallery at gallery.ecr.aws)</li>
-      <li>Supports image vulnerability scanning, lifecycle policies to clean old images</li>
-      <li>Cross-region and cross-account replication supported</li>
-      <li>Images encrypted at rest with KMS</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>☸️ EKS (Elastic Kubernetes Service)</h4>
-    <ul>
-      <li>Managed <span class="highlight">Kubernetes</span> — AWS manages the control plane (API server, etcd)</li>
-      <li>Use case: company already running K8s on-prem or elsewhere → migrate to EKS</li>
-      <li>Node types:
-        <ul>
-          <li><span class="highlight">Managed Node Groups</span>: AWS provisions &amp; manages EC2 nodes, auto-scaling</li>
-          <li><span class="highlight">Self-Managed Nodes</span>: you create &amp; register EC2 instances, more control</li>
-          <li><span class="highlight">Fargate</span>: serverless pods, no nodes to manage</li>
-        </ul>
-      </li>
-      <li><span class="highlight">EKS Anywhere</span>: run EKS on your own on-premises infrastructure</li>
-      <li><span class="highlight">EKS Distro</span>: run the same K8s distribution used by EKS anywhere, self-managed</li>
-      <li>EKS supports <span class="highlight">CloudWatch Container Insights</span> for monitoring</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🚀 App Runner</h4>
-    <ul>
-      <li>Fully managed service to deploy web apps and APIs at scale — <span class="highlight">no infrastructure knowledge needed</span></li>
-      <li>Input: container image (ECR) or source code (GitHub)</li>
-      <li>Auto-scales, load balancing, encryption, health checks, VPC access — all managed</li>
-      <li>Use case: developers who want to deploy quickly without learning ECS/EKS/Fargate</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📊 ECS vs Fargate vs EKS Comparison</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>ECS on EC2</th><th>ECS on Fargate</th><th>EKS</th></tr>
-      <tr><td>Infra management</td><td>You manage EC2</td><td>Serverless</td><td>Managed control plane, you choose node type</td></tr>
-      <tr><td>Pricing</td><td>Pay for EC2 instances</td><td>Pay per vCPU + memory per task</td><td>$0.10/hr per cluster + node costs</td></tr>
-      <tr><td>Use case</td><td>Fine-grained control, GPU</td><td>Serverless simplicity</td><td>K8s ecosystem / migration</td></tr>
-      <tr><td>Scaling</td><td>Capacity Providers + ASG</td><td>Service Auto Scaling only</td><td>Cluster Autoscaler / Karpenter</td></tr>
-      <tr><td>EFS support</td><td>Yes</td><td>Yes</td><td>Yes (via CSI driver)</td></tr>
-      <tr><td>Placement strategies</td><td>spread, binpack, random</td><td>N/A (AWS decides)</td><td>K8s scheduling</td></tr>
-    </table>
-  </div>
-
-  <div class="note-group">
-    <h4>⚠️ Gotchas &amp; Exam Tips</h4>
-    <ul class="tips">
-      <li><span class="badge badge-warn">Key</span> "Serverless containers" = <span class="highlight">Fargate</span></li>
-      <li><span class="badge badge-warn">Key</span> "Migrate existing Kubernetes" = <span class="highlight">EKS</span></li>
-      <li><span class="badge badge-warn">Key</span> "No infra knowledge, just deploy code" = <span class="highlight">App Runner</span></li>
-      <li><span class="badge badge-warn">Trap</span> Service Auto Scaling scales <em>tasks</em>. Cluster Auto Scaling (Capacity Providers) scales <em>EC2 instances</em>. Don't confuse them.</li>
-      <li><span class="badge badge-warn">Trap</span> EC2 Instance Profile is NOT used in Fargate — Fargate uses only <span class="highlight">Task Execution Role</span> (to pull images, push logs) + <span class="highlight">Task Role</span> (app permissions)</li>
-      <li><span class="badge badge-warn">Trap</span> ECS placement strategies (spread, binpack, random) only apply to EC2 launch type, NOT Fargate</li>
-      <li><span class="badge badge-warn">Trap</span> If the question mentions persistent shared storage across tasks → EFS (not EBS, not S3)</li>
-      <li><span class="badge badge-warn">Trap</span> ALB is preferred over NLB for ECS unless the question specifically mentions high throughput, TCP, or static IP requirements</li>
-      <li><span class="badge badge-warn">Trap</span> EKS cluster costs $0.10/hr (~$72/month) for the control plane alone, plus compute costs</li>
-      <li><span class="badge badge-warn">Remember</span> Fargate task sizes: 0.25–16 vCPU, 0.5–120 GB memory (specific valid combinations)</li>
-      <li><span class="badge badge-warn">Remember</span> ECS on EC2: <span class="highlight">binpack</span> = cost optimize (fill instances), <span class="highlight">spread</span> = HA (distribute across AZs)</li>
-    </ul>
-  </div>
+  <div class="note-group"><h4>ECS Key Concepts</h4><ul>
+    <li><strong>Task Definition</strong>: blueprint — image, CPU/memory, environment vars, ports, volumes, IAM role</li>
+    <li><strong>Task Role</strong>: IAM permissions for the running container (e.g. access S3)</li>
+    <li><strong>Execution Role</strong>: IAM permissions for ECS agent to pull images from ECR, write logs to CloudWatch</li>
+    <li><strong>Service</strong>: maintains desired number of running tasks. Can integrate with ALB/NLB</li>
+    <li>Fargate CPU: 256–30,720 CPU units. Memory: 512 MB–120 GB</li>
+    <li>ECS Anywhere: run ECS tasks on on-prem servers</li>
+  </ul></div>
+  <div class="note-group"><h4>EKS (Elastic Kubernetes Service)</h4><ul>
+    <li>Managed Kubernetes control plane. Worker nodes: EC2 managed node groups or Fargate pods</li>
+    <li><strong>IRSA</strong> (IAM Roles for Service Accounts): fine-grained IAM per pod — preferred over node IAM role</li>
+    <li>Add-ons: VPC CNI (assigns VPC IPs to pods), CoreDNS, kube-proxy, EBS/EFS CSI driver</li>
+    <li>Use EKS when: already using Kubernetes, multi-cloud portability needed</li>
+    <li>Use ECS when: AWS-native, simpler setup, lower operational overhead</li>
+  </ul></div>
+  <div class="note-group"><h4>ECR (Elastic Container Registry)</h4><ul>
+    <li>Private Docker registry. Integrated with ECS/EKS. Images encrypted at rest (KMS)</li>
+    <li>Lifecycle policies: auto-expire old image tags. Scan on push for vulnerabilities</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Task Role ≠ Execution Role. Task = app permissions. Execution = ECS agent/infrastructure</li>
+    <li>Fargate: cannot use EC2 placement groups or dedicated hosts</li>
+    <li>ECS on EC2: instances must have ECS agent running and be in ECS cluster</li>
+    <li>ALB dynamic port mapping: ECS registers random host port — ALB handles routing (no static port needed)</li>
+  </ul></div>
 </div></div>
+
+<!-- ═══════════════ LAMBDA ═══════════════ -->
 <div class="note-section" id="note-serverless" style="display:none"><div class="note-topic">
   <h3>⚡ Lambda &amp; Serverless</h3>
-
-  <div class="note-group">
-    <h4>🔑 Core Concepts</h4>
-    <ul>
-      <li><span class="highlight">Lambda</span>: event-driven, serverless compute — pay per invocation + duration</li>
-      <li>Max execution time: <span class="highlight">15 minutes (900 seconds)</span></li>
-      <li>Memory: <span class="highlight">128 MB to 10,240 MB</span> (10 GB) in 1 MB increments</li>
-      <li>CPU scales proportionally with memory (at 1,769 MB you get 1 full vCPU)</li>
-      <li>/tmp storage: <span class="highlight">512 MB to 10,240 MB</span> (10 GB)</li>
-      <li>Deployment package: <span class="highlight">50 MB zipped</span>, <span class="highlight">250 MB unzipped</span> (including layers)</li>
-      <li>Environment variable size: <span class="highlight">4 KB</span> total</li>
-      <li>Default concurrency: <span class="highlight">1,000 per region</span> (soft limit, can request increase)</li>
-      <li>Burst concurrency: varies by region (e.g., 3,000 in us-east-1, 1,000 in most others, 500 in some)</li>
-      <li>Supports: Node.js, Python, Java, .NET, Go, Ruby, custom runtimes via Lambda Runtime API</li>
-    </ul>
+  <div class="note-group"><h4>Lambda Limits</h4>
+    <table class="compare-table"><thead><tr><th>Limit</th><th>Value</th></tr></thead><tbody>
+    <tr><td>Memory</td><td>128 MB – 10,240 MB (10 GB)</td></tr>
+    <tr><td>Timeout</td><td>Max <span class="highlight">15 minutes</span></td></tr>
+    <tr><td>/tmp storage</td><td>512 MB – 10,240 MB (10 GB)</td></tr>
+    <tr><td>Deployment package (zip)</td><td>50 MB (250 MB unzipped)</td></tr>
+    <tr><td>Container image</td><td>10 GB</td></tr>
+    <tr><td>Env variables</td><td>4 KB total</td></tr>
+    <tr><td>Concurrency (default)</td><td>1,000/region (soft limit)</td></tr>
+    <tr><td>Burst concurrency</td><td>3,000 initial (500–1,000/min ramp)</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🎯 Triggers &amp; Invocation Models</h4>
-    <ul>
-      <li><strong>Synchronous</strong>: API Gateway, ALB, CloudFront, Cognito — caller waits for response</li>
-      <li><strong>Asynchronous</strong>: S3, SNS, EventBridge, CloudWatch Events, SES, CodeCommit, CodePipeline — Lambda retries <span class="highlight">twice</span> on failure, then sends to <span class="highlight">DLQ</span> (SQS/SNS) or <span class="highlight">Destination</span></li>
-      <li><strong>Event Source Mapping</strong>: Kinesis, DynamoDB Streams, SQS — Lambda <span class="highlight">polls</span> the source, processes in batches</li>
-      <li><span class="highlight">Destinations</span> (async only): route success/failure to SQS, SNS, Lambda, or EventBridge — <span class="badge badge-warn">preferred over DLQ</span> (provides more context: request payload, response, etc.)</li>
-    </ul>
+  <div class="note-group"><h4>Invocation Models</h4>
+    <table class="compare-table"><thead><tr><th>Model</th><th>Source Examples</th><th>Error Handling</th></tr></thead><tbody>
+    <tr><td>Synchronous</td><td>API GW, ALB, Cognito, CloudFront</td><td>Caller handles error</td></tr>
+    <tr><td>Asynchronous</td><td>S3 events, SNS, EventBridge</td><td>2 retries → DLQ (SQS/SNS)</td></tr>
+    <tr><td>Event Source Mapping</td><td>SQS, Kinesis, DynamoDB Streams, MSK</td><td>Bisect batch on error, DLQ</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🔄 Concurrency &amp; Cold Starts</h4>
-    <ul>
-      <li><span class="highlight">Cold start</span> = download code → start runtime → run init code → execute handler</li>
-      <li><span class="highlight">Reserved Concurrency</span>: caps a function's max concurrency — guarantees capacity for that function, but also limits it. <span class="badge badge-warn">Protects other functions from being starved</span></li>
-      <li><span class="highlight">Provisioned Concurrency</span>: pre-warms N instances — <span class="highlight">eliminates cold starts</span>. Costs money even when idle. Use with Application Auto Scaling to schedule.</li>
-      <li>Unreserved concurrency: shared pool for all functions without reserved concurrency</li>
-      <li>If total concurrency exceeds limit → <span class="highlight">throttling</span> (synchronous: 429 error, async: retries then DLQ)</li>
-    </ul>
+  <div class="note-group"><h4>Concurrency</h4><ul>
+    <li><strong>Reserved Concurrency</strong>: guarantee N instances for a function. Throttles above N. No cold starts guaranteed</li>
+    <li><strong>Provisioned Concurrency</strong>: pre-initialise N instances. Eliminates cold starts. Costs extra</li>
+    <li>Unreserved pool: shared among all functions. Default 1,000/region</li>
+    <li>Throttled invocations return 429 (sync) or go to retry queue (async)</li>
+  </ul></div>
+  <div class="note-group"><h4>Lambda@Edge vs CloudFront Functions</h4>
+    <table class="compare-table"><thead><tr><th></th><th>CloudFront Functions</th><th>Lambda@Edge</th></tr></thead><tbody>
+    <tr><td>Location</td><td>All 400+ edge locations</td><td>Regional edge caches only</td></tr>
+    <tr><td>Runtime</td><td>JavaScript only</td><td>Node.js, Python</td></tr>
+    <tr><td>Max exec time</td><td>1ms</td><td>5–30 seconds</td></tr>
+    <tr><td>Max memory</td><td>2 MB</td><td>128 MB – 10 GB</td></tr>
+    <tr><td>Use case</td><td>Simple header/redirect/URL rewrites</td><td>Complex auth, DB queries, A/B testing</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🌐 Lambda@Edge vs CloudFront Functions</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>CloudFront Functions</th><th>Lambda@Edge</th></tr>
-      <tr><td>Runs at</td><td>218+ Edge Locations</td><td>Regional Edge Caches</td></tr>
-      <tr><td>Language</td><td>JavaScript only</td><td>Node.js, Python</td></tr>
-      <tr><td>Max execution</td><td>&lt;1 ms</td><td>5s (viewer) / 30s (origin)</td></tr>
-      <tr><td>Max memory</td><td>2 MB</td><td>128–10,240 MB</td></tr>
-      <tr><td>Scale</td><td>Millions req/sec</td><td>Thousands req/sec</td></tr>
-      <tr><td>Network/File access</td><td>No</td><td>Yes</td></tr>
-      <tr><td>Request body access</td><td>No</td><td>Yes</td></tr>
-      <tr><td>Cost</td><td>1/6 of Lambda@Edge</td><td>Higher</td></tr>
-      <tr><td>Triggers</td><td>Viewer request/response only</td><td>Viewer + Origin request/response</td></tr>
-      <tr><td>Use case</td><td>Cache key normalization, URL rewrites, header manipulation</td><td>Complex logic, A/B testing, accessing AWS services</td></tr>
-    </table>
-  </div>
-
-  <div class="note-group">
-    <h4>🔒 Lambda &amp; VPC</h4>
-    <ul>
-      <li>Lambda <strong>NOT</strong> in VPC: has internet access by default, can call public APIs and AWS services</li>
-      <li>Lambda <strong>IN</strong> VPC: gets ENI in specified subnets. <span class="highlight">No internet access by default</span></li>
-      <li>Lambda in VPC + internet needed → deploy Lambda in <span class="highlight">private subnet</span> + <span class="highlight">NAT Gateway</span> in public subnet</li>
-      <li><span class="badge badge-warn">Trap</span>: Lambda in VPC in a <em>public subnet</em> does NOT get internet — it doesn't get a public IP. Must use NAT in a separate public subnet.</li>
-      <li>Lambda in VPC accessing AWS services: use <span class="highlight">VPC Endpoints</span> (no internet needed) or NAT Gateway</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚖️ ALB + Lambda</h4>
-    <ul>
-      <li>ALB can invoke Lambda as a target group target</li>
-      <li><span class="highlight">Multi-value headers</span>: when enabled, query string params with same key become arrays in the event object</li>
-      <li>Lambda response format must include: <code>statusCode</code>, <code>headers</code>, <code>body</code>, optional <code>isBase64Encoded</code></li>
-      <li>ALB performs HTTP ↔ JSON conversion (request to JSON event, JSON response to HTTP)</li>
-      <li>Health checks: ALB can health-check the Lambda function</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📚 Layers &amp; Extensions</h4>
-    <ul>
-      <li><span class="highlight">Layers</span>: reusable code/libraries packaged as ZIP, up to <span class="highlight">5 layers</span> per function</li>
-      <li>Layers count toward the 250 MB unzipped deployment limit</li>
-      <li>Use case: share common dependencies (SDKs, libraries) across multiple functions</li>
-      <li><span class="highlight">Extensions</span>: integrate monitoring, security, governance tools (run as companion processes)</li>
-      <li>Internal extensions: run in the same process. External extensions: run as separate processes.</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📨 Event Source Mapping Details</h4>
-    <ul>
-      <li><strong>Kinesis / DynamoDB Streams</strong>: Lambda polls shards, processes in order per shard, supports batch window, bisect on error, max retry attempts, parallelization factor (up to 10 per shard)</li>
-      <li><strong>SQS</strong>: Lambda polls queue, batch size <span class="highlight">1–10</span> (standard) or <span class="highlight">up to 10,000</span> (with batch window). Uses long polling.</li>
-      <li>SQS FIFO: Lambda scales to number of active message groups</li>
-      <li>SQS standard: Lambda scales up to <span class="highlight">1,000 batches</span> of concurrent functions (up to 60 more per minute)</li>
-      <li><span class="badge badge-warn">Key</span>: On failure with event source mapping → records return to source (no DLQ on Lambda side). Use SQS DLQ on the <em>source queue</em> or a Lambda <span class="highlight">Destination</span> for failures.</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚠️ Gotchas &amp; Exam Tips</h4>
-    <ul class="tips">
-      <li><span class="badge badge-warn">Trap</span> 15-minute timeout — if task takes longer, use Step Functions, ECS, or Batch instead</li>
-      <li><span class="badge badge-warn">Trap</span> "Eliminate cold starts" = <span class="highlight">Provisioned Concurrency</span> (NOT reserved concurrency)</li>
-      <li><span class="badge badge-warn">Trap</span> Reserved concurrency set to 0 = function is <strong>disabled</strong> (throttled to 0)</li>
-      <li><span class="badge badge-warn">Trap</span> DLQ is for <em>async</em> invocations only. For event source mapping (SQS/Kinesis/DDB), configure DLQ on the <em>source</em> or use Destinations</li>
-      <li><span class="badge badge-warn">Trap</span> Destinations are recommended over DLQ — they capture both success and failure with full context</li>
-      <li><span class="badge badge-warn">Trap</span> Lambda in VPC + needs DynamoDB access → use <span class="highlight">VPC Gateway Endpoint</span> for DynamoDB (free, no NAT needed)</li>
-      <li><span class="badge badge-warn">Remember</span> "Simple URL rewrite/redirect at edge" = CloudFront Functions. "Complex logic at edge accessing AWS" = Lambda@Edge</li>
-      <li><span class="badge badge-warn">Remember</span> Lambda function URL: built-in HTTPS endpoint (no API Gateway needed), supports IAM auth or no auth</li>
-      <li><span class="badge badge-warn">Remember</span> X-Ray tracing: enable Active Tracing in Lambda config, SDK auto-instrumented, no daemon needed (Lambda manages it)</li>
-      <li><span class="badge badge-warn">Trap</span> /tmp is ephemeral per execution environment — data persists across warm invocations of the <em>same</em> instance but is NOT guaranteed</li>
-      <li><span class="badge badge-warn">Trap</span> Env var 4 KB limit — for larger config, use SSM Parameter Store or Secrets Manager and fetch at init</li>
-    </ul>
-  </div>
+  <div class="note-group"><h4>Lambda Best Practices</h4><ul>
+    <li>Initialize SDK clients and DB connections <strong>outside</strong> the handler (reused across warm invocations)</li>
+    <li>Use <code>/tmp</code> for temp storage within execution (persists across warm invocations)</li>
+    <li>Set environment variables for configuration. Use Secrets Manager for secrets</li>
+    <li>For VPC access: Lambda needs ENI in private subnet. VPC adds ~10s cold start. Use Provisioned Concurrency</li>
+    <li><strong>Lambda Destinations</strong>: on success/failure → SQS, SNS, Lambda, EventBridge</td>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Lambda timeout max 15 min — not suitable for long-running jobs (use Fargate, EC2, Batch)</li>
+    <li>Cold start: first invocation or after idle period. VPC + Lambda = much longer cold start</li>
+    <li>Async retries: 2 attempts then to DLQ — configure DLQ for critical async functions</li>
+    <li>Event Source Mapping (SQS): Lambda polls queue. Not push — Lambda fetches messages</li>
+    <li>Reserved concurrency = 0 → function is effectively disabled (all invocations throttled)</li>
+  </ul></div>
 </div></div>
+
+<!-- ═══════════════ DYNAMODB ═══════════════ -->
 <div class="note-section" id="note-dynamo" style="display:none"><div class="note-topic">
-  <h3>🗄️ DynamoDB &amp; DAX</h3>
-
-  <div class="note-group">
-    <h4>🔑 Core Concepts</h4>
-    <ul>
-      <li><span class="highlight">DynamoDB</span>: fully managed NoSQL, key-value + document database, serverless, single-digit ms latency</li>
-      <li>Max item size: <span class="highlight">400 KB</span></li>
-      <li>Primary key options:
-        <ul>
-          <li><span class="highlight">Partition Key only</span> (simple): must be unique per item</li>
-          <li><span class="highlight">Partition Key + Sort Key</span> (composite): combination must be unique; same PK can have multiple items with different SKs</li>
-        </ul>
-      </li>
-      <li>Supported data types: String, Number, Binary, Boolean, Null, List, Map, String Set, Number Set, Binary Set</li>
-      <li><span class="highlight">TTL</span>: auto-delete expired items at no extra cost. Items may remain up to <span class="highlight">48 hours</span> after expiration before deletion. Expired items still appear in queries/scans until actually deleted.</li>
-      <li><span class="highlight">PartiQL</span>: SQL-compatible query language for DynamoDB (SELECT, INSERT, UPDATE, DELETE)</li>
-    </ul>
+  <h3>📦 DynamoDB</h3>
+  <div class="note-group"><h4>Core Concepts</h4><ul>
+    <li>Serverless, fully managed NoSQL. Single-digit millisecond performance at any scale</li>
+    <li><strong>Partition Key</strong>: required, determines data distribution. Must be unique (if no sort key)</li>
+    <li><strong>Sort Key</strong>: optional, enables range queries. PK + SK together must be unique</li>
+    <li>Max item size: <span class="highlight">400 KB</span></li>
+    <li>Supports: strings, numbers, binary, sets, lists, maps, booleans, null</li>
+  </ul></div>
+  <div class="note-group"><h4>Capacity Modes</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Provisioned</th><th>On-Demand</th></tr></thead><tbody>
+    <tr><td>Cost</td><td>Cheaper for predictable load</td><td>More expensive per request</td></tr>
+    <tr><td>Scaling</td><td>Manual or auto-scaling</td><td>Instant auto-scale</td></tr>
+    <tr><td>Best for</td><td>Known, steady traffic</td><td>Unpredictable or spiky traffic</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>💰 Capacity Modes</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>Provisioned</th><th>On-Demand</th></tr>
-      <tr><td>Capacity</td><td>Set RCU/WCU explicitly</td><td>Auto — pay per request</td></tr>
-      <tr><td>Auto-scaling</td><td>Available (target utilization)</td><td>Built-in</td></tr>
-      <tr><td>Cost</td><td>Lower for predictable workloads</td><td>~2.5x more expensive</td></tr>
-      <tr><td>Best for</td><td>Predictable, steady traffic</td><td>Unpredictable, spiky, new tables</td></tr>
-      <tr><td>Throttling</td><td>ProvisionedThroughputExceededException</td><td>Rare (can still throttle on sudden 2x spike)</td></tr>
-      <tr><td>Mode switch</td><td>Can switch once every 24 hrs</td><td>Can switch once every 24 hrs</td></tr>
-    </table>
+  <div class="note-group"><h4>RCU / WCU Formulas</h4><ul>
+    <li><strong>1 RCU</strong> = 1 strongly consistent read/s of item ≤4 KB OR 2 eventually consistent reads/s</li>
+    <li><strong>1 WCU</strong> = 1 write/s of item ≤1 KB</li>
+    <li>Example: 10 KB item read (strongly consistent) = <span class="highlight">3 RCU</span> (ceil(10/4))</li>
+    <li>Example: 10 KB item write = <span class="highlight">10 WCU</span></li>
+  </ul></div>
+  <div class="note-group"><h4>Indexes</h4>
+    <table class="compare-table"><thead><tr><th></th><th>LSI (Local Secondary Index)</th><th>GSI (Global Secondary Index)</th></tr></thead><tbody>
+    <tr><td>When created</td><td>At table creation ONLY</td><td>Anytime</td></tr>
+    <tr><td>Partition key</td><td>Same as table</td><td>Any attribute</td></tr>
+    <tr><td>Capacity</td><td>Shares table RCU/WCU</td><td>Separate RCU/WCU (extra cost)</td></tr>
+    <tr><td>Max size per PK</td><td>10 GB</td><td>Unlimited</td></tr>
+    <tr><td>Strongly consistent reads?</td><td>✅ Yes</td><td>❌ Eventually consistent only</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>📐 RCU / WCU Calculations</h4>
-    <ul>
-      <li><span class="highlight">1 WCU</span> = 1 write per second for an item up to <span class="highlight">1 KB</span>. Item &gt;1 KB → round up (e.g., 2.5 KB item = 3 WCU)</li>
-      <li><span class="highlight">1 RCU</span> = 1 <strong>strongly consistent</strong> read per second for an item up to <span class="highlight">4 KB</span></li>
-      <li><span class="highlight">1 RCU</span> = 2 <strong>eventually consistent</strong> reads per second for an item up to <span class="highlight">4 KB</span></li>
-      <li><span class="highlight">Transactional</span> reads/writes consume <span class="highlight">2x</span> the capacity (1 transactional write of 1 KB = 2 WCU)</li>
-      <li>Example: 10 strongly consistent reads/sec of 6 KB items = 10 × ceil(6/4) = 10 × 2 = <strong>20 RCU</strong></li>
-      <li>Example: 10 eventually consistent reads/sec of 6 KB items = (10 × 2) / 2 = <strong>10 RCU</strong></li>
-      <li>Example: 5 writes/sec of 4.5 KB items = 5 × ceil(4.5/1) = 5 × 5 = <strong>25 WCU</strong></li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📇 Indexes: LSI vs GSI</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>LSI (Local Secondary Index)</th><th>GSI (Global Secondary Index)</th></tr>
-      <tr><td>Created</td><td>At table creation only</td><td>Anytime</td></tr>
-      <tr><td>Partition key</td><td>Same as base table</td><td>Different partition key</td></tr>
-      <tr><td>Sort key</td><td>Different sort key</td><td>Different sort key</td></tr>
-      <tr><td>Capacity</td><td>Shares table's RCU/WCU</td><td>Own RCU/WCU (must provision)</td></tr>
-      <tr><td>Consistency</td><td>Strong or eventual</td><td><span class="highlight">Eventually consistent ONLY</span></td></tr>
-      <tr><td>Limit</td><td>Max 5 per table</td><td>Max 20 per table</td></tr>
-      <tr><td>Size limit</td><td>10 GB per partition key value</td><td>No size limit</td></tr>
-    </table>
-    <ul>
-      <li><span class="badge badge-warn">Trap</span> GSI throttling affects the base table — if GSI WCU is exhausted, writes to the base table that update the GSI are throttled</li>
-      <li><span class="badge badge-warn">Trap</span> LSI can ONLY be created at table creation — cannot add later</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔄 DynamoDB Streams</h4>
-    <ul>
-      <li>Ordered stream of <span class="highlight">item-level modifications</span> (insert, update, delete)</li>
-      <li>Retention: <span class="highlight">24 hours</span></li>
-      <li>Stream records contain: KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, or NEW_AND_OLD_IMAGES</li>
-      <li>Can trigger <span class="highlight">Lambda</span> functions (event source mapping)</li>
-      <li>Use cases: cross-region replication (Global Tables require it), real-time analytics, send notifications on changes</li>
-      <li><span class="highlight">Kinesis Data Streams for DynamoDB</span>: alternative to DynamoDB Streams with longer retention (up to 365 days) and higher throughput</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚡ DAX (DynamoDB Accelerator)</h4>
-    <ul>
-      <li>In-memory cache for DynamoDB — <span class="highlight">microsecond</span> latency for cached reads</li>
-      <li><span class="highlight">No application code change</span> needed (API-compatible with DynamoDB)</li>
-      <li>Default TTL: <span class="highlight">5 minutes</span> (item cache), 5 minutes (query cache)</li>
-      <li>Multi-AZ (3 nodes minimum recommended for production)</li>
-      <li>Solves <span class="highlight">hot partition / hot key</span> problem</li>
-      <li><span class="badge badge-warn">Critical</span> DAX is <strong>NOT</strong> suitable for <span class="highlight">strongly consistent reads</span> — DAX only supports eventually consistent reads</li>
-      <li><span class="badge badge-warn">Key</span> DAX vs ElastiCache: DAX = individual item/query cache for DynamoDB. ElastiCache = aggregation/computation results store, general-purpose cache</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🌍 Global Tables</h4>
-    <ul>
-      <li><span class="highlight">Multi-region, multi-active</span> (read/write in any region)</li>
-      <li>Requires <span class="highlight">DynamoDB Streams enabled</span></li>
-      <li>Replication is <span class="highlight">eventually consistent</span> across regions (typically sub-second)</li>
-      <li>Use cases: disaster recovery, low-latency global access, active-active</li>
-      <li>Last writer wins conflict resolution</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔧 Operations &amp; API</h4>
-    <ul>
-      <li><span class="highlight">Query</span>: by partition key (required) + optional sort key condition — efficient, returns sorted results</li>
-      <li><span class="highlight">Scan</span>: reads entire table — expensive, consumes lots of RCU. Use <span class="highlight">parallel scan</span> for speed, <span class="highlight">Limit</span> parameter, or <span class="highlight">FilterExpression</span> (applied AFTER read, still consumes full RCU)</li>
-      <li><span class="highlight">BatchWriteItem</span>: up to <span class="highlight">25</span> PutItem/DeleteItem in one call (max 16 MB)</li>
-      <li><span class="highlight">BatchGetItem</span>: up to <span class="highlight">100</span> items (max 16 MB)</li>
-      <li><span class="highlight">TransactWriteItems / TransactGetItems</span>: ACID transactions, up to <span class="highlight">100</span> actions, all-or-nothing</li>
-      <li>Conditional writes: PutItem/UpdateItem/DeleteItem with ConditionExpression — idempotent, prevents overwriting</li>
-      <li><span class="highlight">ProjectionExpression</span>: return only specified attributes (reduces data transfer)</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚠️ Gotchas &amp; Exam Tips</h4>
-    <ul class="tips">
-      <li><span class="badge badge-warn">Trap</span> FilterExpression on Scan/Query does NOT reduce RCU consumption — filtering happens <em>after</em> data is read</li>
-      <li><span class="badge badge-warn">Trap</span> 400 KB max item size — for larger objects, store in S3 and keep S3 URL in DynamoDB</li>
-      <li><span class="badge badge-warn">Trap</span> GSI eventually consistent ONLY — if question requires strong consistency on an alternate key, it cannot use GSI</li>
-      <li><span class="badge badge-warn">Trap</span> TTL does NOT delete immediately — up to 48 hours delay. If you need instant deletion, call DeleteItem</li>
-      <li><span class="badge badge-warn">Trap</span> "ProvisionedThroughputExceededException" → solutions: exponential backoff, DAX for reads, increase capacity, better partition key design</li>
-      <li><span class="badge badge-warn">Trap</span> DAX cannot help with write-heavy workloads — it only caches reads</li>
-      <li><span class="badge badge-warn">Key</span> "Serverless NoSQL with single-digit ms" = DynamoDB</li>
-      <li><span class="badge badge-warn">Key</span> "Hot partition" → use DAX or redesign partition key (add random suffix)</li>
-      <li><span class="badge badge-warn">Key</span> "Multi-region active-active database" = DynamoDB Global Tables</li>
-      <li><span class="badge badge-warn">Remember</span> WCU/RCU calculations appear frequently — practice ceiling division for item sizes</li>
-      <li><span class="badge badge-warn">Remember</span> Batch operations return UnprocessedItems/UnprocessedKeys — must retry with exponential backoff</li>
-    </ul>
-  </div>
+  <div class="note-group"><h4>Advanced Features</h4><ul>
+    <li><strong>DAX (DynamoDB Accelerator)</strong>: in-memory cache, microsecond reads. Write-through. API-compatible. No code change needed</li>
+    <li><strong>DynamoDB Streams</strong>: ordered stream of item changes (24-hr retention). Trigger Lambda for event-driven patterns</li>
+    <li><strong>Global Tables</strong>: multi-region active-active replication. Uses DynamoDB Streams. Requires On-Demand or auto-scaled provisioned</li>
+    <li><strong>TTL</strong>: automatically delete items after a timestamp attribute expires. No RCU/WCU consumed</li>
+    <li><strong>Transactions</strong>: ACID across multiple items/tables. Max <span class="highlight">25 items or 4 MB</span> per transaction. Costs 2×RCU/WCU</li>
+    <li><strong>Point-in-Time Recovery (PITR)</strong>: continuous backups, restore to any second in last 35 days</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Scan = reads entire table (expensive). Always use Query with partition key</li>
+    <li>LSI: 10 GB limit per partition key value — plan data modelling carefully</li>
+    <li>GSI eventually consistent only — cannot guarantee immediate read-your-writes</li>
+    <li>Hot partitions: poor partition key (e.g. status field with only 3 values) → throttling</li>
+    <li>TTL deletion is async (up to 48 hr delay). Filter TTL-expired items in application</li>
+    <li>Global Tables: eventual consistency. Each region can write — no automatic conflict resolution</li>
+  </ul></div>
 </div></div>
+
+<!-- ═══════════════ API GW ═══════════════ -->
+<div class="note-section" id="note-apigw" style="display:none"><div class="note-topic">
+  <h3>🔌 API Gateway / Step Functions / Cognito</h3>
+  <div class="note-group"><h4>API Gateway Types</h4>
+    <table class="compare-table"><thead><tr><th></th><th>REST API</th><th>HTTP API</th><th>WebSocket API</th></tr></thead><tbody>
+    <tr><td>Latency</td><td>Higher</td><td>Lower (~60% cheaper)</td><td>Persistent connections</td></tr>
+    <tr><td>Features</td><td>Full (cache, usage plans, API keys, request validation)</td><td>Subset</td><td>Stateful (for chat, gaming)</td></tr>
+    <tr><td>Caching</td><td>✅ 0.5–237 GB per stage</td><td>❌</td><td>❌</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>API GW Key Facts</h4><ul>
+    <li>Timeout: max <span class="highlight">29 seconds</span> (integration timeout). Lambda max 15 min ≠ API GW max</li>
+    <li>Payload: max <span class="highlight">10 MB</span></li>
+    <li>Throttling: <span class="highlight">10,000 req/s</span> (account limit), burst to <span class="highlight">5,000</span>. Returns 429</li>
+    <li>Stages: dev/staging/prod. Stage variables for routing. Canary deployment (split % to new version)</li>
+    <li>Usage Plans + API Keys: throttle and quota per customer</li>
+    <li><strong>Integration Types</strong>: AWS_PROXY (Lambda proxy), AWS (transformed), HTTP, HTTP_PROXY, MOCK</li>
+  </ul></div>
+  <div class="note-group"><h4>Step Functions</h4><ul>
+    <li>Orchestrate serverless workflows as state machines (JSON-based ASL — Amazon States Language)</li>
+    <li>State types: Task, Pass, Choice, Wait, Parallel, Map, Succeed, Fail</li>
+    <li><strong>Standard</strong>: max 1 year, exactly-once, auditable history (25,000 events)</li>
+    <li><strong>Express</strong>: max 5 min, at-least-once, high throughput (IoT, streaming)</li>
+    <li>Built-in retry, catch, and error handling per state</li>
+    <li>Integrates with: Lambda, ECS, DynamoDB, SQS, SNS, Glue, EMR, SageMaker, Bedrock</li>
+  </ul></div>
+  <div class="note-group"><h4>Cognito</h4>
+    <table class="compare-table"><thead><tr><th></th><th>User Pools</th><th>Identity Pools</th></tr></thead><tbody>
+    <tr><td>Purpose</td><td>Authentication (who are you?)</td><td>Authorization (what AWS can you access?)</td></tr>
+    <tr><td>Provides</td><td>JWT tokens (ID/Access/Refresh)</td><td>Temporary AWS credentials (STS)</td></tr>
+    <tr><td>Users</td><td>Managed user directory + social/SAML IdP</td><td>Maps identities to IAM roles</td></tr>
+    <tr><td>MFA</td><td>✅ Yes</td><td>N/A</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Cognito Flow (Combined)</h4>
+    <pre style="font-size:.78rem;color:var(--text);line-height:1.6;overflow-x:auto">
+  User → [User Pool] → JWT token
+       → [Identity Pool] exchanges JWT → STS temp credentials
+       → Access AWS services (S3, DynamoDB, etc.) with IAM role</pre>
+  </div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>API GW timeout 29s — if Lambda needs &gt;29s, use async invocation + polling or Step Functions</li>
+    <li>Cognito User Pool ≠ access to AWS. Need Identity Pool to get AWS credentials</li>
+    <li>Step Functions Express: no exactly-once — use for idempotent operations only</li>
+    <li>API GW cache: per stage, per method. Invalidate with Cache-Control: max-age=0 header</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ MONITORING ═══════════════ -->
 <div class="note-section" id="note-monitoring" style="display:none"><div class="note-topic">
-  <h3>📊 CloudWatch, CloudTrail &amp; Config</h3>
-
-  <div class="note-group">
-    <h4>🔑 CloudWatch Metrics</h4>
-    <ul>
-      <li>Default monitoring: every <span class="highlight">5 minutes</span> (free)</li>
-      <li>Detailed monitoring: every <span class="highlight">1 minute</span> (extra cost)</li>
-      <li>Custom metrics: <span class="highlight">Standard resolution = 1 min</span>, <span class="highlight">High resolution = 1 sec</span> (StorageResolution API parameter)</li>
-      <li>Metric data retention:
-        <ul>
-          <li>Period &lt;60 sec → retained <span class="highlight">3 hours</span></li>
-          <li>Period 60 sec → retained <span class="highlight">15 days</span></li>
-          <li>Period 300 sec (5 min) → retained <span class="highlight">63 days</span></li>
-          <li>Period 3600 sec (1 hr) → retained <span class="highlight">455 days</span> (15 months)</li>
-        </ul>
-      </li>
-      <li><span class="badge badge-warn">Critical</span> EC2 default metrics do <strong>NOT</strong> include: <span class="highlight">memory utilization</span>, <span class="highlight">disk space</span>, <span class="highlight">swap usage</span> — need <span class="highlight">CloudWatch Agent</span></li>
-      <li>Default EC2 metrics: CPU, network in/out, disk read/write (ops + bytes), status checks</li>
-    </ul>
+  <h3>📊 Monitoring (CloudWatch / CloudTrail / Config / X-Ray)</h3>
+  <div class="note-group"><h4>CloudWatch Overview</h4><ul>
+    <li><strong>Metrics</strong>: time-series data. Default EC2 metrics every <span class="highlight">5 min</span>. Detailed monitoring: <span class="highlight">1 min</span> (extra cost)</li>
+    <li>Custom Metrics: push via PutMetricData API. High-resolution: 1s granularity</li>
+    <li>Retention: 3 hrs (1s), 15 days (1 min), 63 days (5 min), 15 months (1 hr)</li>
+    <li><strong>Dimensions</strong>: up to <span class="highlight">30</span> per metric. Key-value pairs to filter (e.g. InstanceId)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudWatch Alarms</h4><ul>
+    <li>States: <strong>OK</strong>, <strong>ALARM</strong>, <strong>INSUFFICIENT_DATA</strong></li>
+    <li>Actions: SNS notification, Auto Scaling policy, EC2 action (stop/terminate/reboot/recover)</li>
+    <li><strong>Composite Alarms</strong>: AND/OR logic across multiple alarms — reduce alarm noise</li>
+    <li><strong>Anomaly Detection</strong>: ML baseline → alarm when metric deviates from expected band</li>
+    <li>EC2 Instance Recovery: same instance ID, same private IP, same Elastic IP, same metadata</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudWatch Logs</h4><ul>
+    <li>Log Groups → Log Streams → Log Events</li>
+    <li>Retention: <span class="highlight">1 day – never expire</span> (default = never expire = costs $$$)</li>
+    <li><strong>Metric Filters</strong>: extract metrics from log patterns (e.g. count ERROR occurrences)</li>
+    <li><strong>Logs Insights</strong>: interactive SQL-like query engine. Query across multiple log groups</li>
+    <li><strong>Subscription Filters</strong>: stream logs to Kinesis, Lambda, Firehose in near real-time</li>
+    <li><strong>Live Tail</strong>: real-time log streaming in console</li>
+    <li>Send to: S3 (export, batch), Kinesis Firehose (near real-time to S3/Redshift/OpenSearch)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudWatch Agent</h4><ul>
+    <li>Required for: memory utilization, disk space, custom app metrics on EC2</li>
+    <li>Unified Agent: sends both metrics AND logs. Configure via SSM Parameter Store</li>
+    <li>Without agent: EC2 only sends CPU, Network, Disk I/O (NOT memory, NOT disk utilization)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudTrail</h4><ul>
+    <li>API audit log — WHO called WHAT API from WHERE at WHEN</li>
+    <li>Console in CloudTrail: <span class="highlight">90-day</span> retention. Long-term: send to S3</li>
+    <li><strong>Management Events</strong>: default enabled. API calls that configure resources (CreateBucket, RunInstances)</li>
+    <li><strong>Data Events</strong>: off by default. High-volume ops: S3 object-level (GetObject, PutObject), Lambda invocations</li>
+    <li><strong>CloudTrail Insights</strong>: detects unusual write activity using ML</li>
+    <li>Log file validation: SHA-256 hash — detect tampering</li>
+    <li>Organization Trail: one trail for all accounts in an AWS Organization</li>
+    <li>Multi-region trail: single trail covering all regions</li>
+  </ul></div>
+  <div class="note-group"><h4>AWS Config</h4><ul>
+    <li>Records configuration state of AWS resources over time. Answers: "Was my SG open to 0.0.0.0/0 last Tuesday?"</li>
+    <li><strong>Config Rules</strong>: evaluate compliance. AWS managed (75+) or custom (Lambda-based)</li>
+    <li><strong>Remediation</strong>: auto-fix via SSM Automation documents</li>
+    <li>Per-region service. Use Config Aggregator for cross-account/region view</li>
+    <li>NOT preventive — detects non-compliance after the fact (use SCPs/IAM for prevention)</li>
+  </ul></div>
+  <div class="note-group"><h4>CloudTrail vs CloudWatch vs Config</h4>
+    <table class="compare-table"><thead><tr><th>Service</th><th>Answers</th><th>Data Type</th></tr></thead><tbody>
+    <tr><td>CloudTrail</td><td>Who called what API when from where?</td><td>API call logs</td></tr>
+    <tr><td>CloudWatch</td><td>Is this metric within threshold?</td><td>Metrics + Logs + Alarms</td></tr>
+    <tr><td>AWS Config</td><td>Is this resource configured correctly?</td><td>Resource config history</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🚨 CloudWatch Alarms</h4>
-    <ul>
-      <li>Three states: <span class="highlight">OK</span>, <span class="highlight">ALARM</span>, <span class="highlight">INSUFFICIENT_DATA</span></li>
-      <li>Evaluation period: how many data points to evaluate</li>
-      <li>Actions on ALARM:
-        <ul>
-          <li><span class="highlight">EC2</span>: stop, terminate, reboot, recover</li>
-          <li><span class="highlight">Auto Scaling</span>: scale out/in</li>
-          <li><span class="highlight">SNS</span>: send notification (email, Lambda, HTTP, SQS)</li>
-        </ul>
-      </li>
-      <li><span class="highlight">Composite Alarms</span>: combine multiple alarms with AND/OR logic — reduces alarm noise</li>
-      <li>EC2 instance recovery: same private IP, public IP, EIP, metadata, placement group. <span class="badge badge-warn">Only works with EBS-backed instances</span></li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📝 CloudWatch Logs</h4>
-    <ul>
-      <li>Hierarchy: <span class="highlight">Log Groups</span> → <span class="highlight">Log Streams</span></li>
-      <li>Retention: configurable from <span class="highlight">1 day to 10 years</span>, or <span class="highlight">never expire</span></li>
-      <li>Export to S3: batch export (up to 12 hours delay). For real-time → use <span class="highlight">Subscriptions</span></li>
-      <li><span class="highlight">Metric Filters</span>: parse log data → extract custom metrics (e.g., count errors, extract latency values)</li>
-      <li><span class="highlight">Subscription Filters</span>: real-time streaming to Lambda, Kinesis Data Streams, Kinesis Data Firehose</li>
-      <li><span class="highlight">CloudWatch Logs Insights</span>: interactive query language for searching/analyzing logs</li>
-      <li><span class="highlight">Cross-account log subscriptions</span>: aggregate logs from multiple accounts</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔧 CloudWatch Agents</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>CW Logs Agent (old)</th><th>Unified CW Agent (new)</th></tr>
-      <tr><td>Status</td><td>Deprecated</td><td><span class="highlight">Recommended</span></td></tr>
-      <tr><td>Logs</td><td>Yes</td><td>Yes</td></tr>
-      <tr><td>System metrics</td><td>No</td><td>Yes (RAM, disk, processes, etc.)</td></tr>
-      <tr><td>Config</td><td>Manual</td><td>SSM Parameter Store integration</td></tr>
-      <tr><td>Runs on</td><td>EC2, on-prem</td><td>EC2, on-prem, ECS, Lambda</td></tr>
-    </table>
-    <ul>
-      <li><span class="highlight">Contributor Insights</span>: analyze log data to find top-N contributors (e.g., heaviest VPC Flow Log IPs, busiest DNS queries)</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔬 X-Ray</h4>
-    <ul>
-      <li><span class="highlight">Distributed tracing</span>: visualize request flow across microservices</li>
-      <li>Requires: <span class="highlight">X-Ray SDK</span> in application code + <span class="highlight">X-Ray Daemon</span> on compute</li>
-      <li>Key concepts:
-        <ul>
-          <li><span class="highlight">Segments</span>: data from a service</li>
-          <li><span class="highlight">Subsegments</span>: granular detail (AWS calls, HTTP calls, SQL queries)</li>
-          <li><span class="highlight">Traces</span>: end-to-end request across services</li>
-          <li><span class="highlight">Annotations</span>: key-value pairs, <strong>indexed</strong>, used for filtering traces</li>
-          <li><span class="highlight">Metadata</span>: key-value pairs, <strong>NOT indexed</strong>, additional data storage</li>
-        </ul>
-      </li>
-      <li>Default sampling: <span class="highlight">1 request/sec + 5% additional</span> (can customize)</li>
-      <li>Lambda: <span class="highlight">managed integration</span> — enable Active Tracing, no daemon needed (AWS runs it)</li>
-      <li>EC2/ECS: must install and run X-Ray Daemon (sidecar in ECS)</li>
-      <li>Elastic Beanstalk: built-in X-Ray support via <code>.ebextensions</code> config</li>
-      <li>API Gateway: enable X-Ray tracing in stage settings</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📡 EventBridge (formerly CloudWatch Events)</h4>
-    <ul>
-      <li>Event-driven serverless event bus</li>
-      <li><span class="highlight">Event buses</span>:
-        <ul>
-          <li><strong>Default</strong>: receives events from AWS services</li>
-          <li><strong>Custom</strong>: for your own application events</li>
-          <li><strong>Partner</strong>: SaaS integrations (Datadog, Auth0, Zendesk, etc.)</li>
-        </ul>
-      </li>
-      <li><span class="highlight">Rules</span>: match event patterns → route to targets (Lambda, SQS, SNS, Step Functions, etc.)</li>
-      <li><span class="highlight">Schedule rules</span>: cron or rate expressions (e.g., "every 5 minutes")</li>
-      <li><span class="highlight">Schema Registry</span>: infer schemas from events, generate code bindings</li>
-      <li><span class="highlight">Archive &amp; Replay</span>: store events and replay them later (great for debugging)</li>
-      <li>Can aggregate events from multiple accounts into a central event bus</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔍 CloudTrail</h4>
-    <ul>
-      <li>Records <span class="highlight">ALL API calls</span> made in your AWS account — who, when, what, from where</li>
-      <li><span class="highlight">Enabled by default</span> — Event History retains <span class="highlight">90 days</span> of management events (free)</li>
-      <li>For longer retention: create a <span class="highlight">Trail</span> → deliver to S3 bucket (optionally + CloudWatch Logs)</li>
-      <li>Event types:
-        <ul>
-          <li><span class="highlight">Management Events</span>: operations on AWS resources (CreateVPC, AttachRole) — logged by default</li>
-          <li><span class="highlight">Data Events</span>: operations on data (S3 GetObject, Lambda Invoke) — <strong>extra cost, disabled by default</strong></li>
-          <li><span class="highlight">Insights Events</span>: detect unusual API activity patterns — <strong>extra cost</strong></li>
-        </ul>
-      </li>
-      <li><span class="highlight">Multi-region trail</span>: single trail covers all regions</li>
-      <li><span class="badge badge-warn">Key</span> CloudTrail is <strong>NOT real-time</strong> — events delivered within <span class="highlight">~15 minutes</span></li>
-      <li>For real-time monitoring of API calls: CloudTrail → CloudWatch Logs → Metric Filter → Alarm</li>
-      <li>S3 delivery: can enable <span class="highlight">SSE-S3 or SSE-KMS</span> encryption, <span class="highlight">log file integrity validation</span></li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚙️ AWS Config</h4>
-    <ul>
-      <li>Records <span class="highlight">configuration changes</span> over time — answers "What did my resource look like last Tuesday?"</li>
-      <li><span class="badge badge-warn">Key</span> Config does <strong>NOT prevent changes</strong> — it records, evaluates, and alerts</li>
-      <li><span class="highlight">Config Rules</span>: AWS managed (75+ predefined) or custom (Lambda-based)</li>
-      <li>Evaluations: triggered on config change or on a schedule</li>
-      <li><span class="highlight">Remediation</span>: auto-remediate via <span class="highlight">SSM Automation</span> documents (e.g., auto-enable encryption)</li>
-      <li><span class="highlight">Config Aggregator</span>: collect Config data across multiple accounts and regions (multi-account, multi-region view)</li>
-      <li>Compliance timeline: visual history of resource compliance over time</li>
-      <li>Use cases: "Is encryption enabled on all S3 buckets?", "Were any security groups ever open to 0.0.0.0/0?", "Are all EC2 instances of approved type?"</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📊 CloudWatch vs CloudTrail vs Config</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>CloudWatch</th><th>CloudTrail</th><th>Config</th></tr>
-      <tr><td>Purpose</td><td>Performance monitoring &amp; alerting</td><td>API call auditing</td><td>Configuration compliance</td></tr>
-      <tr><td>Answers</td><td>"How is my app performing?"</td><td>"Who changed what via API?"</td><td>"What is my resource config history?"</td></tr>
-      <tr><td>Data</td><td>Metrics, logs, events</td><td>API call logs</td><td>Configuration snapshots &amp; changes</td></tr>
-      <tr><td>Real-time</td><td>Yes (1 sec – 5 min)</td><td>No (~15 min delay)</td><td>Near real-time</td></tr>
-      <tr><td>Prevention</td><td>Can trigger actions</td><td>No (audit only)</td><td>No (but can auto-remediate after)</td></tr>
-    </table>
-  </div>
-
-  <div class="note-group">
-    <h4>⚠️ Gotchas &amp; Exam Tips</h4>
-    <ul class="tips">
-      <li><span class="badge badge-warn">Trap</span> "Monitor memory on EC2" → need <span class="highlight">CloudWatch Unified Agent</span> (NOT default metrics)</li>
-      <li><span class="badge badge-warn">Trap</span> CloudTrail ≠ real-time. For real-time API monitoring, chain: CloudTrail → CloudWatch Logs → Metric Filter → Alarm</li>
-      <li><span class="badge badge-warn">Trap</span> Config does NOT prevent — it only records and evaluates. For prevention, use <span class="highlight">IAM policies</span>, <span class="highlight">SCPs</span>, or <span class="highlight">AWS Organizations</span></li>
-      <li><span class="badge badge-warn">Trap</span> CW Logs export to S3 is batch (12hr delay). For real-time → Subscription Filters to Kinesis/Lambda</li>
-      <li><span class="badge badge-warn">Trap</span> X-Ray Annotations are indexed and filterable; Metadata is NOT. If question asks about searching/filtering traces → Annotations</li>
-      <li><span class="badge badge-warn">Trap</span> Lambda X-Ray: just enable Active Tracing in config. EC2/ECS X-Ray: install the daemon yourself</li>
-      <li><span class="badge badge-warn">Key</span> "Who made API call to delete resource?" = <span class="highlight">CloudTrail</span></li>
-      <li><span class="badge badge-warn">Key</span> "Was security group ever open to 0.0.0.0/0?" = <span class="highlight">AWS Config</span></li>
-      <li><span class="badge badge-warn">Key</span> "CPU utilization alarm → scale ASG" = <span class="highlight">CloudWatch Alarm</span></li>
-      <li><span class="badge badge-warn">Key</span> "Run Lambda every hour" = <span class="highlight">EventBridge scheduled rule</span></li>
-      <li><span class="badge badge-warn">Remember</span> EventBridge Archive &amp; Replay = replay past events for debugging/reprocessing</li>
-      <li><span class="badge badge-warn">Remember</span> Composite alarms help reduce alarm noise by combining multiple alarms with boolean logic</li>
-    </ul>
-  </div>
+  <div class="note-group"><h4>X-Ray / Other Monitoring</h4><ul>
+    <li><strong>X-Ray</strong>: distributed tracing. Service map, latency analysis, error root cause. Requires X-Ray SDK + Daemon</li>
+    <li>Sampling: controls what % of requests are traced (reduce cost)</li>
+    <li><strong>EventBridge</strong>: event bus. Schedule (cron/rate) or event pattern → target (Lambda, SQS, Step Functions, etc.)</li>
+    <li>EventBridge Schema Registry: discover &amp; version event schemas</li>
+    <li><strong>Trusted Advisor</strong>: checks for cost, security, fault tolerance, performance, service limits. Full access needs Business/Enterprise Support</li>
+    <li><strong>Personal Health Dashboard</strong>: account-specific service events &amp; planned maintenance</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>EC2 default metrics do NOT include memory or disk — must install CloudWatch Agent</li>
+    <li>CloudTrail Data Events cost extra — not enabled by default</li>
+    <li>Config Rules are detective, NOT preventive. SCPs and IAM deny are preventive</li>
+    <li>CloudWatch Logs default retention = never expire = ongoing storage cost. Always set retention policy</li>
+    <li>Alarm can't go from OK directly to INSUFFICIENT_DATA by alarm logic — only if data stops flowing</li>
+  </ul></div>
 </div></div>
+
+<!-- ═══════════════ VPC ═══════════════ -->
 <div class="note-section" id="note-vpc" style="display:none"><div class="note-topic">
-  <h3>🌐 VPC &amp; Networking</h3>
-
-  <div class="note-group">
-    <h4>🔑 VPC Fundamentals</h4>
-    <ul>
-      <li>Max <span class="highlight">5 VPCs per region</span> (soft limit, can increase)</li>
-      <li>Max <span class="highlight">5 CIDRs per VPC</span> (min /28, max /16)</li>
-      <li><span class="highlight">Default VPC</span>: created automatically, one public subnet per AZ with /20 CIDR, has IGW, default SG, default NACL</li>
-      <li>VPC CIDR cannot overlap with other VPCs you want to peer with</li>
-      <li>Tenancy: default (shared hardware) or dedicated (single-tenant hardware)</li>
-    </ul>
+  <h3>🔗 VPC &amp; Networking</h3>
+  <div class="note-group"><h4>VPC Fundamentals</h4><ul>
+    <li>Default VPC: <span class="highlight">172.31.0.0/16</span>, exists in all regions, all instances get public IPs</li>
+    <li>Max <span class="highlight">5 VPCs/region</span>, max <span class="highlight">5 CIDRs/VPC</span> (min /28, max /16)</li>
+    <li>AWS reserves 5 IPs per subnet: .0 (network), .1 (router), .2 (DNS), .3 (future), .255 (broadcast)</li>
+    <li>Subnet in single AZ. Public subnet = route to IGW. Private subnet = no direct IGW route</li>
+  </ul></div>
+  <div class="note-group"><h4>VPC Architecture Diagram</h4>
+    <pre style="font-size:.75rem;color:var(--muted);line-height:1.5;overflow-x:auto;background:var(--surface2);padding:12px;border-radius:6px">
+Internet
+    │
+    ▼
+[Internet Gateway]
+    │
+    ▼
+[Public Subnet]          [Private Subnet]
+  EC2 (public IP)    →    EC2 (private only)
+  NAT Gateway            RDS, ElastiCache
+    │
+    └──────── outbound only ──────▶ Internet</pre>
   </div>
-
-  <div class="note-group">
-    <h4>🏗️ Subnets</h4>
-    <ul>
-      <li><span class="highlight">Public subnet</span>: route table has route to <span class="highlight">Internet Gateway (IGW)</span></li>
-      <li><span class="highlight">Private subnet</span>: no direct route to IGW</li>
-      <li>Reserved IPs per subnet: <span class="highlight">5 addresses</span>
-        <ul>
-          <li>.0 = Network address</li>
-          <li>.1 = VPC router</li>
-          <li>.2 = DNS</li>
-          <li>.3 = Future use</li>
-          <li>Last IP = Broadcast</li>
-        </ul>
-      </li>
-      <li>/24 CIDR = 256 - 5 = <span class="highlight">251 usable IPs</span></li>
-      <li>A subnet lives in exactly one AZ</li>
-    </ul>
+  <div class="note-group"><h4>NAT Gateway vs NAT Instance</h4>
+    <table class="compare-table"><thead><tr><th></th><th>NAT Gateway</th><th>NAT Instance</th></tr></thead><tbody>
+    <tr><td>HA</td><td>✅ Within AZ</td><td>❌ Single instance</td></tr>
+    <tr><td>Bandwidth</td><td>5 Gbps → 100 Gbps auto-scale</td><td>EC2 instance type limit</td></tr>
+    <tr><td>Managed</td><td>✅ AWS managed</td><td>❌ You manage</td></tr>
+    <tr><td>Security Group</td><td>❌ Not needed</td><td>✅ Required</td></tr>
+    <tr><td>Bastion Host</td><td>❌</td><td>✅ Can be used as bastion</td></tr>
+    <tr><td>Cost</td><td>$0.045/hr + $0.045/GB</td><td>EC2 price</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🚪 Internet Gateway &amp; NAT</h4>
-    <ul>
-      <li><span class="highlight">IGW</span>: one per VPC, enables internet access for instances with public IPs in public subnets</li>
-      <li>For an instance to reach internet: IGW + route in route table + public IP (or EIP)</li>
-    </ul>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>NAT Gateway (managed)</th><th>NAT Instance (EC2)</th></tr>
-      <tr><td>Management</td><td>AWS managed</td><td>You manage</td></tr>
-      <tr><td>Bandwidth</td><td>5 Gbps, scales to 100 Gbps</td><td>Depends on instance type</td></tr>
-      <tr><td>HA</td><td>HA within single AZ</td><td>Not HA (script failover)</td></tr>
-      <tr><td>Security Groups</td><td>Cannot attach</td><td>Can attach</td></tr>
-      <tr><td>Bastion</td><td>Cannot use as bastion</td><td>Can use as bastion</td></tr>
-      <tr><td>Port forwarding</td><td>Not supported</td><td>Supported</td></tr>
-      <tr><td>Source/Dest check</td><td>N/A</td><td>Must disable</td></tr>
-      <tr><td>Cost</td><td>Per hour + per GB processed</td><td>EC2 costs only</td></tr>
-    </table>
-    <ul>
-      <li><span class="badge badge-warn">HA pattern</span>: deploy <span class="highlight">one NAT Gateway per AZ</span> in each public subnet for cross-AZ resilience</li>
-      <li><span class="highlight">Egress-Only IGW</span>: like NAT Gateway but for <span class="highlight">IPv6</span> — allows outbound IPv6, blocks inbound IPv6 from internet</li>
-    </ul>
+  <div class="note-group"><h4>Security Groups vs NACLs</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Security Group</th><th>NACL</th></tr></thead><tbody>
+    <tr><td>Level</td><td>Instance (ENI)</td><td>Subnet</td></tr>
+    <tr><td>State</td><td>Stateful (return auto-allowed)</td><td>Stateless (must allow both directions)</td></tr>
+    <tr><td>Rules</td><td>Allow only</td><td>Allow + Deny</td></tr>
+    <tr><td>Order</td><td>All rules evaluated</td><td>Lowest rule number wins (1–32766)</td></tr>
+    <tr><td>Default</td><td>Deny all inbound, allow all outbound</td><td>Default NACL: allow all. Custom: deny all</td></tr>
+    <tr><td>Block IP attack</td><td>❌ (no deny)</td><td>✅ (add deny rule)</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🔒 Security Groups vs NACLs</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>Security Group</th><th>NACL</th></tr>
-      <tr><td>Level</td><td>ENI / Instance</td><td>Subnet</td></tr>
-      <tr><td>State</td><td><span class="highlight">Stateful</span> (return traffic auto-allowed)</td><td><span class="highlight">Stateless</span> (must allow return traffic explicitly)</td></tr>
-      <tr><td>Rules</td><td>Allow rules only</td><td>Allow AND Deny rules</td></tr>
-      <tr><td>Evaluation</td><td>All rules evaluated</td><td>Rules evaluated in <span class="highlight">order (lowest number first)</span></td></tr>
-      <tr><td>Default</td><td>Deny all inbound, allow all outbound</td><td>Allow all inbound &amp; outbound</td></tr>
-      <tr><td>Reference SGs</td><td>Yes (can reference other SGs)</td><td>No (IP/CIDR only)</td></tr>
-      <tr><td>Apply</td><td>Only if associated with instance</td><td>Applies to ALL instances in subnet</td></tr>
-    </table>
-    <ul>
-      <li>NACL rule * (asterisk) = <span class="highlight">default deny</span> — evaluated last if no numbered rule matches</li>
-      <li><span class="highlight">Ephemeral ports</span>: NACLs must allow ephemeral port range (1024-65535) for return traffic</li>
-      <li>Both SG and NACL changes take effect <span class="highlight">immediately</span></li>
-    </ul>
+  <div class="note-group"><h4>VPC Connectivity Options</h4>
+    <table class="compare-table"><thead><tr><th>Option</th><th>Type</th><th>Key Points</th></tr></thead><tbody>
+    <tr><td>VPC Peering</td><td>VPC-to-VPC</td><td>No transitive routing. Non-overlapping CIDRs. Cross-account &amp; cross-region OK</td></tr>
+    <tr><td>Site-to-Site VPN</td><td>On-prem ↔ AWS</td><td>VGW (AWS side) + CGW (on-prem). Over internet. Setup in minutes. 1.25 Gbps per tunnel</td></tr>
+    <tr><td>Direct Connect</td><td>On-prem ↔ AWS</td><td>Dedicated line. 1/10/100 Gbps. &gt;1 month setup. Consistent performance</td></tr>
+    <tr><td>Transit Gateway</td><td>Hub-and-spoke</td><td>Connects VPCs + on-prem. Up to 5,000 attachments. Supports IP multicast. ECMP for bandwidth</td></tr>
+    <tr><td>VPC Endpoints (Gateway)</td><td>VPC → S3/DynamoDB</td><td>FREE. Added to route table. No IGW/NAT needed</td></tr>
+    <tr><td>VPC Endpoints (Interface)</td><td>VPC → AWS services</td><td>ENI with private IP. $0.01/hr + $0.01/GB. Uses PrivateLink</td></tr>
+    </tbody></table>
   </div>
-
-  <div class="note-group">
-    <h4>🔗 VPC Peering</h4>
-    <ul>
-      <li>1:1 private connection between two VPCs using AWS network</li>
-      <li><span class="badge badge-warn">Critical</span> <span class="highlight">NOT transitive</span>: A↔B and B↔C does NOT mean A↔C</li>
-      <li>CIDRs <span class="highlight">must NOT overlap</span></li>
-      <li>Works <span class="highlight">cross-account</span> and <span class="highlight">cross-region</span></li>
-      <li>Must update route tables in <strong>both</strong> VPCs</li>
-      <li>Security groups can reference peered VPC's SGs (same region only)</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔌 VPC Endpoints</h4>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>Gateway Endpoint</th><th>Interface Endpoint (PrivateLink)</th></tr>
-      <tr><td>Services</td><td><span class="highlight">S3 and DynamoDB ONLY</span></td><td>Most other AWS services</td></tr>
-      <tr><td>Cost</td><td><span class="highlight">Free</span></td><td>Per hour + per GB</td></tr>
-      <tr><td>How it works</td><td>Route table entry → AWS network</td><td>ENI in your subnet with private IP</td></tr>
-      <tr><td>Security</td><td>Endpoint policies</td><td>Security Groups + Endpoint policies</td></tr>
-      <tr><td>Access from on-prem</td><td>No (VPC only)</td><td><span class="highlight">Yes</span> (via VPN/DX)</td></tr>
-      <tr><td>Cross-region</td><td>No</td><td>No (same region)</td></tr>
-    </table>
-    <ul>
-      <li><span class="badge badge-warn">Exam Trap</span>: "Access S3 from private subnet without internet" → <span class="highlight">Gateway Endpoint</span> (free!) or Interface Endpoint (costs money)</li>
-      <li><span class="badge badge-warn">Exam Trap</span>: "Access S3 from on-premises" → must use <span class="highlight">Interface Endpoint</span> (Gateway Endpoint only works within VPC)</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🌟 Transit Gateway</h4>
-    <ul>
-      <li><span class="highlight">Hub-and-spoke</span> model: connect thousands of VPCs and on-premises networks</li>
-      <li><span class="highlight">Transitive routing</span>: A↔TGW↔B means A can reach B (unlike VPC Peering)</li>
-      <li>Works across <span class="highlight">accounts</span> and <span class="highlight">regions</span> (via TGW Peering)</li>
-      <li>Attachments: VPCs, VPN connections, Direct Connect Gateways, TGW Peering, Connect (SD-WAN)</li>
-      <li>Supports <span class="highlight">IP Multicast</span> (only AWS service that does)</li>
-      <li>Route tables for fine-grained routing control between attachments</li>
-      <li>Use case: complex network topology with many VPCs needing interconnection</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🔐 VPN &amp; Direct Connect</h4>
-    <ul>
-      <li><span class="highlight">Site-to-Site VPN</span>:
-        <ul>
-          <li><span class="highlight">Customer Gateway (CGW)</span>: on-premises side (software or hardware appliance)</li>
-          <li><span class="highlight">Virtual Private Gateway (VGW)</span>: AWS side (attach to VPC)</li>
-          <li>Encrypted over public internet, max <span class="highlight">1.25 Gbps</span> per tunnel</li>
-          <li>Quick to set up (minutes to hours)</li>
-        </ul>
-      </li>
-      <li><span class="highlight">VPN CloudHub</span>: multiple customer sites connect through same VGW — hub-and-spoke over VPN. Sites can communicate with each other through AWS.</li>
-    </ul>
-    <table class="compare-table">
-      <tr><th>Feature</th><th>Site-to-Site VPN</th><th>Direct Connect (DX)</th></tr>
-      <tr><td>Connection</td><td>Over public internet (encrypted)</td><td>Dedicated private connection</td></tr>
-      <tr><td>Bandwidth</td><td>Max 1.25 Gbps per tunnel</td><td>1 / 10 / 100 Gbps</td></tr>
-      <tr><td>Setup time</td><td>Minutes</td><td><span class="highlight">&gt;1 month</span></td></tr>
-      <tr><td>Encryption</td><td>Yes (IPSec)</td><td><span class="highlight">NOT encrypted by default</span></td></tr>
-      <tr><td>Latency</td><td>Variable (internet)</td><td>Consistent, low</td></tr>
-      <tr><td>Cost</td><td>Lower</td><td>Higher (port + data transfer)</td></tr>
-      <tr><td>Redundancy</td><td>2 tunnels per VPN</td><td>Need 2 DX connections at 2 locations</td></tr>
-    </table>
-    <ul>
-      <li>DX types: <span class="highlight">Dedicated</span> (you own physical port: 1/10/100 Gbps) vs <span class="highlight">Hosted</span> (partner shares port: 50 Mbps – 10 Gbps)</li>
-      <li><span class="highlight">DX + VPN</span>: add IPSec encryption on top of Direct Connect (encrypted private connection)</li>
-      <li><span class="highlight">DX Gateway</span>: connect to multiple VPCs in different regions using a single DX connection</li>
-      <li><span class="badge badge-warn">Trap</span> DX is NOT encrypted — if encryption needed, add VPN on top of DX</li>
-      <li><span class="badge badge-warn">Trap</span> DX takes &gt;1 month to establish — not suitable for "quickly connect on-prem to AWS"</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>📊 Flow Logs</h4>
-    <ul>
-      <li>Capture IP traffic info at <span class="highlight">VPC</span>, <span class="highlight">Subnet</span>, or <span class="highlight">ENI</span> level</li>
-      <li>Log accepted, rejected, or all traffic</li>
-      <li>Destinations: <span class="highlight">S3</span>, <span class="highlight">CloudWatch Logs</span>, <span class="highlight">Kinesis Data Firehose</span></li>
-      <li>Traffic <strong>NOT</strong> captured:
-        <ul>
-          <li>Traffic to/from 169.254.169.254 (instance metadata)</li>
-          <li>DHCP traffic</li>
-          <li>DNS traffic to Amazon-provided DNS (Route 53 Resolver)</li>
-          <li>Windows license activation traffic</li>
-          <li>Traffic to reserved IP of VPC router</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>🏰 Bastion Host &amp; Traffic Mirroring</h4>
-    <ul>
-      <li><span class="highlight">Bastion Host</span>: EC2 instance in public subnet — SSH/RDP gateway to private instances</li>
-      <li>HA pattern: 2 bastions in 2 AZs behind <span class="highlight">NLB</span> (not ALB — SSH is TCP, not HTTP)</li>
-      <li>Security group: allow SSH (port 22) from your IP only on bastion; private instances allow SSH only from bastion SG</li>
-      <li>Modern alternative: <span class="highlight">SSM Session Manager</span> — no bastion needed, no port 22 open, audit trail via CloudTrail</li>
-      <li><span class="highlight">VPC Traffic Mirroring</span>: copy network traffic from ENIs for deep packet inspection, send to NLB or single EC2 (IDS/IPS use case)</li>
-    </ul>
-  </div>
-
-  <div class="note-group">
-    <h4>⚠️ Gotchas &amp; Exam Tips</h4>
-    <ul class="tips">
-      <li><span class="badge badge-warn">Trap</span> VPC Peering is NOT transitive — for transitive routing, use <span class="highlight">Transit Gateway</span></li>
-      <li><span class="badge badge-warn">Trap</span> Gateway Endpoints are free and support S3 + DynamoDB only. Interface Endpoints cost money but support everything else.</li>
-      <li><span class="badge badge-warn">Trap</span> NACLs are stateless — if you allow inbound port 80, you MUST also allow outbound ephemeral ports (1024-65535) for the response</li>
-      <li><span class="badge badge-warn">Trap</span> DX takes &gt;1 month. "Need connectivity today" = <span class="highlight">VPN</span>. "Need consistent low latency" = <span class="highlight">DX</span></li>
-      <li><span class="badge badge-warn">Trap</span> DX is NOT encrypted by default. DX + VPN = encrypted private link</li>
-      <li><span class="badge badge-warn">Trap</span> NAT Gateway is HA within one AZ only — deploy one per AZ for full HA</li>
-      <li><span class="badge badge-warn">Trap</span> Egress-Only IGW is for IPv6 ONLY (IPv6 has no NAT — all addresses are public). For IPv4, use NAT Gateway.</li>
-      <li><span class="badge badge-warn">Key</span> "Connect 100+ VPCs" = <span class="highlight">Transit Gateway</span></li>
-      <li><span class="badge badge-warn">Key</span> "Access S3 privately from VPC" = <span class="highlight">VPC Gateway Endpoint</span></li>
-      <li><span class="badge badge-warn">Key</span> "Expose service in your VPC to other VPCs privately" = <span class="highlight">PrivateLink (Interface Endpoint)</span></li>
-      <li><span class="badge badge-warn">Key</span> "IP Multicast" = <span class="highlight">Transit Gateway</span> (only option)</li>
-      <li><span class="badge badge-warn">Key</span> "Block specific IP" = <span class="highlight">NACL</span> (deny rule). Security Groups can only allow, not deny.</li>
-      <li><span class="badge badge-warn">Key</span> "SSH to private instances without bastion" = <span class="highlight">SSM Session Manager</span></li>
-      <li><span class="badge badge-warn">Remember</span> /24 = 251 usable IPs, /28 (smallest) = 11 usable IPs, /16 (largest) = 65,531 usable IPs</li>
-      <li><span class="badge badge-warn">Remember</span> VPN CloudHub = connect multiple branch offices through AWS VPN (hub-and-spoke, encrypted, over internet)</li>
-    </ul>
-  </div>
+  <div class="note-group"><h4>Direct Connect Details</h4><ul>
+    <li><strong>Dedicated Connections</strong>: 1/10/100 Gbps. Physical port. Lead time &gt;<span class="highlight">1 month</span></li>
+    <li><strong>Hosted Connections</strong>: 50 Mbps–10 Gbps via DX Partner. Flexible add/remove</li>
+    <li><strong>Private VIF</strong>: accesses VPC via VGW</li>
+    <li><strong>Public VIF</strong>: accesses AWS public services (S3, EC2 public IPs)</li>
+    <li><strong>Transit VIF</strong>: connects to Transit Gateway</li>
+    <li>DX Gateway: one DX connection → VGWs in multiple regions (same account)</li>
+    <li>Encryption: NOT encrypted by default. Add VPN on top for IPSec encryption</li>
+    <li>Fallback: Use Site-to-Site VPN as backup when DX fails</li>
+  </ul></div>
+  <div class="note-group"><h4>Transit Gateway &amp; ECMP</h4><ul>
+    <li>Transitive routing hub — VPCs can communicate through TGW without direct peering</li>
+    <li><strong>ECMP</strong>: route across multiple VPN tunnels for higher aggregate bandwidth</li>
+    <li>1 VPN = 1.25 Gbps. 2 VPNs with ECMP = 2.5 Gbps. Add more for more bandwidth</li>
+    <li>Cross-region TGW peering supported. Share via Resource Access Manager (RAM)</li>
+  </ul></div>
+  <div class="note-group"><h4>VPC Flow Logs</h4><ul>
+    <li>Captures: src/dst IP, src/dst port, protocol, packets, bytes, action (ACCEPT/REJECT)</li>
+    <li>Enable at VPC, subnet, or ENI level. Does NOT capture DNS, Windows license activation, instance metadata, DHCP</li>
+    <li>Destination: CloudWatch Logs, S3, Kinesis Firehose</li>
+    <li>Query with Athena (S3) or CloudWatch Logs Insights</li>
+    <li>REJECT = SG or NACL blocked. Use to debug connectivity issues</li>
+  </ul></div>
+  <div class="note-group"><h4>IPv6 &amp; Egress-Only IGW</h4><ul>
+    <li>All IPv6 addresses are public (no private IPv6). AWS assigns /56 CIDR to VPC</li>
+    <li><strong>Egress-Only IGW</strong>: allows IPv6 outbound from private subnet, blocks inbound — equivalent of NAT for IPv6</li>
+    <li>Dual-stack: instance can have both IPv4 (private/public) and IPv6</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>VPC Peering is NOT transitive. A↔B, B↔C does NOT allow A↔C. Use Transit Gateway instead</li>
+    <li>NAT Gateway: only one AZ. For HA, create one NAT GW per AZ with separate route tables</li>
+    <li>NACLs are stateless: must allow ephemeral ports (1024-65535) for return traffic</li>
+    <li>Gateway Endpoint is FREE — always choose it for S3/DynamoDB access from VPC</li>
+    <li>DX does NOT encrypt — add VPN for encryption over DX</li>
+    <li>VGW required for both Site-to-Site VPN AND Direct Connect to VPC</li>
+    <li>S2S VPN: must enable Route Propagation on route table to use VGW routes</li>
+  </ul></div>
 </div></div>
+
+<!-- ═══════════════ SECURITY ═══════════════ -->
+<div class="note-section" id="note-security" style="display:none"><div class="note-topic">
+  <h3>🔐 Security Services</h3>
+  <div class="note-group"><h4>KMS (Key Management Service)</h4><ul>
+    <li><strong>AWS Owned Keys</strong>: free, AWS manages, no visibility</li>
+    <li><strong>AWS Managed Keys</strong>: free, auto-rotates yearly, visible in KMS console</li>
+    <li><strong>Customer Managed Keys (CMK)</strong>: $1/month + API calls. Full control, custom rotation</li>
+    <li>Symmetric: AES-256. Asymmetric: RSA, ECC (public key downloadable, private stays in KMS)</li>
+    <li><strong>Envelope Encryption</strong>: KMS generates Data Key → encrypts data locally → stores encrypted data key with data. Only master key in KMS</li>
+    <li>Key Deletion: <span class="highlight">7–30 day</span> waiting period. Cannot cancel after deletion completes</li>
+    <li><strong>Multi-Region Keys</strong>: primary + replicas in different regions. Same key ID. Used for global DynamoDB/Aurora</li>
+    <li>KMS throttle: 5,500–30,000 req/s depending on region. Use S3 SSE-KMS carefully at high throughput</li>
+  </ul></div>
+  <div class="note-group"><h4>Secrets Manager vs SSM Parameter Store</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Secrets Manager</th><th>SSM Parameter Store</th></tr></thead><tbody>
+    <tr><td>Auto Rotation</td><td>✅ Built-in (Lambda)</td><td>❌ Manual (via EventBridge)</td></tr>
+    <tr><td>Cost</td><td>$0.40/secret/month</td><td>Free (Standard) / $0.05/advanced/month</td></tr>
+    <tr><td>Max size</td><td>65 KB</td><td>4 KB (Standard) / 8 KB (Advanced)</td></tr>
+    <tr><td>Cross-account</td><td>✅ Resource policy</td><td>❌</td></tr>
+    <tr><td>Best for</td><td>DB passwords, API keys, OAuth tokens</td><td>App config, feature flags, non-secrets</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>WAF (Web Application Firewall)</h4><ul>
+    <li>Protects against: SQLi, XSS, bad bots, rate limiting, geo-blocking</li>
+    <li>Attaches to: ALB, API Gateway, CloudFront, AppSync</li>
+    <li><strong>Web ACL</strong>: ordered rules. Rule types: IP Set, Regex, managed rule groups, rate-based</li>
+    <li>Rate-based rule: count requests from IP in 5-min window → block if exceeds threshold</li>
+    <li>Actions: Allow, Block, Count (monitor), CAPTCHA</li>
+    <li>AWS Managed Rule Groups: common threats (OWASP Top 10, known bad IPs)</li>
+  </ul></div>
+  <div class="note-group"><h4>Shield</h4>
+    <table class="compare-table"><thead><tr><th></th><th>Shield Standard</th><th>Shield Advanced</th></tr></thead><tbody>
+    <tr><td>Cost</td><td>Free (included)</td><td>$3,000/month/org</td></tr>
+    <tr><td>Protection</td><td>L3/L4 DDoS (SYN floods, UDP reflection)</td><td>L3/L4/L7 + sophisticated attacks</td></tr>
+    <tr><td>DDoS cost protection</td><td>❌</td><td>✅ Credits for scaling cost during attack</td></tr>
+    <tr><td>DRT (DDoS Response Team)</td><td>❌</td><td>✅ 24/7 support</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Threat Detection Services</h4>
+    <table class="compare-table"><thead><tr><th>Service</th><th>What it monitors</th><th>Output</th></tr></thead><tbody>
+    <tr><td>GuardDuty</td><td>CloudTrail, VPC Flow Logs, DNS logs, S3 data events</td><td>Findings → EventBridge → Lambda (auto-remediate)</td></tr>
+    <tr><td>Inspector</td><td>EC2 OS vulnerabilities, ECR images, Lambda code</td><td>CVE findings, risk score</td></tr>
+    <tr><td>Macie</td><td>S3 buckets for PII / sensitive data</td><td>Data sensitivity findings</td></tr>
+    <tr><td>Security Hub</td><td>Aggregates GuardDuty, Inspector, Macie, Config findings</td><td>Central security dashboard</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>ACM (Certificate Manager)</h4><ul>
+    <li>Free public TLS/SSL certificates. Auto-renewal 60 days before expiry</li>
+    <li>Attaches to: ALB, NLB, CloudFront, API Gateway, Elastic Beanstalk</li>
+    <li>Validation: DNS (preferred, fully automated) or Email</li>
+    <li>ACM certificates cannot be exported. Use ACM Private CA for private certs</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>KMS key deletion: cannot decrypt data after deletion — 7-30 day waiting period exists to prevent accidents</li>
+    <li>Secrets Manager rotation requires Lambda function (built-in for RDS, Redshift, DocumentDB)</li>
+    <li>WAF cannot attach to NLB directly — only ALB, API GW, CloudFront, AppSync</li>
+    <li>GuardDuty: 30-day free trial. No agents needed — works from logs</li>
+    <li>Shield Advanced: per-organization pricing — covers all resources in the org</li>
+    <li>SSE-KMS at high S3 request rate → KMS throttling. Use SSE-S3 for high-throughput</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ ANALYTICS ═══════════════ -->
+<div class="note-section" id="note-analytics" style="display:none"><div class="note-topic">
+  <h3>📈 Analytics Services</h3>
+  <div class="note-group"><h4>Analytics Cheat Sheet</h4>
+    <table class="compare-table"><thead><tr><th>Service</th><th>Type</th><th>Use Case</th><th>Key Fact</th></tr></thead><tbody>
+    <tr><td>Athena</td><td>Serverless SQL on S3</td><td>Ad-hoc queries on S3 data</td><td>$5/TB scanned. Use Parquet/ORC to reduce cost</td></tr>
+    <tr><td>Redshift</td><td>Data Warehouse (OLAP)</td><td>BI, complex analytics, large datasets</td><td>Columnar MPP. Single AZ by default. RA3 nodes</td></tr>
+    <tr><td>OpenSearch</td><td>Search &amp; log analytics</td><td>Full-text search, log aggregation</td><td>Managed Elasticsearch. Domain-based</td></tr>
+    <tr><td>EMR</td><td>Big data (Hadoop/Spark)</td><td>ETL, ML, large-scale data processing</td><td>Master + Core + Task nodes. Spot for task nodes</td></tr>
+    <tr><td>QuickSight</td><td>BI / visualization</td><td>Dashboards, reports</td><td>SPICE in-memory engine. ML Insights. $9-18/user/mo</td></tr>
+    <tr><td>Glue</td><td>Serverless ETL</td><td>Transform data, catalog</td><td>Crawlers discover schema. Jobs = Spark/Python</td></tr>
+    <tr><td>Lake Formation</td><td>Data Lake management</td><td>Row/column-level security on data lake</td><td>Built on S3 + Glue. Tag-based access control</td></tr>
+    <tr><td>MSK</td><td>Managed Apache Kafka</td><td>Real-time streaming (Kafka compatible)</td><td>Alternative to Kinesis for Kafka users</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Athena Tips</h4><ul>
+    <li>Partitioning reduces data scanned → lower cost. Partition by date, region, etc.</li>
+    <li>Columnar formats (Parquet, ORC) compress better → less scanned → cheaper</li>
+    <li>Federated Queries: query across S3, RDS, DynamoDB, on-prem via Lambda data source connectors</li>
+  </ul></div>
+  <div class="note-group"><h4>Redshift Key Facts</h4><ul>
+    <li>OLAP not OLTP. Columnar storage = fast aggregations. Leader node + multiple compute nodes</li>
+    <li>Redshift Spectrum: query S3 data directly from Redshift without loading</li>
+    <li>Enhanced VPC Routing: forces COPY/UNLOAD traffic through VPC</li>
+    <li>Snapshots: automated (1-35 days) + manual. Can cross-region copy</li>
+  </ul></div>
+  <div class="note-group"><h4>EMR Architecture</h4><ul>
+    <li><strong>Master node</strong>: manage cluster. Cannot be removed</li>
+    <li><strong>Core nodes</strong>: store HDFS data + process. Cannot be removed (data loss risk)</li>
+    <li><strong>Task nodes</strong>: compute only, no HDFS. Can add/remove freely. Use Spot instances here</li>
+    <li>Bootstrap actions: scripts run before Hadoop starts (install software)</li>
+  </ul></div>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Athena is serverless — no cluster to manage. Pay per query (TB scanned)</li>
+    <li>Redshift is NOT serverless by default (but Redshift Serverless option exists)</li>
+    <li>OpenSearch ≠ ElasticSearch (renamed). Requires dedicated subnets, min 3 nodes for HA</li>
+    <li>Glue crawlers: do NOT delete partitions automatically — must manage manually</li>
+    <li>QuickSight SPICE: data cached in memory. Must refresh for updated data</li>
+  </ul></div>
+</div></div>
+
+<!-- ═══════════════ DR ═══════════════ -->
 <div class="note-section" id="note-dr" style="display:none"><div class="note-topic">
   <h3>🛡️ Disaster Recovery &amp; Migration</h3>
-  <div class="note-group"><h4>🔑 DR Strategies</h4><table class="compare-table"><tr><th>Strategy</th><th>RTO</th><th>RPO</th><th>Cost</th><th>Key Detail</th></tr>
-    <tr><td>Backup &amp; Restore</td><td>Hours</td><td>Hours</td><td>Lowest</td><td>Restore from snapshots</td></tr>
-    <tr><td>Pilot Light</td><td>10s min</td><td>Minutes</td><td>Low</td><td>Core DB running, app OFF</td></tr>
-    <tr><td>Warm Standby</td><td>Minutes</td><td>Seconds</td><td>Medium</td><td>Scaled-down full copy running</td></tr>
-    <tr><td>Multi-Site / Hot</td><td>Seconds</td><td>Near zero</td><td>Highest</td><td>Full production in 2+ regions</td></tr>
-  </table><ul>
-    <li><strong>RPO</strong> = max tolerable data loss | <strong>RTO</strong> = max tolerable downtime</li>
+  <div class="note-group"><h4>DR Strategies (Cost Low → High, Speed Slow → Fast)</h4>
+    <table class="compare-table"><thead><tr><th>Strategy</th><th>RPO</th><th>RTO</th><th>Cost</th><th>Description</th></tr></thead><tbody>
+    <tr><td>Backup &amp; Restore</td><td>Hours</td><td>Hours–Days</td><td>$</td><td>Backups to S3/Glacier. Restore on disaster. Cheapest</td></tr>
+    <tr><td>Pilot Light</td><td>Minutes</td><td>10s of minutes</td><td>$$</td><td>Minimal critical services running (DB replicating). Scale rest on failover</td></tr>
+    <tr><td>Warm Standby</td><td>Seconds</td><td>Minutes</td><td>$$$</td><td>Scaled-down full environment always running. Scale up on failover</td></tr>
+    <tr><td>Multi-Site Active-Active</td><td>~0</td><td>~0</td><td>$$$$</td><td>Full capacity in 2+ regions. Route 53 routes to both. Most expensive</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>RPO vs RTO Diagram</h4>
+    <pre style="font-size:.75rem;color:var(--muted);line-height:1.5;overflow-x:auto;background:var(--surface2);padding:12px;border-radius:6px">
+Last Backup     Disaster      System Restored
+     │              │               │
+─────┼──────────────┼───────────────┼────▶ Time
+     │◄── RPO ─────►│◄──── RTO ────►│
+ (data loss         (downtime
+  tolerance)         tolerance)
+RPO: How much data can you afford to lose?
+RTO: How long can the business be down?</pre>
+  </div>
+  <div class="note-group"><h4>AWS Backup</h4><ul>
+    <li>Centralized backup management for: EC2, EBS, RDS, Aurora, DynamoDB, EFS, FSx, S3, Storage GW</li>
+    <li>Backup plans: schedules, retention rules, lifecycle to cold storage</li>
+    <li>Cross-region &amp; cross-account backup copies</li>
+    <li><strong>Backup Vault Lock</strong>: WORM (Write Once Read Many) — prevent deletion even by admins (compliance)</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 AWS Backup &amp; DMS</h4><ul>
-    <li><strong>AWS Backup</strong>: centralized backup for RDS/DynamoDB/EFS/EC2/FSx/S3/Aurora. Cross-region + cross-account. <span class="highlight">Backup Vault Lock</span>: WORM, even root cannot delete</li>
-    <li><strong>DMS</strong>: source DB stays available. Homogeneous = direct. Heterogeneous = needs <span class="highlight">SCT (Schema Conversion Tool)</span>. CDC = continuous replication</li>
+  <div class="note-group"><h4>Database Migration Service (DMS)</h4><ul>
+    <li><strong>Homogeneous</strong>: MySQL → MySQL (no SCT needed)</li>
+    <li><strong>Heterogeneous</strong>: Oracle → Aurora (use SCT first to convert schema)</li>
+    <li>Minimal downtime: Full Load + CDC (Change Data Capture) runs in parallel</li>
+    <li>Replication Instance: EC2 that runs migration tasks. Source DB stays available</li>
+    <li>Supports: RDS, Aurora, S3, DynamoDB, MongoDB, Kafka, Redis, Elasticsearch as target</li>
   </ul></div>
-  <div class="note-group"><h4>🔑 Snow Family, DataSync &amp; Storage Gateway</h4><ul>
-    <li>Snowcone: 8-14TB | Snowball Edge: 80-210TB | Snowmobile: 100PB</li>
-    <li>Use Snow when network transfer takes <span class="highlight">&gt;1 week</span></li>
-    <li><span class="badge badge-warn">Snowball CANNOT import directly to Glacier</span> — S3 → lifecycle → Glacier</li>
-    <li><strong>DataSync</strong>: online transfer up to 10Gbps. Agent required on-prem. Targets: S3/EFS/FSx. = migration tool</li>
-    <li><strong>Storage Gateway</strong> = ongoing hybrid access. S3 File GW (NFS/SMB→S3), Volume GW (iSCSI), Tape GW, FSx File GW</li>
-    <li><strong>Transfer Family</strong>: managed FTP/FTPS/SFTP into S3 or EFS</li>
-    <li><strong>MGN (Application Migration Service)</strong>: lift-and-shift. Replaces legacy SMS</li>
+  <div class="note-group"><h4>Migration Services</h4>
+    <table class="compare-table"><thead><tr><th>Service</th><th>Use Case</th></tr></thead><tbody>
+    <tr><td>Application Migration Service (MGN)</td><td>Lift-and-shift servers from on-prem/other cloud to EC2. Replicates to staging, then cutover</td></tr>
+    <tr><td>Database Migration Service (DMS)</td><td>Migrate databases with minimal downtime</td></tr>
+    <tr><td>DataSync</td><td>Move large file datasets to S3/EFS/FSx. Preserves metadata</td></tr>
+    <tr><td>Snow Family</td><td>Physical migration when network is too slow/costly</td></tr>
+    <tr><td>Transfer Family</td><td>FTP/SFTP workflows to S3/EFS</td></tr>
+    <tr><td>VM Import/Export</td><td>Import VMware/Hyper-V VMs as AMIs</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Network Transfer Costs</h4><ul>
+    <li>Intra-AZ (same AZ, private IP): <span class="highlight">FREE</span></li>
+    <li>Inter-AZ (same region, private IP): <span class="highlight">$0.01/GB</span></li>
+    <li>Inter-Region: <span class="highlight">$0.02/GB</span></li>
+    <li>CloudFront egress: <span class="highlight">$0.085/GB</span> (cheaper than direct S3 → internet)</li>
+    <li>Direct Connect data transfer: cheaper than internet for large volumes</li>
   </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Cheapest DR" → <span class="highlight">Backup &amp; Restore</span></li>
-    <li>"Near-zero downtime" → <span class="highlight">Multi-Site Active-Active</span></li>
-    <li>"Core systems running, scale up on disaster" → <span class="highlight">Pilot Light</span></li>
-    <li>"Reduced copy, scale out on disaster" → <span class="highlight">Warm Standby</span></li>
-    <li>Volume GW Cached = S3 primary + local cache. Stored = local primary + S3 backup</li>
-    <li>DataSync = migration/transfer. Storage Gateway = ongoing hybrid access</li>
-    <li>DMS + SCT only for heterogeneous migrations</li>
-  </ul></div>
-</div></div>
-<div class="note-section" id="note-storage_ext" style="display:none"><div class="note-topic">
-  <h3>💾 Storage Extras &amp; Advanced S3</h3>
-  <div class="note-group"><h4>🔑 EFS</h4><ul>
-    <li>Storage classes: Standard (frequent) and IA (92% cheaper). EFS One Zone = single AZ, 47% cheaper</li>
-    <li>Throughput modes: Bursting | Provisioned | <span class="highlight">Elastic</span> (auto-scales, recommended)</li>
-    <li>Performance modes: General Purpose (low latency) | Max I/O (big data, higher latency)</li>
-    <li>Linux only (NFS). For Windows: FSx for Windows</li>
-  </ul></div>
-  <div class="note-group"><h4>🔄 FSx Types</h4><table class="compare-table"><tr><th>FSx Type</th><th>Protocol</th><th>Key Feature</th></tr>
-    <tr><td>Windows</td><td>SMB, NTFS</td><td>AD integration, DFS, Multi-AZ, data dedup</td></tr>
-    <tr><td>Lustre</td><td>POSIX</td><td>HPC, sub-ms latency, S3 integration. Scratch=temp, Persistent=replicated</td></tr>
-    <tr><td>NetApp ONTAP</td><td>NFS+SMB+iSCSI</td><td>Multi-protocol, SnapMirror, FlexClone</td></tr>
-    <tr><td>OpenZFS</td><td>NFS</td><td>ZFS snapshots, up to 1M IOPS</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 Advanced S3</h4><ul>
-    <li><strong>S3 Object Lambda</strong>: transform objects on-the-fly before returning (redact PII, CSV→JSON, resize images)</li>
-    <li><strong>S3 Access Points</strong>: named endpoints with own policies. Effective = Access Point Policy ∩ Bucket Policy</li>
-    <li><strong>S3 Multi-Region Access Points</strong>: global endpoint, routes to nearest region, active-active or active-passive</li>
-  </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"HPC + S3 integration" → <span class="highlight">FSx for Lustre</span></li>
-    <li>"Active Directory + file shares" → <span class="highlight">FSx for Windows</span></li>
-    <li>"Multi-protocol (NFS + SMB)" → <span class="highlight">FSx for NetApp ONTAP</span></li>
-    <li>"ZFS migration" → <span class="highlight">FSx for OpenZFS</span></li>
-    <li>Lustre Scratch = no replication, temporary | Persistent = replicated, durable</li>
-    <li>"Transform S3 data before retrieval" → <span class="highlight">S3 Object Lambda</span></li>
-  </ul></div>
-</div></div>
-<div class="note-section" id="note-other_svc" style="display:none"><div class="note-topic">
-  <h3>🧩 Other AWS Services</h3>
-  <div class="note-group"><h4>🔑 Analytics</h4><ul>
-    <li><strong>Athena</strong>: serverless SQL on S3. <span class="highlight">$5/TB scanned</span>. Use Parquet/ORC + partitioning to reduce cost. Federated Query via Lambda connectors</li>
-    <li><strong>Redshift</strong>: columnar OLAP. <span class="badge badge-warn">Single AZ by default</span>. Redshift Spectrum: query S3. Enhanced VPC Routing: forces traffic through VPC</li>
-    <li><strong>OpenSearch</strong>: search/analytics. Pattern: DynamoDB Streams → Lambda → OpenSearch</li>
-    <li><strong>EMR</strong>: managed Hadoop/Spark. Task nodes safe for Spot. Core/Master: avoid Spot (has HDFS)</li>
-    <li><strong>QuickSight</strong>: serverless BI. SPICE in-memory engine. Uses own users/groups, NOT IAM</li>
-  </ul></div>
-  <div class="note-group"><h4>🔑 ETL, Data Lake &amp; Streaming</h4><ul>
-    <li><strong>Glue</strong>: serverless ETL. <span class="highlight">Glue Data Catalog</span>: central metadata repo for Athena/EMR/Redshift Spectrum. Job Bookmarks prevent reprocessing</li>
-    <li><strong>Lake Formation</strong>: data lake with <span class="highlight">column-level/row-level security</span>. Built on S3 + Glue. Cross-account via RAM</li>
-    <li><strong>MSK (Managed Kafka)</strong>: default message <span class="highlight">1MB</span> (up to 10MB). MSK Connect for Kafka connectors</li>
-    <li><strong>Step Functions</strong>: Standard (1yr, exactly-once, auditable) vs Express (5min, high-volume, cheaper)</li>
-  </ul></div>
-  <div class="note-group"><h4>🔑 App Services &amp; Infrastructure</h4><ul>
-    <li><strong>Elastic Beanstalk</strong>: PaaS. Manages EC2/ASG/ELB. Blue/Green via swap URL. Worker tier uses SQS. <span class="badge badge-warn">NOT serverless</span></li>
-    <li><strong>API Gateway</strong>: REST/HTTP/WebSocket APIs. Types: Edge-optimized | Regional | Private. Default: 10,000 req/s, burst 5,000</li>
-    <li><strong>SSM Session Manager</strong>: SSH without port 22, no bastion, no SSH keys. Works for EC2 and on-prem</li>
-    <li><strong>Cognito</strong>: User Pools = authN (JWT) | Identity Pools = authZ (temp AWS creds)</li>
-    <li><strong>SES</strong>: transactional/bulk email | <strong>Pinpoint</strong>: marketing campaigns + segmentation</li>
-    <li><strong>AppStream 2.0</strong>: stream desktop apps to browser | <strong>WorkSpaces</strong>: managed virtual desktops (VDI)</li>
-  </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>"Serverless SQL on S3" → <span class="highlight">Athena</span></li>
-    <li>"OLAP data warehouse" → <span class="highlight">Redshift</span></li>
-    <li>Glue Data Catalog = central metadata store for Athena/EMR/Redshift Spectrum</li>
-    <li>QuickSight uses its own users/groups, NOT IAM</li>
-    <li>"SSH without port 22" → <span class="highlight">SSM Session Manager</span></li>
-    <li>Cognito User Pools = authN (who are you) | Identity Pools = authZ (what can you do)</li>
-    <li>Step Functions Standard = long-running. Express = short-lived, high-volume</li>
-    <li>Pinpoint = marketing campaigns. SES = transactional email</li>
-  </ul></div>
-</div></div>
-<div class="note-section" id="note-more_sa" style="display:none"><div class="note-topic">
-  <h3>🏗️ Well-Architected &amp; Architecture</h3>
-  <div class="note-group"><h4>🔑 Well-Architected 6 Pillars</h4><table class="compare-table"><tr><th>Pillar</th><th>Key Principle</th><th>Exam Keywords</th></tr>
-    <tr><td>Operational Excellence</td><td>IaC, small reversible changes</td><td>CloudFormation, automation, runbooks</td></tr>
-    <tr><td>Security</td><td>Least privilege, traceability</td><td>IAM, encryption, logging</td></tr>
-    <tr><td>Reliability</td><td>Auto recovery, horizontal scale</td><td>Multi-AZ, ASG, backup</td></tr>
-    <tr><td>Performance Efficiency</td><td>Go global in minutes, serverless</td><td>Right-sizing, caching, CDN</td></tr>
-    <tr><td>Cost Optimization</td><td>Pay only for what you use</td><td>Reserved/Spot, right-sizing, S3 tiers</td></tr>
-    <tr><td>Sustainability</td><td>Maximize utilization, managed services</td><td>Efficient code, right region</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 CI/CD &amp; IaC</h4><ul>
-    <li>CodeCommit (git) → CodeBuild (CI) → CodeDeploy (deploy) → CodePipeline (orchestrate)</li>
-    <li>CodeDeploy EC2: In-Place or Blue/Green. Lambda: Canary, Linear, AllAtOnce</li>
-    <li>CloudFormation: StackSets = multi-account/region. Change Sets = preview before apply. Drift = detect manual changes</li>
-    <li>CDK: code → CloudFormation (abstraction, not replacement). Service Catalog: pre-approved templates for governance</li>
-  </ul></div>
-  <div class="note-group"><h4>🔑 Edge &amp; Hybrid</h4><table class="compare-table"><tr><th>Service</th><th>Location</th><th>Use Case</th></tr>
-    <tr><td>Outposts</td><td>Your data center</td><td>True hybrid, data residency</td></tr>
-    <tr><td>Local Zones</td><td>Metro areas</td><td>Low-latency for specific cities</td></tr>
-    <tr><td>Wavelength</td><td>Telecom 5G edge</td><td>Ultra-low latency mobile</td></tr>
-  </table></div>
-  <div class="note-group"><h4>🔑 Cost Management &amp; HPC</h4><ul>
-    <li><strong>Compute Savings Plan</strong>: any EC2+Fargate+Lambda, any region — most flexible</li>
-    <li><strong>EC2 Instance SP</strong>: specific family+region — biggest discount but locked</li>
-    <li><strong>Trusted Advisor</strong>: Basic/Dev = 7 core checks. <span class="badge badge-warn">Business/Enterprise = full checks + API</span></li>
-    <li>HPC: EFA (Linux MPI/OS-bypass), ENA (up to 100Gbps), Cluster PG, FSx Lustre, AWS ParallelCluster</li>
-  </ul></div>
-  <div class="note-group"><h4>🔑 AI/ML Services</h4><ul>
-    <li>Rekognition: image/video analysis | Textract: OCR/extract from docs | Comprehend: NLP sentiment</li>
-    <li>Polly: text-to-speech | Transcribe: speech-to-text | Translate: neural translation | Lex: chatbot</li>
-  </ul></div>
-  <div class="note-group"><h4>⚠️ Exam Tips &amp; Gotchas</h4><ul class="tips">
-    <li>Know all 6 pillars and key principles for each</li>
-    <li>Trusted Advisor full checks: Business/Enterprise support only</li>
-    <li>CDK outputs CloudFormation — it's an abstraction layer, not standalone</li>
-    <li>Outposts = AWS in your DC | Local Zones = AWS closer to city | Wavelength = AWS at 5G edge</li>
-    <li>Compute SP = most flexible | EC2 Instance SP = biggest discount but locked to family+region</li>
-    <li>Lex = chatbot | Polly = text-to-speech | Transcribe = speech-to-text (easily confused)</li>
-    <li>Cluster Placement Group = lowest latency but single AZ risk</li>
-    <li>EFA = HPC/MPI on Linux only | ENA = enhanced networking for any EC2</li>
+  <div class="note-group"><h4>⚠️ Exam Traps</h4><ul class="tips">
+    <li>Pilot Light: only critical core services are running. NOT warm standby (full env, reduced size)</li>
+    <li>DMS: schema conversion requires AWS SCT (separate tool). DMS only handles data migration</li>
+    <li>MGN (Application Migration Service) replaced SMS (Server Migration Service) — use MGN</li>
+    <li>Backup Vault Lock: once locked in Compliance mode, even root cannot delete backups</li>
   </ul></div>
 </div></div>
 
-      <div id="note-placeholder" style="text-align:center;padding:60px 20px;color:var(--muted)">
-        <div style="font-size:3rem;margin-bottom:16px">📖</div>
-        <div style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:8px">Select a topic to start reading</div>
-        <div style="font-size:.9rem">Exam-focused runbook notes covering key facts, gotchas, and comparisons</div>
-      </div>
+<!-- ═══════════════ WELL-ARCHITECTED ═══════════════ -->
+<div class="note-section" id="note-waf_arch" style="display:none"><div class="note-topic">
+  <h3>🏗️ Well-Architected Framework &amp; Architecture Patterns</h3>
+  <div class="note-group"><h4>6 Pillars</h4>
+    <table class="compare-table"><thead><tr><th>Pillar</th><th>Key Principle</th><th>Services</th></tr></thead><tbody>
+    <tr><td>Operational Excellence</td><td>Run, monitor, improve operations</td><td>CloudWatch, CloudTrail, Config, SSM</td></tr>
+    <tr><td>Security</td><td>Protect data, systems, assets</td><td>IAM, KMS, WAF, Shield, GuardDuty, Macie</td></tr>
+    <tr><td>Reliability</td><td>Recover from failures, scale dynamically</td><td>Route 53, ELB, ASG, Multi-AZ, backups</td></tr>
+    <tr><td>Performance Efficiency</td><td>Use right resources efficiently</td><td>EC2 types, Lambda, Aurora, ElastiCache</td></tr>
+    <tr><td>Cost Optimization</td><td>Minimize spend, avoid waste</td><td>Reserved Instances, Savings Plans, Spot, S3 tiers</td></tr>
+    <tr><td>Sustainability</td><td>Minimize environmental impact</td><td>Right-sizing, serverless, managed services</td></tr>
+    </tbody></table>
+  </div>
+  <div class="note-group"><h4>Classic Architecture Patterns</h4><ul>
+    <li><strong>Stateless apps</strong>: session state in ElastiCache or DynamoDB. Any instance can handle any request</li>
+    <li><strong>3-tier web</strong>: Route 53 → CloudFront → ALB → EC2/ECS (Auto Scaling) → RDS Multi-AZ + ElastiCache</li>
+    <li><strong>Serverless web</strong>: CloudFront → S3 (static) + API GW → Lambda → DynamoDB</li>
+    <li><strong>Event-driven</strong>: S3 event → SNS → SQS → Lambda (fan-out + decoupling)</li>
+    <li><strong>Microservices</strong>: ECS/EKS + ALB path routing + SQS between services</li>
+  </ul></div>
+  <div class="note-group"><h4>High Availability Patterns</h4><ul>
+    <li>Multi-AZ = same region, different data centres → protects against AZ failure</li>
+    <li>Multi-Region = different regions → protects against region failure</li>
+    <li>Active-Passive: one region active, another in standby (Pilot Light or Warm Standby)</li>
+    <li>Active-Active: both regions serving traffic (Route 53 Weighted/Latency routing)</li>
+    <li>RDS: Multi-AZ for failover, Read Replicas for read scaling</li>
+  </ul></div>
+  <div class="note-group"><h4>Cost Optimization Patterns</h4><ul>
+    <li>Use <strong>Savings Plans</strong> (flexible) or <strong>Reserved Instances</strong> (specific instance type) for 1-3 yr commitments</li>
+    <li><strong>Spot Instances</strong> for stateless, fault-tolerant batch workloads (up to 90% savings)</li>
+    <li><strong>S3 Intelligent-Tiering</strong>: unknown access patterns → auto-moves data to cheapest tier</li>
+    <li><strong>Right-size</strong>: use Compute Optimizer or Cost Explorer for recommendations</li>
+    <li>Delete unattached EBS volumes, unused Elastic IPs, idle NAT Gateways</li>
+    <li>CloudFront in front of S3: reduces S3 request costs + data transfer costs</li>
+  </ul></div>
+  <div class="note-group"><h4>Decoupling Patterns</h4><ul>
+    <li>Tight coupling: sync request/response. Fragile. Hard to scale independently</li>
+    <li>Loose coupling: async messaging (SQS/SNS/EventBridge). Resilient. Each service scales independently</li>
+    <li>Fan-out: SNS → multiple SQS queues. One event processed by multiple consumers independently</li>
+    <li>Throttle spikes: SQS absorbs bursts, consumers process at their own pace</li>
+  </ul></div>
+  <div class="note-group"><h4>Quick-Reference Numbers for Exam</h4>
+    <table class="compare-table"><thead><tr><th>Fact</th><th>Number</th></tr></thead><tbody>
+    <tr><td>S3 max object size</td><td>5 TB</td></tr>
+    <tr><td>S3 multipart required above</td><td>5 GB</td></tr>
+    <tr><td>Lambda max timeout</td><td>15 min</td></tr>
+    <tr><td>Lambda max memory</td><td>10 GB</td></tr>
+    <tr><td>SQS max message size</td><td>256 KB</td></tr>
+    <tr><td>SQS max retention</td><td>14 days</td></tr>
+    <tr><td>SQS visibility timeout max</td><td>12 hours</td></tr>
+    <tr><td>SQS long poll max</td><td>20 seconds</td></tr>
+    <tr><td>DynamoDB max item size</td><td>400 KB</td></tr>
+    <tr><td>API GW timeout</td><td>29 seconds</td></tr>
+    <tr><td>ASG cooldown default</td><td>300 seconds</td></tr>
+    <tr><td>Connection draining default</td><td>300 seconds</td></tr>
+    <tr><td>RDS max Read Replicas (MySQL/Postgres)</td><td>5</td></tr>
+    <tr><td>Aurora max Read Replicas</td><td>15</td></tr>
+    <tr><td>Aurora storage max</td><td>128 TB</td></tr>
+    <tr><td>Route 53 health check interval</td><td>30s (10s fast)</td></tr>
+    <tr><td>KMS key deletion wait</td><td>7–30 days</td></tr>
+    <tr><td>STS default session</td><td>1 hour (max 12hr)</td></tr>
+    <tr><td>CloudTrail console retention</td><td>90 days</td></tr>
+    <tr><td>Kinesis shard write</td><td>1 MB/s or 1000 records/s</td></tr>
+    <tr><td>Kinesis retention default</td><td>24 hours (max 365 days)</td></tr>
+    <tr><td>Spread placement group max per AZ</td><td>7 instances</td></tr>
+    <tr><td>Partition placement max partitions/AZ</td><td>7</td></tr>
+    <tr><td>NAT Gateway bandwidth</td><td>5 Gbps → 100 Gbps</td></tr>
+    <tr><td>Direct Connect speeds</td><td>1/10/100 Gbps</td></tr>
+    <tr><td>VPC max CIDRs</td><td>5</td></tr>
+    <tr><td>VPCs per region default</td><td>5</td></tr>
+    </tbody></table>
+  </div>
+</div></div>
+
+<!-- placeholder -->
+<div id="note-placeholder" style="padding:40px;text-align:center;color:var(--muted)">
+  ← Select a topic from the sidebar to start reviewing
+</div>
+
     </div>
   </div>
 </div>
+
 
 <!-- FILTER BAR -->
 <div id="filterbar">
