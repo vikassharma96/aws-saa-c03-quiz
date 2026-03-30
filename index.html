@@ -430,6 +430,104 @@
   #sidebar-close { display: none; }
   #notes-sidebar-close { display: none; }
 
+
+  /* ── CHEATSHEET SCOPED STYLES ── */
+  #cheatsheet-view{
+    --bg:#08090e;--s1:#0f1220;--s2:#141928;--s3:#1a2035;
+    --border:#1d2640;--border2:#263050;
+    --text:#dde3f5;--muted:#5a6a8a;--faint:#3a4a6a;
+    --or:#ff6d35;--cy:#00cfff;--gr:#00e676;--pu:#b46ef5;
+    --ye:#ffd740;--te:#00e5b5;--pk:#ff4d8d;--bl:#4d9fff;
+    --re:#ff4444;
+    background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;font-size:12px;line-height:1.5;
+  }
+  #cheatsheet-view .page{padding:14px;max-width:1280px;margin:0 auto}
+  #cheatsheet-view .tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:8px}
+  #cheatsheet-view .tab{font-family:'JetBrains Mono',monospace;font-size:9px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);background:var(--s1);color:var(--muted);cursor:pointer;letter-spacing:.06em;font-weight:600;transition:all .15s}
+  #cheatsheet-view .tab:hover{color:var(--text);border-color:var(--faint)}
+  #cheatsheet-view .tab.active{color:#fff;border-color:transparent}
+  #cheatsheet-view .tab-ec2.active{background:#ff6d3522;border-color:#ff6d3566;color:var(--or)}
+  #cheatsheet-view .tab-s3.active{background:#00cfff22;border-color:#00cfff66;color:var(--cy)}
+  #cheatsheet-view .tab-elb.active{background:#00e67622;border-color:#00e67666;color:var(--gr)}
+  #cheatsheet-view .tab-iam.active{background:#b46ef522;border-color:#b46ef566;color:var(--pu)}
+  #cheatsheet-view .tab-cf.active{background:#ffd74022;border-color:#ffd74066;color:var(--ye)}
+  #cheatsheet-view .tab-r53.active{background:#00e5b522;border-color:#00e5b566;color:var(--te)}
+  #cheatsheet-view .tab-lambda.active{background:#ff4d8d22;border-color:#ff4d8d66;color:var(--pk)}
+  #cheatsheet-view .tab-dynamo.active{background:#4d9fff22;border-color:#4d9fff66;color:var(--bl)}
+  #cheatsheet-view .tab-ebs.active{background:#ff444422;border-color:#ff444466;color:var(--re)}
+  #cheatsheet-view .tab-sqs.active{background:#b46ef522;border-color:#b46ef566;color:var(--pu)}
+  #cheatsheet-view .tab-asg.active{background:#00e67622;border-color:#00e67666;color:var(--gr)}
+  #cheatsheet-view .panel{display:none}
+  #cheatsheet-view .panel.active{display:block}
+  #cheatsheet-view .g2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  #cheatsheet-view .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+  #cheatsheet-view .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:9px}
+  #cheatsheet-view .span2{grid-column:span 2}
+  #cheatsheet-view .span3{grid-column:1/-1}
+  #cheatsheet-view .card{background:var(--s1);border:1px solid var(--border);border-radius:7px;padding:11px;position:relative;overflow:hidden}
+  #cheatsheet-view .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:7px 7px 0 0}
+  #cheatsheet-view .or::before{background:var(--or)}
+  #cheatsheet-view .cy::before{background:var(--cy)}
+  #cheatsheet-view .gr::before{background:var(--gr)}
+  #cheatsheet-view .pu::before{background:var(--pu)}
+  #cheatsheet-view .ye::before{background:var(--ye)}
+  #cheatsheet-view .te::before{background:var(--te)}
+  #cheatsheet-view .pk::before{background:var(--pk)}
+  #cheatsheet-view .bl::before{background:var(--bl)}
+  #cheatsheet-view .re::before{background:var(--re)}
+  #cheatsheet-view .ch2{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  #cheatsheet-view .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;display:inline-block}
+  #cheatsheet-view .d-or{background:var(--or)}
+  #cheatsheet-view .d-cy{background:var(--cy)}
+  #cheatsheet-view .d-gr{background:var(--gr)}
+  #cheatsheet-view .d-pu{background:var(--pu)}
+  #cheatsheet-view .d-ye{background:var(--ye)}
+  #cheatsheet-view .d-te{background:var(--te)}
+  #cheatsheet-view .d-pk{background:var(--pk)}
+  #cheatsheet-view .d-bl{background:var(--bl)}
+  #cheatsheet-view .d-re{background:var(--re)}
+  #cheatsheet-view .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:start}
+  #cheatsheet-view .k{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);white-space:nowrap;padding-top:2px;letter-spacing:.03em}
+  #cheatsheet-view .v{font-size:10.5px;color:var(--text);line-height:1.4}
+  #cheatsheet-view .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:1px 5px;border-radius:3px;margin:1px;font-weight:600}
+  #cheatsheet-view .t-or{background:#ff6d3518;color:var(--or);border:1px solid #ff6d3530}
+  #cheatsheet-view .t-cy{background:#00cfff18;color:var(--cy);border:1px solid #00cfff30}
+  #cheatsheet-view .t-gr{background:#00e67618;color:var(--gr);border:1px solid #00e67630}
+  #cheatsheet-view .t-pu{background:#b46ef518;color:var(--pu);border:1px solid #b46ef530}
+  #cheatsheet-view .t-ye{background:#ffd74018;color:var(--ye);border:1px solid #ffd74030}
+  #cheatsheet-view .t-te{background:#00e5b518;color:var(--te);border:1px solid #00e5b530}
+  #cheatsheet-view .t-pk{background:#ff4d8d18;color:var(--pk);border:1px solid #ff4d8d30}
+  #cheatsheet-view .t-bl{background:#4d9fff18;color:var(--bl);border:1px solid #4d9fff30}
+  #cheatsheet-view .t-re{background:#ff444418;color:var(--re);border:1px solid #ff444430}
+  #cheatsheet-view .t-mu{background:#5a6a8a18;color:var(--muted);border:1px solid #5a6a8a30}
+  #cheatsheet-view .a-or{color:var(--or);font-weight:600}
+  #cheatsheet-view .a-cy{color:var(--cy);font-weight:600}
+  #cheatsheet-view .a-gr{color:var(--gr);font-weight:600}
+  #cheatsheet-view .a-pu{color:var(--pu);font-weight:600}
+  #cheatsheet-view .a-ye{color:var(--ye);font-weight:600}
+  #cheatsheet-view .a-te{color:var(--te);font-weight:600}
+  #cheatsheet-view .a-pk{color:var(--pk);font-weight:600}
+  #cheatsheet-view .a-bl{color:var(--bl);font-weight:600}
+  #cheatsheet-view .a-re{color:var(--re);font-weight:600}
+  #cheatsheet-view ul.l{list-style:none}
+  #cheatsheet-view ul.l li{font-size:10.5px;padding:2px 0 2px 10px;position:relative;line-height:1.4;color:var(--text)}
+  #cheatsheet-view ul.l li::before{content:'›';position:absolute;left:0;color:var(--faint)}
+  #cheatsheet-view table.t{width:100%;border-collapse:collapse;font-size:10px;margin-top:6px}
+  #cheatsheet-view table.t th{color:var(--muted);font-weight:600;text-align:left;padding:3px 5px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.05em}
+  #cheatsheet-view table.t td{padding:3px 5px;border-bottom:1px solid #1d264050;vertical-align:top;line-height:1.3}
+  #cheatsheet-view table.t tr:last-child td{border-bottom:none}
+  #cheatsheet-view .warn{background:#ffd74010;border-left:2px solid var(--ye);border-radius:0 4px 4px 0;padding:5px 8px;font-size:10px;color:var(--ye);margin-top:7px}
+  #cheatsheet-view .tip{background:#00e67610;border-left:2px solid var(--gr);border-radius:0 4px 4px 0;padding:5px 8px;font-size:10px;color:var(--gr);margin-top:7px}
+  #cheatsheet-view .info{background:#00cfff10;border-left:2px solid var(--cy);border-radius:0 4px 4px 0;padding:5px 8px;font-size:10px;color:var(--cy);margin-top:7px}
+  #cheatsheet-view .alert{background:#ff444410;border-left:2px solid var(--re);border-radius:0 4px 4px 0;padding:5px 8px;font-size:10px;color:var(--re);margin-top:7px}
+  #cheatsheet-view hr.d{border:none;border-top:1px solid var(--border);margin:8px 0}
+  #cheatsheet-view .flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:5px}
+  #cheatsheet-view .fb{background:var(--s2);border:1px solid var(--border2);border-radius:4px;font-size:9px;font-family:'JetBrains Mono',monospace;padding:2px 6px;color:var(--text);white-space:nowrap}
+  #cheatsheet-view .ar{color:var(--faint);font-size:10px}
+  #cheatsheet-view .sl{font-size:8.5px;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:10px 0 5px;padding-left:2px}
+  #cheatsheet-view .yes{color:var(--gr)}
+  #cheatsheet-view .no{color:var(--muted)}
+  #cheatsheet-view .partial{color:var(--ye)}
 </style>
 </head>
 <body>
@@ -446,7 +544,7 @@
   </div>
   <div id="timer-display">2:00</div>
   <button class="btn btn-secondary" onclick="resetQuiz()" style="padding:5px 14px;font-size:.8rem;">Reset</button>
-  <div id="view-tabs"><button class="tab-btn active" data-view="quiz" onclick="switchView('quiz')">📝 Quiz</button><button class="tab-btn" data-view="notes" onclick="switchView('notes')">📖 Notes</button></div>
+  <div id="view-tabs"><button class="tab-btn active" data-view="quiz" onclick="switchView('quiz')">📝 Quiz</button><button class="tab-btn" data-view="notes" onclick="switchView('notes')">📖 Notes</button><button class="tab-btn" data-view="cheatsheet" onclick="switchView('cheatsheet')">📋 CheatSheet</button></div>
 </div>
 
 
@@ -1904,7 +2002,201 @@
   <text x="191" y="382" text-anchor="middle" fill="#5b8dee" font-size="9" font-family="monospace">Gateway Endpoint → S3 / DynamoDB (FREE)</text>
   <rect x="382" y="370" width="290" height="16" rx="3" fill="none" stroke="#5b8dee" stroke-width="1" stroke-dasharray="3,2"/>
   <text x="527" y="382" text-anchor="middle" fill="#5b8dee" font-size="9" font-family="monospace">Interface Endpoint (PrivateLink) → all services</text>
-</svg></div>
+</svg>
+  <div>
+    <svg width="100%" viewBox="0 0 680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<!-- START -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="180" y="20" width="320" height="50" rx="8" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="50" text-anchor="middle" style="fill:rgb(181, 212, 244);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Need to connect what?</text>
+</g>
+
+<line x1="280" y1="70" x2="220" y2="110" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="400" y1="70" x2="460" y2="110" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- PATH 1: AWS to AWS -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="80" y="110" width="160" height="45" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="160" y="138" text-anchor="middle" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">AWS to AWS</text>
+</g>
+
+<!-- PATH 2: ON-PREM -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="440" y="110" width="160" height="45" rx="6" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="520" y="138" text-anchor="middle" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">On-Premises</text>
+</g>
+
+<!-- PATH 1 QUESTIONS -->
+<line x1="160" y1="155" x2="160" y2="185" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="50" y="185" width="220" height="55" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="160" y="203" text-anchor="middle" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Connecting VPCs or</text>
+<text x="160" y="220" text-anchor="middle" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">AWS Services?</text>
+</g>
+
+<!-- PATH 1A: VPCs -->
+<line x1="120" y1="240" x2="100" y2="280" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="20" y="280" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="100" y="297" text-anchor="middle" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">How many VPCs?</text>
+<text x="100" y="313" text-anchor="middle" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">(2 or 3+?)</text>
+</g>
+
+<!-- PATH 1A1: 2 VPCs -->
+<line x1="60" y1="330" x2="50" y2="370" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="10" y="370" width="80" height="70" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="50" y="390" text-anchor="middle" style="fill:rgb(192, 221, 151);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">VPC</text>
+<text x="50" y="407" text-anchor="middle" style="fill:rgb(192, 221, 151);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Peering</text>
+<text x="50" y="424" text-anchor="middle" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">2 VPCs</text>
+<text x="50" y="440" text-anchor="middle" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Direct</text>
+</g>
+
+<!-- PATH 1A2: 3+ VPCs -->
+<line x1="140" y1="330" x2="140" y2="370" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="100" y="370" width="80" height="70" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="140" y="390" text-anchor="middle" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Transit</text>
+<text x="140" y="407" text-anchor="middle" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Gateway</text>
+<text x="140" y="424" text-anchor="middle" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">3+ VPCs</text>
+<text x="140" y="440" text-anchor="middle" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Hub</text>
+</g>
+
+<!-- PATH 1B: AWS Services -->
+<line x1="200" y1="240" x2="220" y2="280" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="180" y="280" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="260" y="297" text-anchor="middle" style="fill:rgb(192, 221, 151);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Which service?</text>
+<text x="260" y="313" text-anchor="middle" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">S3/DDB vs Other?</text>
+</g>
+
+<!-- PATH 1B1: S3/DynamoDB -->
+<line x1="230" y1="330" x2="210" y2="370" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="170" y="370" width="80" height="70" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="210" y="386" text-anchor="middle" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">VPC</text>
+<text x="210" y="403" text-anchor="middle" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Endpoint</text>
+<text x="210" y="420" text-anchor="middle" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Gateway</text>
+<text x="210" y="436" text-anchor="middle" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">FREE</text>
+</g>
+
+<!-- PATH 1B2: SNS/SQS/etc -->
+<line x1="290" y1="330" x2="310" y2="370" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="270" y="370" width="80" height="70" rx="6" stroke-width="0.5" style="fill:rgb(114, 36, 62);stroke:rgb(237, 147, 177);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="310" y="386" text-anchor="middle" style="fill:rgb(244, 192, 209);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">VPC</text>
+<text x="310" y="403" text-anchor="middle" style="fill:rgb(244, 192, 209);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Endpoint</text>
+<text x="310" y="420" text-anchor="middle" style="fill:rgb(237, 147, 177);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Interface</text>
+<text x="310" y="436" text-anchor="middle" style="fill:rgb(237, 147, 177);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Paid</text>
+</g>
+
+<!-- PATH 2: ON-PREM -->
+<line x1="520" y1="155" x2="520" y2="185" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="420" y="185" width="200" height="55" rx="6" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="520" y="203" text-anchor="middle" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Speed vs</text>
+<text x="520" y="220" text-anchor="middle" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Latency/Cost?</text>
+</g>
+
+<!-- PATH 2A: Speed -->
+<line x1="480" y1="240" x2="460" y2="280" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="400" y="280" width="120" height="70" rx="6" stroke-width="0.5" style="fill:rgb(121, 31, 31);stroke:rgb(240, 149, 149);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="460" y="300" text-anchor="middle" style="fill:rgb(247, 193, 193);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">VPN</text>
+<text x="460" y="317" text-anchor="middle" style="fill:rgb(240, 149, 149);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Quick setup</text>
+<text x="460" y="334" text-anchor="middle" style="fill:rgb(240, 149, 149);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">1.25 Gbps</text>
+</g>
+
+<!-- PATH 2B: Enterprise -->
+<line x1="560" y1="240" x2="580" y2="280" marker-end="url(#arrow)" stroke="var(--color-border-secondary)" stroke-width="1" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="520" y="280" width="120" height="70" rx="6" stroke-width="0.5" style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="580" y="300" text-anchor="middle" style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Direct</text>
+<text x="580" y="317" text-anchor="middle" style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Connect</text>
+<text x="580" y="334" text-anchor="middle" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">1-100 Gbps</text>
+</g>
+
+<!-- SPACING -->
+<line x1="50" y1="480" x2="630" y2="480" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="5 5" style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.15);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:5px, 5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- EXAM TIPS SECTION -->
+<text x="340" y="520" text-anchor="middle" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">REAL EXAM SCENARIOS</text>
+
+<!-- TIP 1 -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="40" y="540" width="280" height="95" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="180" y="560" text-anchor="middle" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Private EC2 → S3</text>
+<text x="55" y="578" text-anchor="start" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❌ Wrong: NAT Gateway</text>
+<text x="55" y="595" text-anchor="start" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(costs money, exposed)</text>
+<text x="55" y="615" text-anchor="start" style="font-weight: 500;;fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500;text-anchor:start;dominant-baseline:auto">✓ Right: VPC Endpoint</text>
+<text x="55" y="632" text-anchor="start" style="fill:rgb(93, 202, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(direct, private, free)</text>
+</g>
+
+<!-- TIP 2 -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="360" y="540" width="280" height="95" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="500" y="560" text-anchor="middle" style="fill:rgb(206, 203, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Connect 5 VPCs</text>
+<text x="375" y="578" text-anchor="start" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❌ Wrong: 10 peering</text>
+<text x="375" y="595" text-anchor="start" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(non-transitive nightmare)</text>
+<text x="375" y="615" text-anchor="start" style="font-weight: 500;;fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500;text-anchor:start;dominant-baseline:auto">✓ Right: Transit Gateway</text>
+<text x="375" y="632" text-anchor="start" style="fill:rgb(175, 169, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(hub, transitive, scalable)</text>
+</g>
+
+<!-- TIP 3 -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="40" y="660" width="280" height="95" rx="6" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="180" y="680" text-anchor="middle" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Dev ↔ Prod VPCs</text>
+<text x="55" y="698" text-anchor="start" style="fill:rgb(240, 153, 123);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❌ Wrong: Direct Connect</text>
+<text x="55" y="715" text-anchor="start" style="fill:rgb(240, 153, 123);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(expensive, overkill)</text>
+<text x="55" y="735" text-anchor="start" style="font-weight: 500;;fill:rgb(240, 153, 123);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500;text-anchor:start;dominant-baseline:auto">✓ Right: VPC Peering</text>
+<text x="55" y="752" text-anchor="start" style="fill:rgb(240, 153, 123);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(simple, direct, cheap)</text>
+</g>
+
+<!-- TIP 4 -->
+<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+<rect x="360" y="660" width="280" height="95" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="500" y="680" text-anchor="middle" style="fill:rgb(192, 221, 151);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Trading app, DC→AWS</text>
+<text x="375" y="698" text-anchor="start" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❌ Wrong: Site-to-Site VPN</text>
+<text x="375" y="715" text-anchor="start" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(variable latency)</text>
+<text x="375" y="735" text-anchor="start" style="font-weight: 500;;fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500;text-anchor:start;dominant-baseline:auto">✓ Right: Direct Connect</text>
+<text x="375" y="752" text-anchor="start" style="fill:rgb(151, 196, 89);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">(predictable, enterprise)</text>
+</g>
+
+<!-- KEY INSIGHT -->
+<rect x="40" y="800" width="600" height="85" rx="6" stroke-width="1" stroke="var(--color-border-secondary)" fill="var(--color-background-secondary)" style="fill:rgb(38, 38, 36);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="825" text-anchor="middle" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">CRITICAL: VPC Peering is NON-TRANSITIVE</text>
+<text x="55" y="845" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">If VPC-A ↔ VPC-B AND VPC-B ↔ VPC-C</text>
+<text x="55" y="862" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Then VPC-A CANNOT reach VPC-C (peering doesn't route through)</text>
+<text x="55" y="879" text-anchor="start" style="font-weight: 500;;fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500;text-anchor:start;dominant-baseline:auto">Solution: Use Transit Gateway for 3+ VPCs OR create separate A↔C peering</text>
+
+
+<!-- MEMORY AIDS -->
+<rect x="40" y="920" width="600" height="120" rx="6" stroke-width="1" stroke="var(--color-border-secondary)" fill="var(--color-background-secondary)" style="fill:rgb(38, 38, 36);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="945" text-anchor="middle" style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:auto">QUICK MEMORY AIDS</text>
+<text x="55" y="965" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">💍 2 VPCs = PEERING (marriage: one-to-one)</text>
+<text x="55" y="982" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">🏛️ 3+ VPCs = TRANSIT GATEWAY (family reunion: everyone to hub)</text>
+<text x="55" y="999" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">🚪 S3/DDB = VPC ENDPOINT GATEWAY (secret door to AWS, free)</text>
+<text x="55" y="1016" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">🔒 SNS/SQS = VPC ENDPOINT INTERFACE (secret door, paid)</text>
+<text x="55" y="1033" text-anchor="start" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">🔐 On-Prem Quick = VPN (encrypted tunnel, 1.25 Gbps)</text>
+</svg>
+  </div>
+</div>
   <div class="note-group"><h4>VPC Architecture Diagram</h4>
     <pre style="font-size:.75rem;color:var(--muted);line-height:1.5;overflow-x:auto;background:var(--surface2);padding:12px;border-radius:6px">
 Internet
@@ -2203,6 +2495,212 @@ Internet
     <tr><td>Multi-Site Active-Active</td><td>~0</td><td>~0</td><td>$$$$</td><td>Full capacity in 2+ regions. Route 53 routes to both. Most expensive</td></tr>
     </tbody></table>
   </div>
+<div>
+  <svg width="100%" viewBox="0 0 800 1010" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+</defs>
+
+<!-- BACKGROUND -->
+<rect width="800" height="1000" fill="#0f1117" style="fill:rgb(15, 17, 23);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- TITLE -->
+<rect x="20" y="20" width="760" height="50" fill="#1a1d27" stroke="#FFD700" stroke-width="2" rx="5" style="fill:rgb(26, 29, 39);stroke:rgb(255, 215, 0);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="400" y="55" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:20px;font-weight:700;text-anchor:middle;dominant-baseline:auto">AWS DISASTER RECOVERY STRATEGIES - EXAM CHEAT SHEET</text>
+
+<!-- DIVIDER -->
+<line x1="20" y1="85" x2="780" y2="85" stroke="#404557" stroke-width="2" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- ROW 1: BACKUP & RESTORE -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<rect x="20" y="100" width="370" height="180" fill="#1a1d27" stroke="#e74c3c" stroke-width="2" rx="5" style="fill:rgb(26, 29, 39);stroke:rgb(231, 76, 60);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<rect x="20" y="100" width="370" height="30" fill="#e74c3c" rx="5" style="fill:rgb(231, 76, 60);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="210" y="122" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:20px;font-weight:700;text-anchor:middle;dominant-baseline:auto">1. BACKUP &amp; RESTORE</text>
+
+<text x="35" y="150" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">💾 HOW IT WORKS:</text>
+<text x="40" y="165" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Primary region running normally</text>
+<text x="40" y="178" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Nightly backups to S3</text>
+<text x="40" y="191" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• On disaster: restore from backup</text>
+<text x="40" y="204" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Create new infrastructure</text>
+
+<line x1="35" y1="220" x2="375" y2="220" stroke="#404557" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="35" y="238" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">⏱️  RTO:</text>
+<text x="120" y="238" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">4-24 HOURS</text>
+
+<text x="35" y="255" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">📊 RPO:</text>
+<text x="120" y="255" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">UP TO 1 DAY</text>
+
+<text x="35" y="272" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">💰 COST:</text>
+<text x="120" y="272" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$ (Cheapest)</text>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- ROW 2: PILOT LIGHT -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<rect x="410" y="100" width="370" height="180" fill="#1a1d27" stroke="#f1c40f" stroke-width="2" rx="5" style="fill:rgb(26, 29, 39);stroke:rgb(241, 196, 15);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<rect x="410" y="100" width="370" height="30" fill="#f1c40f" rx="5" style="fill:rgb(241, 196, 15);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="600" y="122" text-anchor="middle" fill="#000" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:20px;font-weight:700;text-anchor:middle;dominant-baseline:auto">2. PILOT LIGHT</text>
+
+<text x="425" y="150" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">🔥 HOW IT WORKS:</text>
+<text x="430" y="165" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Primary: running (full capacity)</text>
+<text x="430" y="178" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• DR site: MINIMAL (like a pilot light)</text>
+<text x="430" y="191" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Data: real-time replicated</text>
+<text x="430" y="204" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• On disaster: scale up minimal setup</text>
+
+<line x1="425" y1="220" x2="765" y2="220" stroke="#404557" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="425" y="238" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">⏱️  RTO:</text>
+<text x="510" y="238" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">10-15 MINUTES</text>
+
+<text x="425" y="255" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">📊 RPO:</text>
+<text x="510" y="255" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">5 MINUTES</text>
+
+<text x="425" y="272" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">💰 COST:</text>
+<text x="510" y="272" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$ (Low)</text>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- ROW 3: WARM STANDBY -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<rect x="20" y="300" width="370" height="180" fill="#1a1d27" stroke="#5b8dee" stroke-width="2" rx="5" style="fill:rgb(26, 29, 39);stroke:rgb(91, 141, 238);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<rect x="20" y="300" width="370" height="30" fill="#5b8dee" rx="5" style="fill:rgb(91, 141, 238);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="210" y="322" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:20px;font-weight:700;text-anchor:middle;dominant-baseline:auto">3. WARM STANDBY</text>
+
+<text x="35" y="350" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">🔆 HOW IT WORKS:</text>
+<text x="40" y="365" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Primary: running (full capacity)</text>
+<text x="40" y="378" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• DR site: running (30-50% capacity)</text>
+<text x="40" y="391" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Data: real-time synced</text>
+<text x="40" y="404" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• On disaster: scale up DR to 100%</text>
+
+<line x1="35" y1="420" x2="375" y2="420" stroke="#404557" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="35" y="438" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">⏱️  RTO:</text>
+<text x="120" y="438" fill="#87CEEB" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">5 MINUTES</text>
+
+<text x="35" y="455" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">📊 RPO:</text>
+<text x="120" y="455" fill="#87CEEB" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">SECONDS</text>
+
+<text x="35" y="472" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">💰 COST:</text>
+<text x="120" y="472" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$$ (Medium)</text>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- ROW 4: MULTI-SITE ACTIVE-ACTIVE -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<rect x="410" y="300" width="370" height="180" fill="#1a1d27" stroke="#2ecc71" stroke-width="2" rx="5" style="fill:rgb(26, 29, 39);stroke:rgb(46, 204, 113);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<rect x="410" y="300" width="370" height="30" fill="#2ecc71" rx="5" style="fill:rgb(46, 204, 113);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="600" y="322" text-anchor="middle" fill="#000" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:20px;font-weight:700;text-anchor:middle;dominant-baseline:auto">4. MULTI-SITE ACTIVE-ACTIVE</text>
+
+<text x="425" y="350" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">⚡ HOW IT WORKS:</text>
+<text x="430" y="365" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Site A: running (100% capacity)</text>
+<text x="430" y="378" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Site B: running (100% capacity)</text>
+<text x="430" y="391" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• Both sites receive traffic always</text>
+<text x="430" y="404" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">• On disaster: NO ACTION - auto failover</text>
+
+<line x1="425" y1="420" x2="765" y2="420" stroke="#404557" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="425" y="438" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">⏱️  RTO:</text>
+<text x="510" y="438" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">0 (INSTANT!)</text>
+
+<text x="425" y="455" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">📊 RPO:</text>
+<text x="510" y="455" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">0 (NO DATA LOSS)</text>
+
+<text x="425" y="472" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">💰 COST:</text>
+<text x="510" y="472" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$$$ (Expensive)</text>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- QUICK COMPARISON TABLE -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<line x1="20" y1="510" x2="780" y2="510" stroke="#404557" stroke-width="2" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="400" y="535" text-anchor="middle" style="fill:rgb(255, 215, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:700;text-anchor:middle;dominant-baseline:auto">QUICK COMPARISON &amp; WHEN TO USE</text>
+
+<!-- TABLE HEADER -->
+<rect x="20" y="555" width="760" height="30" fill="#1a1d27" stroke="#FFD700" stroke-width="1" style="fill:rgb(26, 29, 39);stroke:rgb(255, 215, 0);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="575" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">Strategy</text>
+<text x="180" y="575" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">Best For</text>
+<text x="380" y="575" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">RTO</text>
+<text x="520" y="575" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">RPO</text>
+<text x="660" y="575" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">Cost</text>
+
+<!-- TABLE ROW 1 -->
+<line x1="20" y1="585" x2="780" y2="585" stroke="#404557" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="20" y="585" width="760" height="35" fill="#1a1d27" opacity="0.5" style="fill:rgb(26, 29, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="608" fill="#e74c3c" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Backup</text>
+<text x="180" y="608" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Dev/Test, non-critical</text>
+<text x="380" y="608" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">4-24h</text>
+<text x="520" y="608" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">1 day</text>
+<text x="660" y="608" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$</text>
+
+<!-- TABLE ROW 2 -->
+<line x1="20" y1="620" x2="780" y2="620" stroke="#404557" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="20" y="620" width="760" height="35" fill="#1a1d27" opacity="0.5" style="fill:rgb(26, 29, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="643" fill="#f1c40f" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Pilot Light</text>
+<text x="180" y="643" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Important apps, e-commerce</text>
+<text x="380" y="643" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">10-15m</text>
+<text x="520" y="643" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">5 min</text>
+<text x="660" y="643" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$</text>
+
+<!-- TABLE ROW 3 -->
+<line x1="20" y1="655" x2="780" y2="655" stroke="#404557" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="20" y="655" width="760" height="35" fill="#1a1d27" opacity="0.5" style="fill:rgb(26, 29, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="678" fill="#5b8dee" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Warm Standby</text>
+<text x="180" y="678" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Critical apps, SaaS platforms</text>
+<text x="380" y="678" fill="#87CEEB" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">5 min</text>
+<text x="520" y="678" fill="#87CEEB" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">seconds</text>
+<text x="660" y="678" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$$</text>
+
+<!-- TABLE ROW 4 -->
+<line x1="20" y1="690" x2="780" y2="690" stroke="#404557" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="20" y="690" width="760" height="35" fill="#1a1d27" opacity="0.5" style="fill:rgb(26, 29, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="713" fill="#2ecc71" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Multi-Site</text>
+<text x="180" y="713" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Mission-critical, trading, banking</text>
+<text x="380" y="713" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">0 (instant)</text>
+<text x="520" y="713" fill="#90EE90" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">0</text>
+<text x="660" y="713" fill="#FFB6C1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">$$$$</text>
+
+<!-- ═════════════════════════════════════════════════════════ -->
+<!-- EXAM TIPS -->
+<!-- ═════════════════════════════════════════════════════════ -->
+
+<line x1="20" y1="745" x2="780" y2="745" stroke="#404557" stroke-width="2" style="fill:rgb(0, 0, 0);stroke:rgb(64, 69, 87);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<text x="400" y="770" text-anchor="middle" style="fill:rgb(255, 215, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:700;text-anchor:middle;dominant-baseline:auto">⚡ EXAM TIPS &amp; QUICK DECISION RULES</text>
+
+<!-- TIP 1 -->
+<rect x="20" y="790" width="360" height="100" fill="#1a1d27" stroke="#FFD700" stroke-width="1" rx="3" style="fill:rgb(26, 29, 39);stroke:rgb(255, 215, 0);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="810" fill="#FFD700" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">❓ Q: Can they afford hours of downtime?</text>
+<text x="40" y="828" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ BACKUP &amp; RESTORE ($)</text>
+<text x="40" y="843" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ Check: "Can wait 4-24 hours"</text>
+
+<!-- TIP 2 -->
+<rect x="420" y="790" width="360" height="100" fill="#1a1d27" stroke="#f1c40f" stroke-width="1" rx="3" style="fill:rgb(26, 29, 39);stroke:rgb(241, 196, 15);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="435" y="810" fill="#f1c40f" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">❓ Q: Need recovery in minutes?</text>
+<text x="440" y="828" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ PILOT LIGHT ($$)</text>
+<text x="440" y="843" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ Check: "Can afford 10-15 min"</text>
+
+<!-- TIP 3 -->
+<rect x="20" y="900" width="360" height="100" fill="#1a1d27" stroke="#5b8dee" stroke-width="1" rx="3" style="fill:rgb(26, 29, 39);stroke:rgb(91, 141, 238);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="35" y="920" fill="#5b8dee" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">❓ Q: Critical app, need seconds?</text>
+<text x="40" y="938" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ WARM STANDBY ($$$)</text>
+<text x="40" y="953" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ Check: "5 min recovery, always synced"</text>
+
+<!-- TIP 4 -->
+<rect x="420" y="900" width="360" height="100" fill="#1a1d27" stroke="#2ecc71" stroke-width="1" rx="3" style="fill:rgb(26, 29, 39);stroke:rgb(46, 204, 113);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="435" y="920" fill="#2ecc71" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">❓ Q: Zero downtime, zero data loss?</text>
+<text x="440" y="938" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ MULTI-SITE ACTIVE-ACTIVE ($$$$)</text>
+<text x="440" y="953" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">→ Check: "Both sites running 24/7"</text>
+
+</svg>
+</div>
 <div class="note-group"><h4>🗺️ DR Strategies — Cost vs Speed</h4>
 <svg viewBox="0 0 720 320" width="100%" style="max-width:720px;display:block;margin:0 auto;border-radius:8px">
   <defs>
@@ -3946,15 +4444,22 @@ function showNoteSection(sid) {
 function switchView(view) {
   const quizEls = ['filterbar', 'main'];
   const notesEl = document.getElementById('notes-view');
+  const csEl = document.getElementById('cheatsheet-view');
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
   closeMobileSidebar(); // always close drawer on view switch
   if (view === 'notes') {
     quizEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
     notesEl.style.display = 'block';
+    if (csEl) csEl.style.display = 'none';
     if (!currentNoteSection) showNoteSection('iam');
+  } else if (view === 'cheatsheet') {
+    quizEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+    notesEl.style.display = 'none';
+    if (csEl) csEl.style.display = 'block';
   } else {
     quizEls.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
     notesEl.style.display = 'none';
+    if (csEl) csEl.style.display = 'none';
   }
 }
 
@@ -3989,6 +4494,786 @@ document.addEventListener('click', e => {
   if (btn && window.innerWidth <= 768) closeMobileSidebar();
 });
 
+
+function csShow(id, el) {
+  const view = document.getElementById('cheatsheet-view');
+  view.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  view.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('p-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
 </script>
+
+<!-- CHEATSHEET VIEW -->
+<div id="cheatsheet-view" style="display:none">
+<div class="page">
+
+<!-- NAV -->
+<div class="tabs">
+  <div class="tab tab-ec2 active" onclick="csShow('ec2',this)">EC2</div>
+  <div class="tab tab-ebs" onclick="csShow('ebs',this)">EBS</div>
+  <div class="tab tab-s3" onclick="csShow('s3',this)">S3</div>
+  <div class="tab tab-elb" onclick="csShow('elb',this)">ELB</div>
+  <div class="tab tab-asg" onclick="csShow('asg',this)">Auto Scaling</div>
+  <div class="tab tab-iam" onclick="csShow('iam',this)">IAM</div>
+  <div class="tab tab-cf" onclick="csShow('cf',this)">CloudFront</div>
+  <div class="tab tab-r53" onclick="csShow('r53',this)">Route 53</div>
+  <div class="tab tab-lambda" onclick="csShow('lambda',this)">Lambda</div>
+  <div class="tab tab-sqs" onclick="csShow('sqs',this)">SQS / SNS</div>
+  <div class="tab tab-dynamo" onclick="csShow('dynamo',this)">DynamoDB</div>
+</div>
+
+<!-- ══════════════ EC2 ══════════════ -->
+<div id="p-ec2" class="panel active">
+  <div class="g2">
+    <div class="card or">
+      <div class="ch2"><span class="dot d-or"></span>What is EC2</div>
+      <div class="kv">
+        <span class="k">Service</span><span class="v">Resizable compute capacity in the cloud (virtual servers)</span>
+        <span class="k">AMI</span><span class="v">Amazon Machine Image — template for root volume + launch permissions + block device mapping</span>
+        <span class="k">User Data</span><span class="v">Bootstrap scripts run at launch (as root). Only runs once by default</span>
+        <span class="k">Metadata</span><span class="v"><span class="t-or">169.254.169.254/latest/meta-data/</span> — instance info (IAM role, public IP, etc.)</span>
+        <span class="k">Nitro</span><span class="v">Next-gen hypervisor: better perf, ENA networking, NVMe storage, enhanced security</span>
+        <span class="k">Limits</span><span class="v">vCPU-based, per-region. Standard: <span class="a-or">1152 vCPUs</span>. Accel (G/P/F/X): 128 vCPUs each</span>
+      </div>
+    </div>
+    <div class="card or">
+      <div class="ch2"><span class="dot d-or"></span>Instance Type Families</div>
+      <table class="t">
+        <tr><th>Family</th><th>Purpose</th><th>Examples</th></tr>
+        <tr><td><span class="a-or">T</span></td><td>Burstable (CPU credits)</td><td>t3, t4g</td></tr>
+        <tr><td><span class="a-or">M</span></td><td>General purpose, balanced</td><td>m6i, m7g</td></tr>
+        <tr><td><span class="a-or">C</span></td><td>Compute optimized (HPC, gaming)</td><td>c6i, c7g</td></tr>
+        <tr><td><span class="a-or">R</span></td><td>Memory optimized (in-memory DB)</td><td>r6i, r7g</td></tr>
+        <tr><td><span class="a-or">X</span></td><td>High memory (SAP HANA)</td><td>x2iedn</td></tr>
+        <tr><td><span class="a-or">I/Im/Is</span></td><td>Storage optimized (NVMe)</td><td>i4i, im4gn</td></tr>
+        <tr><td><span class="a-or">P/G/Inf</span></td><td>Accelerated (GPU/ML)</td><td>p4, g5, inf2</td></tr>
+        <tr><td><span class="a-or">D/H</span></td><td>Dense HDD storage</td><td>d3, h1</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="sl">► Purchasing Options</div>
+  <div class="g3">
+    <div class="card or">
+      <div class="ch2"><span class="dot d-or"></span>On-Demand</div>
+      <ul class="l">
+        <li>Pay per second (Linux) or hour (Windows)</li>
+        <li>No commitment, highest flexibility</li>
+        <li>Best for: unpredictable, short-term workloads</li>
+        <li>Default — no upfront cost or long-term contract</li>
+      </ul>
+    </div>
+    <div class="card or">
+      <div class="ch2"><span class="dot d-or"></span>Reserved Instances</div>
+      <ul class="l">
+        <li><span class="a-or">1-yr or 3-yr</span> commitment → up to <span class="a-gr">72% off</span></li>
+        <li>Payment: All Upfront / Partial / No Upfront</li>
+        <li><span class="a-or">Standard RI</span>: fixed instance family+region</li>
+        <li><span class="a-or">Convertible RI</span>: can change family/OS/tenancy (54% discount)</li>
+        <li><span class="a-or">Scheduled RI</span>: reserve capacity for recurring time windows</li>
+        <li>Can sell unused Standard RIs on Marketplace</li>
+      </ul>
+    </div>
+    <div class="card or">
+      <div class="ch2"><span class="dot d-or"></span>Spot Instances</div>
+      <ul class="l">
+        <li>Bid on spare capacity → up to <span class="a-gr">90% off</span></li>
+        <li><span class="a-re">2-minute warning</span> before termination</li>
+        <li>Best for: fault-tolerant, flexible, stateless workloads</li>
+        <li><span class="a-or">Spot Fleet</span>: mix of Spot + On-Demand pools</li>
+        <li><span class="a-or">Spot Block</span>: reserve 1–6 hours (no interruption)</li>
+        <li>NOT suitable for critical/persistent workloads</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sl">► Networking & Storage</div>
+  <div class="g3">
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Placement Groups</div>
+      <div class="kv">
+        <span class="k">Cluster</span><span class="v">Same rack, same AZ — lowest latency, 10Gbps between instances. Risk: single point of failure</span>
+        <span class="k">Spread</span><span class="v">Different hardware racks — max <span class="a-ye">7 instances/AZ</span>. Reduces correlated failures</span>
+        <span class="k">Partition</span><span class="v">Groups of instances on separate racks/AZs — for Hadoop, Kafka, Cassandra. Up to 7 partitions/AZ</span>
+      </div>
+    </div>
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Enhanced Networking & IP</div>
+      <ul class="l">
+        <li><span class="a-ye">ENA</span> (Elastic Network Adapter): up to 100Gbps</li>
+        <li><span class="a-ye">EFA</span> (Elastic Fabric Adapter): HPC / MPI workloads</li>
+        <li>Elastic IP = static public IPv4; charged when <span class="a-re">unattached</span></li>
+        <li>Private IP persists stop/start; Public IP changes on stop</li>
+        <li><span class="a-ye">sourceDestCheck</span> must be disabled for NAT instances</li>
+      </ul>
+    </div>
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Storage on EC2</div>
+      <div class="kv">
+        <span class="k">EBS</span><span class="v">Persistent block storage, survives instance stop/terminate. AZ-scoped</span>
+        <span class="k">Instance Store</span><span class="v"><span class="a-re">Ephemeral</span> — lost on stop/terminate. Highest I/O performance (NVMe SSD)</span>
+        <span class="k">EFS</span><span class="v">Shared NFS — mount to multiple instances across AZs. POSIX-compliant</span>
+        <span class="k">FSx</span><span class="v">Windows (SMB/NTFS) or Lustre (HPC) managed file systems</span>
+      </div>
+    </div>
+  </div>
+  <div class="tip">Exam: Savings Plans (Compute/EC2/SageMaker) = flexible commitment; covers EC2 + Lambda + Fargate. Up to 66% off.</div>
+</div>
+
+<!-- ══════════════ EBS ══════════════ -->
+<div id="p-ebs" class="panel">
+  <div class="g2">
+    <div class="card re">
+      <div class="ch2"><span class="dot d-re"></span>EBS Volume Types</div>
+      <table class="t">
+        <tr><th>Type</th><th>Class</th><th>Max IOPS</th><th>Max Throughput</th><th>Use Case</th></tr>
+        <tr><td><span class="a-re">gp3</span></td><td>SSD</td><td>16,000</td><td>1,000 MB/s</td><td>General workloads (default)</td></tr>
+        <tr><td><span class="a-re">gp2</span></td><td>SSD</td><td>16,000</td><td>250 MB/s</td><td>Legacy general purpose</td></tr>
+        <tr><td><span class="a-re">io2 Block Express</span></td><td>SSD</td><td>256,000</td><td>4,000 MB/s</td><td>Mission-critical DB, latency-sensitive</td></tr>
+        <tr><td><span class="a-re">io1</span></td><td>SSD</td><td>64,000</td><td>1,000 MB/s</td><td>Critical I/O DBs</td></tr>
+        <tr><td><span class="a-re">st1</span></td><td>HDD</td><td>500</td><td>500 MB/s</td><td>Big data, data warehouses, log processing</td></tr>
+        <tr><td><span class="a-re">sc1</span></td><td>HDD</td><td>250</td><td>250 MB/s</td><td>Cold data, infrequent access (cheapest)</td></tr>
+      </table>
+      <div class="warn">HDD (st1/sc1) cannot be used as boot volume. Only SSD types can boot.</div>
+    </div>
+    <div class="card re">
+      <div class="ch2"><span class="dot d-re"></span>Key Concepts</div>
+      <div class="kv">
+        <span class="k">Scope</span><span class="v">AZ-specific — cannot attach to instance in different AZ. Use snapshot to copy across AZs/regions</span>
+        <span class="k">Persistence</span><span class="v">Data persists independent of instance life. Default root volume deleted on termination (configurable)</span>
+        <span class="k">Multi-Attach</span><span class="v">io1/io2 only — attach to up to <span class="a-re">16 instances</span> in same AZ simultaneously</span>
+        <span class="k">Elastic Volumes</span><span class="v">Modify type, size, IOPS on live volumes without downtime (most cases)</span>
+        <span class="k">gp2 IOPS</span><span class="v">3 IOPS/GB baseline, bursts to 3,000. <span class="a-re">gp3</span> = 3,000 IOPS baseline always (better)</span>
+        <span class="k">io1 ratio</span><span class="v">Max 50 IOPS:GB ratio. io2 = 500:1 ratio (much better per GB)</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► Snapshots & Encryption</div>
+  <div class="g3">
+    <div class="card re">
+      <div class="ch2"><span class="dot d-re"></span>Snapshots</div>
+      <ul class="l">
+        <li>Incremental backups stored in S3 (managed by AWS — not visible in S3 console)</li>
+        <li>First snapshot is full; subsequent snapshots only changed blocks</li>
+        <li>Can copy snapshots cross-region for DR</li>
+        <li>Can create AMI from snapshot</li>
+        <li><span class="a-re">Fast Snapshot Restore (FSR)</span>: eliminates latency on first access (extra cost)</li>
+        <li>Recycle Bin: retain deleted snapshots for recovery</li>
+      </ul>
+    </div>
+    <div class="card re">
+      <div class="ch2"><span class="dot d-re"></span>Encryption</div>
+      <ul class="l">
+        <li>Encrypted volumes use AWS KMS (AES-256)</li>
+        <li>Encryption at rest + in-transit between instance and volume</li>
+        <li><span class="a-re">Cannot</span> encrypt existing unencrypted volume directly</li>
+        <li>Workaround: snapshot → copy snapshot with encryption → create volume</li>
+        <li>All snapshots of encrypted volumes are encrypted</li>
+        <li>Can enable default encryption per region for all new volumes</li>
+      </ul>
+    </div>
+    <div class="card re">
+      <div class="ch2"><span class="dot d-re"></span>EBS vs Instance Store</div>
+      <table class="t">
+        <tr><th></th><th>EBS</th><th>Instance Store</th></tr>
+        <tr><td>Persistence</td><td><span class="yes">Survives stop/reboot</span></td><td><span class="no">Lost on stop/terminate</span></td></tr>
+        <tr><td>Performance</td><td>Very high (io2)</td><td><span class="yes">Highest (NVMe)</span></td></tr>
+        <tr><td>Resize</td><td><span class="yes">Yes (Elastic Volumes)</span></td><td><span class="no">Fixed at launch</span></td></tr>
+        <tr><td>Snapshot</td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td></tr>
+        <tr><td>Attach/detach</td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ S3 ══════════════ -->
+<div id="p-s3" class="panel">
+  <div class="g2">
+    <div class="card cy">
+      <div class="ch2"><span class="dot d-cy"></span>Storage Classes</div>
+      <table class="t">
+        <tr><th>Class</th><th>Durability</th><th>Availability</th><th>Min Storage</th><th>Retrieval</th><th>Use Case</th></tr>
+        <tr><td><span class="a-cy">S3 Standard</span></td><td>11 9s</td><td>99.99%</td><td>None</td><td>Instant</td><td>Frequently accessed data</td></tr>
+        <tr><td><span class="a-cy">S3 Standard-IA</span></td><td>11 9s</td><td>99.9%</td><td>30 days</td><td>Instant</td><td>Infrequent access, rapid retrieval</td></tr>
+        <tr><td><span class="a-cy">S3 One Zone-IA</span></td><td>11 9s*</td><td>99.5%</td><td>30 days</td><td>Instant</td><td>Re-creatable data, lower cost</td></tr>
+        <tr><td><span class="a-cy">S3 Intelligent-Tiering</span></td><td>11 9s</td><td>99.9%</td><td>None</td><td>Instant</td><td>Unknown/changing access patterns</td></tr>
+        <tr><td><span class="a-cy">Glacier Instant</span></td><td>11 9s</td><td>99.9%</td><td>90 days</td><td>Instant</td><td>Archive, accessed once/quarter</td></tr>
+        <tr><td><span class="a-cy">Glacier Flexible</span></td><td>11 9s</td><td>99.99%</td><td>90 days</td><td>Minutes–hours</td><td>Archive, flexible retrieval</td></tr>
+        <tr><td><span class="a-cy">Glacier Deep Archive</span></td><td>11 9s</td><td>99.99%</td><td>180 days</td><td>12–48 hours</td><td>Lowest cost, rarely accessed</td></tr>
+      </table>
+      <div class="warn">*One Zone-IA stores in single AZ — data lost if AZ destroyed</div>
+    </div>
+    <div class="card cy">
+      <div class="ch2"><span class="dot d-cy"></span>Core Concepts</div>
+      <div class="kv">
+        <span class="k">Buckets</span><span class="v">Globally unique name, region-specific. Unlimited objects, each up to <span class="a-cy">5TB</span></span>
+        <span class="k">Object key</span><span class="v">Full path (prefix + filename). No true directory hierarchy — simulated with "/"</span>
+        <span class="k">Durability</span><span class="v"><span class="a-cy">11 nines</span> (99.999999999%) — designed for 10M objects → expect to lose 1 object every 10,000 years</span>
+        <span class="k">Consistency</span><span class="v">Strong read-after-write consistency for all operations (since Dec 2020)</span>
+        <span class="k">Max upload</span><span class="v">Single PUT: 5GB. Over 5GB must use <span class="a-cy">Multipart Upload</span> (recommended >100MB)</span>
+        <span class="k">Versioning</span><span class="v">Enabled per bucket. Protects against accidental deletes. Delete marker added instead of true delete</span>
+        <span class="k">Transfer Acc.</span><span class="v">Uses CloudFront edge locations to accelerate uploads globally (extra cost)</span>
+        <span class="k">Presigned URL</span><span class="v">Temporary access to private objects. Expires after set time. Signed by IAM credentials</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► Security & Replication</div>
+  <div class="g3">
+    <div class="card cy">
+      <div class="ch2"><span class="dot d-cy"></span>Access Control</div>
+      <ul class="l">
+        <li><span class="a-cy">Bucket Policy</span>: JSON resource-based policy — cross-account access. Applied at bucket level</li>
+        <li><span class="a-cy">ACLs</span>: Legacy — prefer bucket policies. Can be disabled (recommended)</li>
+        <li><span class="a-cy">Block Public Access</span>: 4 settings. Enable at account level for org-wide protection</li>
+        <li><span class="a-cy">OAC</span> (Origin Access Control): Allows only CloudFront to access S3 — replaces OAI</li>
+        <li><span class="a-cy">S3 Access Points</span>: Named endpoints with own policies for different app teams</li>
+        <li><span class="a-cy">CORS</span>: Needed when browser accesses S3 from different domain</li>
+      </ul>
+    </div>
+    <div class="card cy">
+      <div class="ch2"><span class="dot d-cy"></span>Encryption</div>
+      <ul class="l">
+        <li><span class="a-cy">SSE-S3</span>: AWS manages keys (AES-256). Default for new buckets</li>
+        <li><span class="a-cy">SSE-KMS</span>: Customer controls key in KMS. Audit trail in CloudTrail. Throttle risk at scale</li>
+        <li><span class="a-cy">SSE-C</span>: Customer provides key per request. AWS doesn't store key</li>
+        <li><span class="a-cy">Client-side</span>: Encrypt before upload. AWS stores ciphertext only</li>
+        <li>Force SSL: Bucket policy deny HTTP (aws:SecureTransport = false)</li>
+      </ul>
+    </div>
+    <div class="card cy">
+      <div class="ch2"><span class="dot d-cy"></span>Replication & Lifecycle</div>
+      <ul class="l">
+        <li><span class="a-cy">CRR</span> (Cross-Region Replication): compliance, lower latency, DR. Requires versioning on both</li>
+        <li><span class="a-cy">SRR</span> (Same-Region Replication): log aggregation, live replication between accounts</li>
+        <li>Only new objects replicated after replication enabled (use Batch Replication for existing)</li>
+        <li><span class="a-cy">Lifecycle rules</span>: Transition objects between storage classes or expire after N days</li>
+        <li>Can filter by prefix, tags, or object size</li>
+        <li><span class="a-cy">S3 Intelligent-Tiering</span>: auto-moves between tiers based on access patterns</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ELB ══════════════ -->
+<div id="p-elb" class="panel">
+  <div class="card gr span3">
+    <div class="ch2"><span class="dot d-gr"></span>Load Balancer Comparison</div>
+    <table class="t">
+      <tr><th>Feature</th><th>ALB (Application)</th><th>NLB (Network)</th><th>GLB (Gateway)</th><th>CLB (Classic)</th></tr>
+      <tr><td>OSI Layer</td><td>Layer 7 (HTTP/HTTPS)</td><td>Layer 4 (TCP/UDP/TLS)</td><td>Layer 3+4 (GENEVE)</td><td>Layer 4+7</td></tr>
+      <tr><td>Protocol</td><td>HTTP, HTTPS, gRPC, WebSocket</td><td>TCP, UDP, TLS</td><td>IP packets</td><td>HTTP, HTTPS, TCP, SSL</td></tr>
+      <tr><td>Static IP</td><td><span class="no">No (DNS only)</span></td><td><span class="yes">Yes (per AZ)</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+      <tr><td>Routing</td><td>Path, host, header, query, method</td><td>Port-based</td><td>Transparent bump-in-wire</td><td>Round robin/sticky</td></tr>
+      <tr><td>Target types</td><td>Instance, IP, Lambda</td><td>Instance, IP, ALB</td><td>Instance, IP</td><td>Instance only</td></tr>
+      <tr><td>Health checks</td><td>HTTP/HTTPS</td><td>TCP/HTTP/HTTPS</td><td>TCP/HTTP/HTTPS</td><td>TCP/HTTP/HTTPS</td></tr>
+      <tr><td>Best for</td><td>Web apps, microservices, containers</td><td>Gaming, IoT, extreme perf, VPN</td><td>3rd-party firewalls/IDS</td><td>Legacy EC2-Classic</td></tr>
+    </table>
+  </div>
+  <div class="sl">► ALB & NLB Details</div>
+  <div class="g3">
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>ALB Key Facts</div>
+      <ul class="l">
+        <li><span class="a-gr">Listeners</span>: rules with conditions (path/host/header/query/source-IP)</li>
+        <li><span class="a-gr">Target Groups</span>: instances, IPs, Lambda functions, or other ALBs</li>
+        <li>Can route different paths to different target groups</li>
+        <li>Supports <span class="a-gr">weighted target groups</span> for canary deployments</li>
+        <li>X-Forwarded-For header preserves client IP</li>
+        <li>Sticky sessions via cookie (AWSALB or custom)</li>
+        <li>Billing: per hour + <span class="a-gr">LCU</span> (Load Balancer Capacity Units)</li>
+        <li>Native gRPC and WebSocket support</li>
+      </ul>
+    </div>
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>NLB Key Facts</div>
+      <ul class="l">
+        <li>Handles <span class="a-gr">millions of req/sec</span> with ultra-low latency</li>
+        <li>Static IP per AZ (or Elastic IP) — good for whitelisting</li>
+        <li>Preserves source IP address natively</li>
+        <li>Can register targets by <span class="a-gr">IP</span> (cross-VPC, on-prem via DX/VPN)</li>
+        <li>Supports TLS termination</li>
+        <li>Target = ALB (chaining NLB→ALB for static IP + L7 routing)</li>
+        <li>Billing: per hour + <span class="a-gr">LCU</span></li>
+      </ul>
+    </div>
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>Cross-Zone & Connection Draining</div>
+      <div class="kv">
+        <span class="k">Cross-Zone LB</span><span class="v">Distributes evenly across all instances in all AZs. ALB: always on (free). NLB/GLB: off by default (charged)</span>
+        <span class="k">Conn. Draining</span><span class="v">Also called <span class="a-gr">Deregistration Delay</span>. Allows in-flight requests to complete before deregister (1–3600s, default 300s)</span>
+        <span class="k">Slow Start</span><span class="v">Gradually increase traffic to newly registered targets (ALB only)</span>
+        <span class="k">Health checks</span><span class="v">Unhealthy threshold triggers removal from rotation. Healthy threshold to add back</span>
+      </div>
+      <div class="tip">Exam: NLB needed for static IP, extreme performance, or non-HTTP protocols</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ AUTO SCALING ══════════════ -->
+<div id="p-asg" class="panel">
+  <div class="g2">
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>ASG Core Concepts</div>
+      <div class="kv">
+        <span class="k">Min/Max/Desired</span><span class="v">Min = floor, Max = ceiling, Desired = current target. ASG keeps desired healthy instances</span>
+        <span class="k">Launch Template</span><span class="v">Defines AMI, instance type, key pair, SG, user data. Preferred over Launch Config</span>
+        <span class="k">Health checks</span><span class="v">EC2 status checks (default) or ELB health checks. Unhealthy = terminate + replace</span>
+        <span class="k">Cooldown</span><span class="v">Default 300s after scaling activity — prevents rapid back-to-back scaling</span>
+        <span class="k">Warm-up</span><span class="v">Time for new instances to be ready to serve traffic before counted in metrics</span>
+        <span class="k">Lifecycle hooks</span><span class="v">Pause instance at launch/terminate to run custom actions (e.g. drain, install software)</span>
+        <span class="k">Termination</span><span class="v">Default policy: AZ with most instances → oldest launch config → nearest billing hour</span>
+      </div>
+    </div>
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>Scaling Policies</div>
+      <div class="kv">
+        <span class="k">Target Tracking</span><span class="v">Keep metric at target value. E.g. <span class="a-gr">CPU = 50%</span>. Simplest — AWS manages scale in/out automatically</span>
+        <span class="k">Step Scaling</span><span class="v">Scale by defined amounts based on CloudWatch alarm thresholds. More control than target tracking</span>
+        <span class="k">Scheduled</span><span class="v">Scale at specific times — known load patterns (e.g. 9am–5pm business hours)</span>
+        <span class="k">Predictive</span><span class="v">ML-based forecast + pre-scale. Requires 24h of historical data</span>
+        <span class="k">Manual</span><span class="v">Set desired capacity directly via CLI/console</span>
+      </div>
+      <div class="tip">Exam: Target Tracking = simplest, most common. Always pair ASG with ELB for HA.</div>
+    </div>
+  </div>
+  <div class="sl">► Advanced Features</div>
+  <div class="g3">
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>Instance Refresh</div>
+      <ul class="l">
+        <li>Rolling replacement of instances when launch template changes</li>
+        <li>Set <span class="a-gr">minimum healthy percentage</span> during replacement</li>
+        <li>Supports <span class="a-gr">checkpoint</span> — pause and validate at percentage thresholds</li>
+        <li>Replaces need for Blue/Green deployment at ASG level</li>
+      </ul>
+    </div>
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>Mixed Instances & Spot</div>
+      <ul class="l">
+        <li>Launch Template supports <span class="a-gr">multiple instance types</span></li>
+        <li>Mix On-Demand base + Spot for cost savings</li>
+        <li><span class="a-gr">Capacity Rebalancing</span>: proactively replaces Spot at-risk instances</li>
+        <li>Allocation strategy: <span class="a-gr">lowest-price</span> or <span class="a-gr">capacity-optimized</span></li>
+      </ul>
+    </div>
+    <div class="card gr">
+      <div class="ch2"><span class="dot d-gr"></span>Scaling & ELB Integration</div>
+      <ul class="l">
+        <li>ELB health checks more granular than EC2 checks</li>
+        <li>Deregistration delay lets in-flight requests complete</li>
+        <li><span class="a-gr">Connection draining</span>: ASG waits before terminating</li>
+        <li>New instances registered with ELB automatically</li>
+        <li>ASG spans multiple AZs for high availability</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ IAM ══════════════ -->
+<div id="p-iam" class="panel">
+  <div class="g2">
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>IAM Entities</div>
+      <div class="kv">
+        <span class="k">Users</span><span class="v">Individual identity with permanent long-term credentials (password + access keys). Avoid using root user</span>
+        <span class="k">Groups</span><span class="v">Collection of users. Attach policies to group — users inherit. <span class="a-re">Groups cannot contain groups</span></span>
+        <span class="k">Roles</span><span class="v">Temporary credentials assumed by services, users, apps. No long-term keys. Preferred over access keys</span>
+        <span class="k">Policies</span><span class="v">JSON documents defining allow/deny for actions on resources. Evaluated together</span>
+        <span class="k">Root user</span><span class="v">Only use for initial setup + billing. Enable MFA immediately. Never create access keys for root</span>
+      </div>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>Policy Types</div>
+      <div class="kv">
+        <span class="k">Identity-based</span><span class="v">Attached to user/group/role. Managed (AWS or customer) or Inline</span>
+        <span class="k">Resource-based</span><span class="v">Attached to resource (e.g. S3 bucket policy). Specifies Principal. Cross-account access</span>
+        <span class="k">SCP</span><span class="v">Service Control Policies — AWS Organizations. Sets max permissions for entire OU/account. Doesn't grant, only restricts</span>
+        <span class="k">Permissions boundary</span><span class="v">Max permissions an identity-based policy can grant an IAM entity</span>
+        <span class="k">Session policy</span><span class="v">Passed during role assumption via STS. Intersection of role + session policy</span>
+      </div>
+      <div class="alert">Explicit Deny ALWAYS wins — regardless of any allow in other policies</div>
+    </div>
+  </div>
+  <div class="sl">► Auth, Access & Security</div>
+  <div class="g3">
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>Cross-Account Access</div>
+      <ul class="l">
+        <li>Account A creates role with trust policy allowing Account B</li>
+        <li>Account B's users/roles assume the role via STS AssumeRole</li>
+        <li>External ID used to prevent confused deputy problem</li>
+        <li><span class="a-pu">Resource-based policies</span> (S3, KMS, Lambda) can also grant cross-account</li>
+        <li>AWS Organizations: use SCPs for guardrails across all accounts</li>
+      </ul>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>IAM Best Practices</div>
+      <ul class="l">
+        <li>Enable MFA for all privileged users and root</li>
+        <li>Grant <span class="a-pu">least privilege</span> — start with minimum, expand as needed</li>
+        <li>Rotate access keys regularly; prefer roles over keys</li>
+        <li>Use <span class="a-pu">IAM Access Analyzer</span> to find external access + unused permissions</li>
+        <li>Use <span class="a-pu">Conditions</span> in policies (MFA required, IP range, time of day)</li>
+        <li>Never embed credentials in code — use roles/Secrets Manager</li>
+      </ul>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>STS & Federation</div>
+      <div class="kv">
+        <span class="k">AssumeRole</span><span class="v">Returns temp credentials (AccessKey+Secret+Token). Valid 15min–12hrs</span>
+        <span class="k">SAML 2.0</span><span class="v">Enterprise federation — Active Directory/ADFS → AWS. SSO via browser or CLI</span>
+        <span class="k">OIDC</span><span class="v">Web identity federation — Cognito/GitHub/Google → AWS. For mobile/web apps</span>
+        <span class="k">Cognito</span><span class="v">Identity Pools: federate external identities to get AWS creds. User Pools: user directory with JWT</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CLOUDFRONT ══════════════ -->
+<div id="p-cf" class="panel">
+  <div class="g2">
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>CloudFront Concepts</div>
+      <div class="kv">
+        <span class="k">What</span><span class="v">Global CDN — caches content at <span class="a-ye">edge locations</span> close to users. Reduces latency + origin load</span>
+        <span class="k">Distribution</span><span class="v">Configuration unit — defines origins, behaviors, cache policies, SSL certs</span>
+        <span class="k">Origins</span><span class="v">S3, ALB, EC2, API Gateway, custom HTTP. Can have multiple origins per distribution</span>
+        <span class="k">Edge Locations</span><span class="v">400+ globally (more than Regions/AZs). Separate from AWS Regions</span>
+        <span class="k">Regional Edge Cache</span><span class="v">Larger cache between edge and origin — reduces origin requests further</span>
+        <span class="k">TTL</span><span class="v">Default 24h. Set via Cache-Control or Expires headers from origin. Invalidation clears cache early</span>
+        <span class="k">Origin Shield</span><span class="v">Additional caching layer between edge and origin — reduces origin load further</span>
+        <span class="k">VPC Origins</span><span class="v">Route to ALB/NLB/EC2 in private subnets without public exposure</span>
+      </div>
+    </div>
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Security & Access Control</div>
+      <div class="kv">
+        <span class="k">OAC</span><span class="v">Origin Access Control — restricts S3 to only allow CloudFront (replaces OAI). Use SigV4</span>
+        <span class="k">Signed URLs</span><span class="v">Restrict access to individual files. Include expiry, IP restrictions. For downloads</span>
+        <span class="k">Signed Cookies</span><span class="v">Restrict access to multiple files. User keeps cookie. Better for HLS streaming</span>
+        <span class="k">WAF</span><span class="v">Attach WAF Web ACL to distribution for SQLi, XSS, rate limiting, geo-blocking</span>
+        <span class="k">Geo-restriction</span><span class="v">Allow/deny countries using geo blocking. Or use WAF for fine-grained rules</span>
+        <span class="k">HTTPS</span><span class="v">Viewer protocol policy: redirect HTTP→HTTPS or HTTPS only. Origin: match viewer or HTTPS</span>
+        <span class="k">Field encryption</span><span class="v">Encrypt specific POST fields at edge using public key — stays encrypted to origin</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► Edge Compute & Caching</div>
+  <div class="g3">
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Lambda@Edge vs CF Functions</div>
+      <table class="t">
+        <tr><th></th><th>Lambda@Edge</th><th>CF Functions</th></tr>
+        <tr><td>Runtime</td><td>Node.js / Python</td><td>JavaScript (ES5.1)</td></tr>
+        <tr><td>Triggers</td><td>Viewer req/resp + Origin req/resp</td><td>Viewer req/resp only</td></tr>
+        <tr><td>Max exec time</td><td>5s (viewer) / 30s (origin)</td><td>1ms</td></tr>
+        <tr><td>Max memory</td><td>128MB–10GB</td><td>2MB</td></tr>
+        <tr><td>Network access</td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td></tr>
+        <tr><td>Cost</td><td>Higher</td><td>Very low</td></tr>
+        <tr><td>Use case</td><td>Auth, complex transforms, A/B</td><td>URL rewrites, redirects, headers</td></tr>
+      </table>
+    </div>
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Caching & Behaviors</div>
+      <ul class="l">
+        <li><span class="a-ye">Cache Behaviors</span>: path pattern rules → different origins, TTLs, policies per path</li>
+        <li>Cache key includes: URL path, headers, cookies, query strings (configure carefully)</li>
+        <li><span class="a-ye">Cache Policy</span>: controls what's in the cache key</li>
+        <li><span class="a-ye">Origin Request Policy</span>: what to forward to origin (separate from cache key)</li>
+        <li>Invalidation: /* clears all (charged per path submitted, min 1000 free/mo)</li>
+        <li>Versioned files (e.g. app.v2.js) better than invalidation for deployments</li>
+      </ul>
+    </div>
+    <div class="card ye">
+      <div class="ch2"><span class="dot d-ye"></span>Pricing & Acceleration</div>
+      <ul class="l">
+        <li>Price Class: All / 200 (most) / 100 (cheapest — NA+EU only) edge locations</li>
+        <li>Charged: data transfer out + HTTP request count</li>
+        <li>HTTPS requests cost more than HTTP</li>
+        <li><span class="a-ye">S3 Transfer Acceleration</span>: uses CloudFront edge for S3 uploads (different service)</li>
+        <li>ACM certificates for CloudFront must be in <span class="a-re">us-east-1</span> (global requirement)</li>
+        <li>Custom domain: CNAME in DNS or Alias record in Route 53</li>
+      </ul>
+      <div class="tip">Exam: CF = read caching/CDN. S3 TA = accelerated uploads. Both use edge locations.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ROUTE 53 ══════════════ -->
+<div id="p-r53" class="panel">
+  <div class="g2">
+    <div class="card te">
+      <div class="ch2"><span class="dot d-te"></span>Record Types & Alias</div>
+      <div class="kv">
+        <span class="k">A</span><span class="v">Domain → IPv4 address</span>
+        <span class="k">AAAA</span><span class="v">Domain → IPv6 address</span>
+        <span class="k">CNAME</span><span class="v">Domain → another domain. <span class="a-re">Cannot</span> be used at zone apex (root domain)</span>
+        <span class="k">Alias</span><span class="v">Route 53 extension — domain → AWS resource (ELB, CF, S3, API GW). <span class="a-te">Can</span> be at apex. Free queries</span>
+        <span class="k">MX</span><span class="v">Mail exchange servers</span>
+        <span class="k">TXT</span><span class="v">Text records — domain verification, SPF</span>
+        <span class="k">NS</span><span class="v">Name servers for hosted zone</span>
+        <span class="k">SOA</span><span class="v">Start of Authority — zone metadata</span>
+      </div>
+      <div class="tip">Use Alias (not CNAME) for zone apex (example.com) pointing to ELB/CloudFront</div>
+    </div>
+    <div class="card te">
+      <div class="ch2"><span class="dot d-te"></span>Routing Policies</div>
+      <div class="kv">
+        <span class="k">Simple</span><span class="v">Single resource or multiple values (random). No health checks on multi-value</span>
+        <span class="k">Weighted</span><span class="v">Split % traffic between resources. Weight 0 = send no traffic. Use for canary/A-B testing</span>
+        <span class="k">Latency</span><span class="v">Route to region with lowest latency for user. Not necessarily closest geographically</span>
+        <span class="k">Failover</span><span class="v">Active-passive: primary + secondary. Uses health checks to trigger failover</span>
+        <span class="k">Geolocation</span><span class="v">Route based on user's location (continent/country). Default record for non-matched</span>
+        <span class="k">Geoproximity</span><span class="v">Route based on location + bias (Traffic Flow only). Shift traffic between regions with bias value</span>
+        <span class="k">IP-based</span><span class="v">Route based on client IP CIDR. For ISP-based routing</span>
+        <span class="k">Multivalue</span><span class="v">Like Simple but with health checks. Returns up to 8 healthy records</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► Health Checks & Private DNS</div>
+  <div class="g3">
+    <div class="card te">
+      <div class="ch2"><span class="dot d-te"></span>Health Checks</div>
+      <ul class="l">
+        <li>Monitor endpoint (HTTP/HTTPS/TCP) every 30s (default) or 10s (fast, extra cost)</li>
+        <li><span class="a-te">Calculated health check</span>: combine multiple checks with AND/OR logic</li>
+        <li><span class="a-te">CloudWatch alarm</span> health check: monitor internal resources not exposed to internet</li>
+        <li>Healthy threshold: 3 consecutive passes. Unhealthy: 3 consecutive fails</li>
+        <li>Health checkers come from multiple AWS regions — must allow 15+ IPs</li>
+        <li>String matching: check response body for string (first 5120 bytes)</li>
+      </ul>
+    </div>
+    <div class="card te">
+      <div class="ch2"><span class="dot d-te"></span>Private DNS & Resolver</div>
+      <ul class="l">
+        <li><span class="a-te">Private hosted zone</span>: resolves within VPC(s) only. Associate with multiple VPCs</li>
+        <li>Split-horizon DNS: same domain name resolves differently inside/outside VPC</li>
+        <li><span class="a-te">Route 53 Resolver</span>: hybrid DNS — inbound (on-prem→AWS) and outbound (AWS→on-prem) endpoints</li>
+        <li><span class="a-te">Resolver DNS Firewall</span>: block malicious domains at DNS level</li>
+        <li>Global Resolver: public recursive DNS (like 8.8.8.8 but AWS-managed)</li>
+      </ul>
+    </div>
+    <div class="card te">
+      <div class="ch2"><span class="dot d-te"></span>Traffic Flow & Domain Reg.</div>
+      <ul class="l">
+        <li><span class="a-te">Traffic Flow</span>: visual policy editor for complex routing (geoproximity requires it)</li>
+        <li>Traffic policies versioned — update without service impact</li>
+        <li>Domain registration: buy domains through Route 53 (registrar). Auto-creates hosted zone</li>
+        <li>Transfer domain: from another registrar with authorization code</li>
+        <li>Hosted zone fee: $0.50/mo per zone. Query fee: $0.40/1M queries</li>
+        <li>Alias queries to AWS resources = free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ LAMBDA ══════════════ -->
+<div id="p-lambda" class="panel">
+  <div class="g2">
+    <div class="card pk">
+      <div class="ch2"><span class="dot d-pk"></span>Lambda Fundamentals</div>
+      <div class="kv">
+        <span class="k">Model</span><span class="v">Event-driven, serverless. Pay per request + duration. No servers to manage</span>
+        <span class="k">Runtimes</span><span class="v"><span class="t-pk">Node.js</span><span class="t-pk">Python</span><span class="t-pk">Java</span><span class="t-pk">Go</span><span class="t-pk">Ruby</span><span class="t-pk">C#</span> + Custom Runtime API</span>
+        <span class="k">Timeout</span><span class="v">Max <span class="a-pk">15 minutes</span> (900s). Default 3s. Choose SQS/Step Functions for longer</span>
+        <span class="k">Memory</span><span class="v">128MB to 10,240MB (10GB). CPU scales proportionally with memory</span>
+        <span class="k">Package size</span><span class="v">50MB compressed / 250MB uncompressed. Use Lambda Layers for shared code/libs</span>
+        <span class="k">Ephemeral storage</span><span class="v">/tmp: 512MB to 10GB. Not persistent between invocations</span>
+        <span class="k">Env variables</span><span class="v">Up to 4KB. Encrypt sensitive values with KMS</span>
+        <span class="k">Execution role</span><span class="v">IAM role assumed by Lambda. Defines what services it can call</span>
+      </div>
+    </div>
+    <div class="card pk">
+      <div class="ch2"><span class="dot d-pk"></span>Invocation Types & Triggers</div>
+      <div class="kv">
+        <span class="k">Synchronous</span><span class="v">Caller waits for response. Errors returned to caller. API GW, ALB, Cognito, CF</span>
+        <span class="k">Asynchronous</span><span class="v">Event queued, Lambda retries 2x on error. S3, SNS, EventBridge. DLQ for failed events</span>
+        <span class="k">Poll-based</span><span class="v">Lambda polls source. SQS, Kinesis, DynamoDB Streams, MSK, Kafka</span>
+        <span class="k">Event sources</span><span class="v">API GW · ALB · S3 · SNS · SQS · DynamoDB Streams · Kinesis · EventBridge · Cognito · IoT</span>
+      </div>
+      <hr class="d">
+      <div class="kv">
+        <span class="k">SQS trigger</span><span class="v">Lambda polls SQS, processes in batches. Scales by adding pollers. On error: message stays in queue</span>
+        <span class="k">Kinesis trigger</span><span class="v">One Lambda per shard. Processes in order within shard. Enhanced fan-out supported</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► Concurrency, VPC & Advanced</div>
+  <div class="g3">
+    <div class="card pk">
+      <div class="ch2"><span class="dot d-pk"></span>Concurrency & Cold Starts</div>
+      <ul class="l">
+        <li><span class="a-pk">Concurrency</span> = requests being processed simultaneously. Default 1,000/region (soft limit)</li>
+        <li><span class="a-pk">Reserved concurrency</span>: cap max concurrency for a function (throttles excess)</li>
+        <li><span class="a-pk">Provisioned concurrency</span>: pre-warm instances → eliminates cold starts (costs more)</li>
+        <li><span class="a-pk">SnapStart</span> (Java): snapshot after init → restore on cold start. Sub-second init</li>
+        <li>Cold start: init time (container + runtime + code init). Warm = reused container</li>
+        <li>Large memory/VPC attachment increases cold start time</li>
+      </ul>
+    </div>
+    <div class="card pk">
+      <div class="ch2"><span class="dot d-pk"></span>VPC & Networking</div>
+      <ul class="l">
+        <li>By default Lambda runs in AWS-managed VPC — internet access, no private resource access</li>
+        <li>Attach Lambda to VPC to access RDS, ElastiCache, private resources</li>
+        <li>VPC Lambda needs NAT GW for internet access (no public IP assigned)</li>
+        <li>Lambda creates ENI in subnet — ensure enough free IPs</li>
+        <li><span class="a-pk">RDS Proxy</span> recommended for Lambda→RDS (connection pooling)</li>
+        <li>Lambda@Edge: runs in CloudFront edge locations (no VPC support)</li>
+      </ul>
+    </div>
+    <div class="card pk">
+      <div class="ch2"><span class="dot d-pk"></span>Layers, Destinations & Pricing</div>
+      <ul class="l">
+        <li><span class="a-pk">Layers</span>: shared code/libs/dependencies. Up to 5 layers/function. Reusable across functions</li>
+        <li><span class="a-pk">Destinations</span>: async failures/successes → SQS/SNS/Lambda/EventBridge</li>
+        <li><span class="a-pk">Aliases</span>: pointers to specific versions. Enable traffic shifting (canary)</li>
+        <li>Pricing: $0.20/1M requests + duration (GB-seconds). Free tier: 1M req + 400,000 GB-s/mo</li>
+        <li>Step Functions for orchestration of multiple Lambda functions</li>
+      </ul>
+      <div class="tip">Exam: Lambda not for tasks >15min. Use ECS/Fargate/Batch for long-running.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SQS / SNS ══════════════ -->
+<div id="p-sqs" class="panel">
+  <div class="g2">
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>SQS — Queue Types</div>
+      <table class="t">
+        <tr><th>Feature</th><th>Standard Queue</th><th>FIFO Queue</th></tr>
+        <tr><td>Throughput</td><td>Unlimited (nearly)</td><td>300 TPS (3,000 with batching)</td></tr>
+        <tr><td>Ordering</td><td>Best-effort only</td><td><span class="yes">Strict FIFO</span></td></tr>
+        <tr><td>Deduplication</td><td><span class="no">No (may duplicate)</span></td><td><span class="yes">Yes (5-min window)</span></td></tr>
+        <tr><td>Delivery</td><td>At-least-once</td><td>Exactly-once processing</td></tr>
+        <tr><td>Use case</td><td>Decoupling, high throughput</td><td>Orders, transactions, commands</td></tr>
+      </table>
+      <div class="warn">FIFO queue names must end in .fifo</div>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>SQS Key Concepts</div>
+      <div class="kv">
+        <span class="k">Visibility timeout</span><span class="v">Time msg hidden after received (default <span class="a-pu">30s</span>, max 12h). Prevents double-processing</span>
+        <span class="k">Message retention</span><span class="v">Default 4 days, max <span class="a-pu">14 days</span>. Min 1 minute</span>
+        <span class="k">Max msg size</span><span class="v"><span class="a-pu">256KB</span>. Use Extended Client Library (stores in S3) for larger</span>
+        <span class="k">Long polling</span><span class="v">Wait up to 20s for messages — reduces empty responses, cheaper. Preferred over short poll</span>
+        <span class="k">Short polling</span><span class="v">Returns immediately even if empty. More API calls, higher cost</span>
+        <span class="k">DLQ</span><span class="v">Dead-Letter Queue: after maxReceiveCount failures, message moved here for inspection</span>
+        <span class="k">Delay queue</span><span class="v">Postpone delivery 0–900s. Per-message delay available in Standard only</span>
+      </div>
+    </div>
+  </div>
+  <div class="sl">► SNS & Messaging Patterns</div>
+  <div class="g3">
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>Amazon SNS</div>
+      <ul class="l">
+        <li><span class="a-pu">Pub/Sub</span> — one publisher, many subscribers (fan-out)</li>
+        <li>Topics: Standard (high throughput) or FIFO (ordering + dedup)</li>
+        <li>Subscribers: SQS · Lambda · HTTP/S · Email · SMS · Mobile push</li>
+        <li><span class="a-pu">Message filtering</span>: subscribers set filter policy — only get relevant messages</li>
+        <li>Max message size: 256KB</li>
+        <li>No persistence — if subscriber unavailable, message lost (use SQS as buffer)</li>
+        <li><span class="a-pu">SNS + SQS Fan-out</span>: publish once → multiple SQS queues → decouple processing</li>
+      </ul>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>SQS + SNS Fan-out Pattern</div>
+      <div class="flow">
+        <span class="fb">Producer</span><span class="ar">→</span>
+        <span class="fb">SNS Topic</span><span class="ar">→</span>
+        <span class="fb">SQS Queue 1</span>
+      </div>
+      <div class="flow" style="margin-left:86px">
+        <span class="ar">→</span><span class="fb">SQS Queue 2</span>
+      </div>
+      <div class="flow" style="margin-left:86px">
+        <span class="ar">→</span><span class="fb">Lambda</span>
+      </div>
+      <ul class="l" style="margin-top:8px">
+        <li>Parallel async processing from single event</li>
+        <li>Each SQS queue processed independently</li>
+        <li>SQS adds durability (buffer) — SNS alone has no retry</li>
+      </ul>
+    </div>
+    <div class="card pu">
+      <div class="ch2"><span class="dot d-pu"></span>EventBridge & Kinesis</div>
+      <div class="kv">
+        <span class="k">EventBridge</span><span class="v">Serverless event bus. Route events from AWS services / SaaS / custom apps using rules + patterns</span>
+        <span class="k">Event rules</span><span class="v">Match on event pattern or schedule (cron). Route to 20+ target types</span>
+        <span class="k">Kinesis Data Streams</span><span class="v">Real-time streaming. Shards = 1MB/s in, 2MB/s out. Data retained 24h–365d</span>
+        <span class="k">Kinesis Firehose</span><span class="v">Fully managed — load streaming data to S3/Redshift/OpenSearch. No custom consumers</span>
+        <span class="k">SQS vs Kinesis</span><span class="v">SQS: simple decoupling, 1 consumer. Kinesis: multiple consumers, ordering per shard, replay</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DYNAMODB ══════════════ -->
+<div id="p-dynamo" class="panel">
+  <div class="g2">
+    <div class="card bl">
+      <div class="ch2"><span class="dot d-bl"></span>DynamoDB Fundamentals</div>
+      <div class="kv">
+        <span class="k">Type</span><span class="v">Serverless, fully managed NoSQL (key-value + document). Single-digit ms at any scale</span>
+        <span class="k">Primary key</span><span class="v"><span class="a-bl">Partition key only</span> (simple) or <span class="a-bl">Partition + Sort key</span> (composite). Must be unique per item</span>
+        <span class="k">Item size</span><span class="v">Max <span class="a-bl">400KB</span> per item. Attributes can be nested JSON</span>
+        <span class="k">Data types</span><span class="v">Scalar (S, N, B, BOOL, NULL) · Document (List, Map) · Set (SS, NS, BS)</span>
+        <span class="k">Consistency</span><span class="v">Default: eventually consistent reads. Optional: strongly consistent (2x RCU cost)</span>
+        <span class="k">Table classes</span><span class="v">Standard (default) · Standard-IA (infrequent access, lower storage cost)</span>
+        <span class="k">TTL</span><span class="v">Attribute-based automatic item expiry. No cost, ~48h deletion lag. Use for sessions/caching</span>
+      </div>
+    </div>
+    <div class="card bl">
+      <div class="ch2"><span class="dot d-bl"></span>Capacity Modes</div>
+      <div class="kv">
+        <span class="k">Provisioned</span><span class="v">Specify RCU + WCU upfront. Auto-scaling available. Predictable workloads. Reserved capacity savings</span>
+        <span class="k">On-Demand</span><span class="v">Pay per request. Scales instantly. ~2.5x more expensive than provisioned. Unpredictable spikes</span>
+        <span class="k">RCU</span><span class="v">1 RCU = 1 strongly consistent read/s OR 2 eventually consistent reads/s of items ≤4KB</span>
+        <span class="k">WCU</span><span class="v">1 WCU = 1 write/s of item ≤1KB. Transactional writes = 2 WCU</span>
+        <span class="k">Throttling</span><span class="v">ProvisionedThroughputExceededException → exponential backoff, or switch to on-demand</span>
+      </div>
+      <div class="warn">Hot partition = uneven key distribution → throttling. Design partition keys with high cardinality!</div>
+    </div>
+  </div>
+  <div class="sl">► Indexes, Streams & Global Tables</div>
+  <div class="g3">
+    <div class="card bl">
+      <div class="ch2"><span class="dot d-bl"></span>Secondary Indexes</div>
+      <div class="kv">
+        <span class="k">LSI</span><span class="v"><span class="a-bl">Local Secondary Index</span>: same partition key, different sort key. Created at table creation only. Shares table capacity. Max 5/table</span>
+        <span class="k">GSI</span><span class="v"><span class="a-bl">Global Secondary Index</span>: different partition + sort key. Created anytime. Own provisioned capacity. Max 20/table</span>
+        <span class="k">Projection</span><span class="v">KEYS_ONLY · INCLUDE (specific attrs) · ALL. More projection = more storage cost</span>
+      </div>
+      <div class="tip">GSI = flexible query patterns. LSI = alternate sort on same partition.</div>
+    </div>
+    <div class="card bl">
+      <div class="ch2"><span class="dot d-bl"></span>DynamoDB Streams & DAX</div>
+      <div class="kv">
+        <span class="k">Streams</span><span class="v">Ordered changelog of item changes (24h retention). Trigger Lambda for real-time processing</span>
+        <span class="k">View types</span><span class="v">KEYS_ONLY · NEW_IMAGE · OLD_IMAGE · NEW_AND_OLD_IMAGES</span>
+        <span class="k">DAX</span><span class="v">DynamoDB Accelerator — in-memory cache. Microsecond reads. No app code change needed</span>
+        <span class="k">DAX vs EC</span><span class="v">DAX: DynamoDB specific, API-compatible. ElastiCache: general purpose (Redis/Memcached)</span>
+        <span class="k">Transactions</span><span class="v">ACID across multiple items/tables. TransactWriteItems / TransactGetItems. 2x WCU/RCU cost</span>
+      </div>
+    </div>
+    <div class="card bl">
+      <div class="ch2"><span class="dot d-bl"></span>Global Tables & Backup</div>
+      <ul class="l">
+        <li><span class="a-bl">Global Tables</span>: multi-region, multi-active replication. Requires Streams. Same table name in each region</li>
+        <li>Last-writer-wins conflict resolution</li>
+        <li>Each region can write — reads from local region = low latency</li>
+        <li><span class="a-bl">PITR</span> (Point-in-Time Recovery): continuous backups, restore to any second in last 35 days</li>
+        <li><span class="a-bl">On-demand backup</span>: full backup anytime, no performance impact, kept until deleted</li>
+        <li>Export to S3 for analytics (no RCU consumed)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
 </body>
 </html>
